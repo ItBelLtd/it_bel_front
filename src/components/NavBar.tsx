@@ -4,13 +4,17 @@ export const NavBar = () => {
   return (
     <nav>
       <NavLink className="navlink" to="/news">
-        Home
+        Рекомендации
       </NavLink>
+      <input type="text" placeholder="Искать новости..." />
       <NavLink className="navlink" to="/authors">
-        Authors
+        <span>Авторы</span>
       </NavLink>
-      <NavLink className="navlink" to="/about">
-        About Us
+      <NavLink className="navlink" to="/signup">
+        <span>Регистрация</span>
+      </NavLink>
+      <NavLink className="navlink" to="/login">
+        <span>Вход</span>
       </NavLink>
     </nav>
   );
