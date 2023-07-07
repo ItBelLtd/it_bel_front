@@ -1,7 +1,8 @@
 'use client'
 import { Typography } from 'antd/es';
-import MyCarousel from './../components/MyCarousel';
+import MyCarousel from '@/components/MyCarousel';
 import { News } from '@/models/News';
+import './main.scss'
 
 const { Title, Text } = Typography;
 
@@ -21,21 +22,21 @@ export default function Home() {
 		img: 'Image 2'
 	},]
 
-	return <div className="content" style={{ padding: '35px 165px 50px 165px' }}>
-		<div className="last-news" style={{ marginBottom: '80px' }}>
-			<Title level={3} style={{ color: 'white', marginBottom: '20px' }}>Последние новости</Title>
+	return <div className="content">
+		<div className="section">
+			<Title level={3} className='section__title' style={{ color: 'white' }}>Последние новости</Title>
 			<MyCarousel news={someNews} />
 		</div>
-		<div className="rec-news">
-			<Title level={3} style={{ color: 'white', marginBottom: '20px' }}>Может быть интересно</Title>
+		<div className="section">
+			<Title level={3} className='section__title' style={{ color: 'white' }}>Может быть интересно</Title>
 			{ someNews.map(article => (
-				<div className="rec-news__item" key={ article.id } style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-					<div className="text" style={{ display: 'flex', flexDirection: 'column' }}>
+				<div className="rec-news" key={ article.id }>
+					<div className="rec-news__text">
 						<Title level={4} style={{ color: 'white' }}>{ article.title }</Title>
 						<Text type='secondary' style={{ color: '#676767' }}>{ article.date }</Text>
 						<Text style={{ color: 'white' }}>{ article.dscr }</Text>
 					</div>
-					<Text mark strong>{ article.img }</Text>
+					<Text mark strong className='rec-news__image'>{ article.img }</Text>
 				</div>
 			))}
 		</div>
