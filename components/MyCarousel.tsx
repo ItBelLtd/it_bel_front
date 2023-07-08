@@ -1,4 +1,3 @@
-'use client'
 import React from 'react';
 import { Carousel } from 'antd/es';
 import { News } from '@/models/News';

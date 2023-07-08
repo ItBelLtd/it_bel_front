@@ -7,6 +7,9 @@
   &:last-child {
     margin-bottom: 0;
   }
+  &__title {
+    color: white !important;
+  }
 }
 
 .rec-news {
@@ -20,12 +23,16 @@
     display: flex;
     flex-direction: column;
   }
-  &__image {
-    width: 350px;
-    height: 240px;
-    background-color: #B9B9B9;
-  }
   &:last-child {
     margin-bottom: 0;
+  }
+  &__title {
+    color: white !important;
+  }
+  &__date {
+    color: #676767 !important;
+  }
+  &__content {
+    color: white !important;
   }
 }
