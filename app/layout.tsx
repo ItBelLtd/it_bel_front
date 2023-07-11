@@ -1,11 +1,9 @@
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './reset.css'
+import { merriweather_sans } from './fonts';
 import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
+import './reset.css';
 
 export const metadata: Metadata = {
 	title: 'IT_BEL | startup',
@@ -19,7 +17,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>
+			<body className={merriweather_sans.className}>
 				<div className='wrapper'>
 					<Header />
 					<main className='main'>{children}</main>
