@@ -2,8 +2,9 @@ import styles from './footer.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { roboto_mono } from '@/app/fonts';
+import { FC } from 'react';
 
-const Footer = () => {
+const Footer: FC = () => {
 	return (
 		<footer className={styles.container}>
 			<div className={styles.wrapper}>
@@ -26,12 +27,12 @@ const Footer = () => {
 						<Link href='/about' className={styles.link}>
 							About Us
 						</Link>
-						<Link href='/contsct' className={styles.link}>
+						<Link href='/contact' className={styles.link}>
 							Contact Us
 						</Link>
 					</div>
 					<div className={styles.serviceLink}>
-						<Link href='/termsofservice' className={styles.link}>
+						<Link href='/service' className={styles.link}>
 							Terms of Service
 						</Link>
 						<Link href='/policy' className={styles.link}>
