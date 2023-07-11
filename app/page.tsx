@@ -7,11 +7,11 @@ export default function Home() {
 	return (
 		<div className={styles.content}>
 			<div className={styles.section}>
-				<h2 className={styles.subtitle}>Последние новости</h2>
+				<h2 className={`${styles.subtitle} + ${roboto_mono.className}`}>Последние новости</h2>
 				<Carousel />
 			</div>
-			<div className={`${styles.section} + ${roboto_mono.className}`}>
-				<h2 className={styles.subtitle}>Может быть интересно</h2>
+			<div className={styles.section}>
+				<h2 className={`${styles.subtitle} + ${roboto_mono.className}`}>Может быть интересно</h2>
 				<PopularNews />
 			</div>
 		</div>

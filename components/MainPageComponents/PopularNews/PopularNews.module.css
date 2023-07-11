@@ -8,6 +8,33 @@
 	flex-direction: row;
 	justify-content: space-between;
 }
+.text {
+	max-width: 730px;
+}
+.title {
+	font-weight: bold;
+	font-size: 20px;
+}
+.date {
+	margin-top: 10px;
+	font-size: 14px;
+	color: #878787
+}
+.dscr {
+	margin-top: 15px;
+	font-size: 18px;
+
+	display: -webkit-box;
+	-webkit-line-clamp: 6;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+/*.dscr::after {*/
+/*	content: 'Читать далее...';*/
+/*	color: white;*/
+/*	display: block;*/
+/*}*/
+
 .img {
 	max-width: 350px;
 }
