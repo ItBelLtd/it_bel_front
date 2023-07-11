@@ -1,0 +1,17 @@
+.Swiper {
+    height: 215px;
+    background-color: #fff;
+}
+.news {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    gap: 30px;
+}
+.img {
+    max-height: 100%;
+}
+.text {
+    max-width: 300px;
+}
