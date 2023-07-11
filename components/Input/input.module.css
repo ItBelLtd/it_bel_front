@@ -1,0 +1,41 @@
+.container {
+  position: relative;
+}
+
+.input {
+  outline: none;
+  width: 350px;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 6px 0 6px 15px;
+  border-radius: 3px;
+  color: #878787;
+  background-image: url('/saerch_icon.svg');
+  background-position: 310px 3px;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+}
+
+.input:focus {
+  color: #1A1A1A;
+}
+
+.input:active {
+  color: #1A1A1A;
+}
+
+.input:hover {
+  color: #1A1A1A;
+}
+
+.input::placeholder {
+  color: #878787;
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
