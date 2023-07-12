@@ -1,0 +1,45 @@
+.container {
+	background-color: #151515;
+	color: #3f92d2;
+}
+
+.wrapper {
+	height: 80px;
+	max-width: 1110px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.links {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+}
+
+.links > a:hover {
+	color: #00508C;
+}
+
+.links > a:focus {
+	color: #00508C;
+}
+
+.linksAuth {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+}
+
+.linksAuth > a:hover{
+	color: #00508C;
+}
+
+.linksAuth > a:focus{
+	color: #00508C;
+}
+
+.avatar {
+	border-radius: 20px;
+}

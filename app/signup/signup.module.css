@@ -1,0 +1,49 @@
+.form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #151515;
+    padding: 50px 20px 25px 20px;
+    width: 310px;
+}
+
+.input {
+    font-family: inherit;
+    padding: 10px 5px;
+    color: #878787;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #878787;
+    outline: none;
+    margin-bottom: 10px;
+}
+.lastInput {
+    margin-bottom: 50px;
+}
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.link {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: normal;
+    color: #00508c;
+    word-spacing: 10px;
+}
+.buttonWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.signupButton {
+    margin-bottom: 10px;
+    width: 193px;
+    padding: 5px 10px;
+}

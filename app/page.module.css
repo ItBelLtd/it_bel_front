@@ -1,0 +1,12 @@
+.content {
+    padding: 35px 165px 50px 165px;
+}
+.subtitle {
+    margin-bottom: 20px;
+}
+.section {
+    margin-bottom: 80px;
+}
+.section:last-child {
+    margin-bottom: 0;
+}

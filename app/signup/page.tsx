@@ -1,68 +1,56 @@
 'use client'
-import { Button, Form, Input } from 'antd/es';
+import { Metadata } from 'next';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { merriweather_sans } from '@/app/fonts';
+import { roboto_mono } from '@/app/fonts'
+
+import Button from '@/components/Button/Button';
 import Link from 'next/link';
+import styles from './signup.module.css'
+export const metadata: Metadata = {
+    title: 'IT_BEL | Sign up',
+};
 
 const Signup = () => {
-    const onFinish = (values: any) => {
-        console.log('Success:', values);
-    };
-
-    const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
-    };
     return (
-        <>
-            <Form
-                name="signup"
-                style={{
-                    maxWidth: '310px',
-                    padding: '50px 20px 25px 20px',
-                    margin: ' 0 auto',
-                    backgroundColor: '#151515'
+        <div>
+
+            <Formik
+                initialValues={
+                    {
+                        surname: '',
+                        name: '',
+                        birthday: '',
+                        password: '',
+                        repeatedPassword: '',
+                    }}
+
+                onSubmit={(values) => {
+                    console.log(JSON.stringify(values, null, 2));
                 }}
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
-                autoComplete="off"
             >
-                <h3 style={{ color: 'white' }}>Регистрация</h3>
-                <Form.Item
-                    name="second name"
-                    rules={[{ required: true, message: 'Пожалуйста введите свою фамилию!' }]}
-                >
-                    <Input placeholder='Фамилия' autoComplete='second name' />
-                </Form.Item>
-                <Form.Item
-                    name="first name"
-                    rules={[{ required: true, message: 'Пожалуйста введите свое имя!' }]}
-                >
-                    <Input placeholder='Имя' autoComplete='name' />
-                </Form.Item>
-                <Form.Item
-                    name="birthday"
-                    rules={[{ required: true, message: 'Пожалуйста введите свою дату рождения' }]}
-                >
-                    <Input placeholder='Дата рождения' autoComplete='date of birth' />
-                </Form.Item>
-                <Form.Item
-                    name="Придумайте пароль"
-                    rules={[{ required: true, message: 'Please input your password!' }]}
-                >
-                    <Input.Password placeholder='Password' autoComplete='new-password' />
-                </Form.Item>
-                <Form.Item
-                    name="Confirm the password"
-                    rules={[{ required: true, message: 'Please input your password!' }]}
-                >
-                    <Input.Password placeholder='Повторите пароль' autoComplete='new-password' />
-                </Form.Item>
-                <Form.Item >
-                    <Button type="primary" htmlType="submit">
-                        Зарегестрироваться
-                    </Button>
-                </Form.Item>
-                <Link href='' style={{ color: 'white' }}>Есть аккаунт? Войти</Link>
-            </Form >
-        </>
+                {({ isSubmitting }) => (
+                    <Form className={`${styles.form} + ${merriweather_sans.className}`}>
+                        <h3 className={`${styles.title} + ${roboto_mono.className}`}>Регистрация</h3>
+                        <Field type="text" name="surname" placeholder='Фамилия' className={styles.input} />
+                        <ErrorMessage name="surname" component="div" />
+                        <Field type="text" name="name" placeholder='Имя' className={styles.input} />
+                        <ErrorMessage name="name" component="div" />
+                        <Field type="text" name="birthday" placeholder='Дата рождения' className={styles.input} />
+                        <ErrorMessage name="birthday" component="div" />
+                        <Field type="password" name="password" placeholder='Придумайте пароль' className={styles.input} />
+                        <ErrorMessage name="password" component="div" />
+                        <Field type="password" name="repeatedPassword" placeholder='Повторите пароль' className={`${styles.input} ${styles.lastInput}`} />
+                        <ErrorMessage name="password" component="div" />
+                        <div className={styles.buttonWrap}>
+                            <Button type='submit' text='Зарегестрироваться' disabled={isSubmitting} className={styles.signupButton} />
+                            <Link href='' className={styles.link}>Есть аккаунт? Войти</Link>
+                        </div>
+                    </Form>
+                )}
+            </Formik>
+        </div>
     )
-}
+};
+
 export default Signup;
