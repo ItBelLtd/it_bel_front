@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { merriweather_sans } from '@/app/fonts';
 import { roboto_mono } from '@/app/fonts'
+import { FormValues } from '@/models/Form';
 
 import Button from '@/components/Button/Button';
 import Link from 'next/link';
@@ -12,19 +13,17 @@ export const metadata: Metadata = {
 };
 
 const Signup = () => {
+    const initialValues: FormValues = {
+        surname: '',
+        name: '',
+        birthday: '',
+        password: '',
+        repeatedPassword: '',
+    }
     return (
         <div>
-
             <Formik
-                initialValues={
-                    {
-                        surname: '',
-                        name: '',
-                        birthday: '',
-                        password: '',
-                        repeatedPassword: '',
-                    }}
-
+                initialValues={initialValues}
                 onSubmit={(values) => {
                     console.log(JSON.stringify(values, null, 2));
                 }}
