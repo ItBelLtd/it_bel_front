@@ -7,8 +7,7 @@ import { roboto_mono } from "@/app/fonts";
 import {calculateSizeAdjustValues} from "next/dist/server/font-utils";
 import Link from "next/link";
 
-const Index = () => {
-
+const PopularNews = () => {
 	return (
 		<div className={styles.container}>
 			{someNews.map((news: News) => {
@@ -37,4 +36,4 @@ const Index = () => {
 	);
 };
 
-export default Index;
+export default PopularNews;

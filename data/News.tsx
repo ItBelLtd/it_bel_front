@@ -3,7 +3,7 @@ import {News} from "@/models/News";
 const someNews: News[] = [
 	{
 		id: 0,
-		title: 'Новость 1 sdafffffffasdf  asdfasdfasdf  asdf',
+		title: 'Какая-то очень актуальная новость',
 		date: '01.01.23',
 		dscr: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil odit, vero voluptates beatae dignissimos sed harum praesentium molestias aspernatur quo.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil odit, vero voluptates beatae dignissimos sed harum praesentium molestias aspernatur quo.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil odit, vero voluptates beatae dignissimos sed harum praesentium molestias aspernatur quo.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil odit, vero voluptates beatae dignissimos sed harum praesentium molestias aspernatur quo.',
 		img: 'https://farm2.staticflickr.com/1949/45717354341_a8dc471d63_b.jpg',
