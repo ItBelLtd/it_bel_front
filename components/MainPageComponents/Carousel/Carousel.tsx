@@ -11,18 +11,17 @@ import {News} from "@/models/News";
 import someNews from "@/data/News";
 
 const Carousel = () => {
+
     return (
         <>
             <Swiper
                 pagination={{
-                    type: 'progressbar',
                     clickable: true
                 }}
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: false,
                 }}
-                navigation={true}
                 loop={true}
                 modules={[Pagination, Navigation, Autoplay]}
                 className={ styles.Swiper }
