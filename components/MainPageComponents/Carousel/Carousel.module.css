@@ -1,21 +1,52 @@
-.Swiper {
-    height: 215px;
-    background-color: #fff;
-}
 .news {
-    display: flex !important;
-    justify-content: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin: 0 40px;
     align-items: center;
-    color: black;
-    gap: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    height: 100%;
 }
-.img {
-    max-height: 100%;
+.left_part {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-bottom: 30px;
 }
-.text {
-    max-width: 300px;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+.author_name, .date {
+    font-size: 14px;
+    color: #878787;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 100px;
+    background-color: #00508C;
+    cursor: pointer;
+}
+.active_dot {
+    width: 15px;
+    height: 15px;
+    background-color: #3F92D2;
+}
+.carousel {
+    height: 350px;
+    background-color: #151515;
+}
+
+.left_arrow, .right_arrow {
+    bottom: 38px;
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.left_arrow {
+    left: 40px;
+}
+.right_arrow {
+    left: 70px;
 }
