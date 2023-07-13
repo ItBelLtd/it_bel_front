@@ -19,7 +19,7 @@ a {
 	display: flex;
 	flex-direction: column;
 }
-.main_wrapper {
+.container {
 	background-color: #1a1a1a;
 	flex-grow: 1;
 }

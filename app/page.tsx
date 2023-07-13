@@ -1,5 +1,5 @@
-import Carousel from '@/components/MainPageComponents/Carousel/Carousel';
-import PopularNews from '@/components/MainPageComponents/PopularNews/PopularNews';
+import Carousel from '@/components/MainPageComponents/Slider';
+import Index from '@/components/MainPageComponents/PopularNews';
 import { roboto_mono } from './fonts';
 import styles from './page.module.css';
 
@@ -12,7 +12,7 @@ export default function Home() {
 			</div>
 			<div className={styles.section}>
 				<h2 className={`${styles.subtitle} + ${roboto_mono.className}`}>Может быть интересно</h2>
-				<PopularNews />
+				<Index />
 			</div>
 		</>
 	);
