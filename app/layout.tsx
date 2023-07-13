@@ -20,7 +20,9 @@ export default function RootLayout({
 			<body className={merriweather_sans.className}>
 				<div className='wrapper'>
 					<Header />
-					<main className='main'>{children}</main>
+						<div className="main_wrapper">
+							<main className='main'>{children}</main>
+						</div>
 					<Footer />
 				</div>
 			</body>

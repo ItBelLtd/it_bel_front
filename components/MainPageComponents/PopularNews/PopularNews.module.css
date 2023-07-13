@@ -24,6 +24,7 @@
 .dscr {
 	margin-top: 15px;
 	font-size: 18px;
+	text-align: justify;
 
 	display: -webkit-box;
 	-webkit-line-clamp: 6;

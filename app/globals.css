@@ -19,6 +19,10 @@ a {
 	display: flex;
 	flex-direction: column;
 }
+.main_wrapper {
+	background-color: #1a1a1a;
+	flex-grow: 1;
+}
 
 .header {
 	display: flex;
@@ -29,8 +33,8 @@ a {
 }
 
 .main {
-	background-color: #1a1a1a;
-	flex-grow: 1;
+	max-width: 1110px;
+	margin: 35px auto 50px auto;
 }
 
 .footer {
