@@ -1561,6 +1561,11 @@ minimist@^1.2.0, minimist@^1.2.6:
   resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz"
   integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
 
+moment@2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.9.0.tgz#77ec1175fa294f42627f10c8e6de6302c036f6d5"
+  integrity sha512-E3c3pw5ePAi6OuwYZhzNnoV/yyzWq76tjdTpgXCyv34CwDzl8WHcudOli/FkkKzAlv00k3+UETVVKV5x5Q2sQQ==
+
 ms@2.1.2:
   version "2.1.2"
   resolved "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"

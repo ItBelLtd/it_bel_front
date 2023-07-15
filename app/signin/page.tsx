@@ -18,6 +18,10 @@ const Signin = () => {
 		email: '',
 		password: ''
 	}
+  const someHandler = () => {
+    'use server'
+  };
+
 	return (
 
 		<Formik
