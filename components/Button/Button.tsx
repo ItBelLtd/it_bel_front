@@ -1,21 +1,37 @@
+import { roboto_mono } from '@/app/fonts';
+import styles from './button.module.css';
 
-import { roboto_mono } from '@/app/fonts'
-import styles from './button.module.css'
-
-const Button = ({ type, text, className, disabled }:
-    {
-        type: "button" | "submit" | "reset" | undefined,
-        text: string,
-        className?: string,
-        disabled: boolean
-    }) => {
-
-    return (
-        <button type={type}
-            className={`${styles.button} ${roboto_mono.className}  ${typeof className === 'string' ? className : null}`}
-            disabled={disabled}>
-            {text}
-        </button>
-    )
+interface ButtonProps {
+  type: 'button' | 'submit' | 'reset';
+  text: string;
+  clickHandler?: (event?: React.MouseEvent) => void;
+  className?: string;
+  disabled?: boolean;
 }
+
+const Button = ({
+  type,
+  text,
+  clickHandler,
+  className,
+  disabled,
+}: ButtonProps) => {
+  const handleClick = (e: React.MouseEvent) => {
+    if (clickHandler) {
+      clickHandler(e);
+    }
+  };
+
+  return (
+    <button
+      type={type}
+      className={`${styles.button} ${roboto_mono.className} ${className}`}
+      disabled={disabled}
+      onClick={handleClick}
+    >
+      {text}
+    </button>
+  );
+};
+
 export default Button;
