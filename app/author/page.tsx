@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import AuthorCard from '@/components/AuthorCard';
 import TabPanels from '@/components/TabPanels';
+// @ts-ignore
 import avatar from '@/public/author-avatar-slug.png';
 import styles from './author.module.css'
 
