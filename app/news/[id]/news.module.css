@@ -1,3 +1,4 @@
+/* Top Part*/
 .topPart {
     position: absolute;
     left: 0;
@@ -9,7 +10,6 @@
     background-position: center;
     background-color: rgba(26, 26, 26, 0.5);
 }
-
 .container {
     max-width: 1100px;
     height: 100%;
@@ -20,13 +20,11 @@
     justify-content: flex-end;
     gap: 10px;
 }
-
 .title {
     font-size: 48px;
     font-weight: bold;
     margin: 0;
 }
-
 .author {
     display: flex;
     flex-direction: row;
@@ -41,18 +39,17 @@
 .authorImg {
     border-radius: 100px;
 }
-
 .hr {
     width: 100%;
     border: 1px solid white;
     color: white;
     margin: 0;
 }
-
 .date {
     margin: 0 0 10px 0;
 }
 
+/* Content */
 .content {
     margin: 430px 95px 80px 95px;
 }
