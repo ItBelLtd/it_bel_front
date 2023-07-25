@@ -45,11 +45,61 @@
     color: white;
     margin: 0;
 }
-.date {
+.underlinePart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     margin: 0 0 10px 0;
 }
 
+.buttonGroup {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.commentsButton, .shareButton {
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 /* Content */
+.contentWrapper {
+    margin: 430px 95px 80px 50px;
+}
 .content {
-    margin: 430px 95px 80px 95px;
+    margin-bottom: 80px;
+    font-size: 18px;
+}
+
+/* Comments */
+.commentBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.abovePart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.share {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    gap: 10px;
+}
+.numberComments {
+    font-size: 18px;
+    font-weight: bold;
+}
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
