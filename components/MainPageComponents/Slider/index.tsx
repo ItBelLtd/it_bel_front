@@ -44,7 +44,7 @@ const CustomRightArrow = ({ onClick, ...rest } : any) => {
         <Image
             width={12}
             height={18}
-            src={'/RightArrow.svg'}
+            src={'/rightArrow_icon.svg'}
             alt={'Next'}
         />
     </button>;
@@ -58,7 +58,7 @@ const CustomLeftArrow = ({ onClick, ...rest } : any) => {
         <Image
             width={12}
             height={18}
-            src={'/LeftArrow.svg'}
+            src={'/leftArrow_icon.svg'}
             alt={'Prev'}
         />
     </button>;

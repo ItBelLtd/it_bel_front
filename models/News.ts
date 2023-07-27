@@ -1,3 +1,5 @@
+import {Comment} from "@/models/Comment";
+
 export interface News {
   id: number,
   title: string,
@@ -5,4 +7,5 @@ export interface News {
 	dscr: string,
 	img: string,
     authorName: string
+    comments: Comment[]
 }
