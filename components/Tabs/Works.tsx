@@ -12,12 +12,7 @@ export interface WorksProps {
   bio: string;
 }
 
-const Works = ({
-  name,
-  registrationDate,
-  lastVisitDate,
-  bio,
-}: WorksProps) => {
+const Works = ({ name, registrationDate, lastVisitDate, bio }: WorksProps) => {
   const calculateTimePeriod = (date: string): string => {
     const dateMoment = moment(date);
     const currentMoment = moment();
@@ -38,7 +33,9 @@ const Works = ({
         </span>
       </p>
       <div className={styles.bio}>
-        <span className={`${styles.header} ${roboto_mono.className}`}>About me</span>
+        <span className={`${styles.header} ${roboto_mono.className}`}>
+          About me
+        </span>
         <p className={styles.paragraph}>{bio}</p>
         <p className={styles.paragraph}>{bio}</p>
       </div>
