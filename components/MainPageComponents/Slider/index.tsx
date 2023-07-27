@@ -42,7 +42,7 @@ const CustomRightArrow = ({ onClick, ...rest }: any) => {
   } = rest;
   return (
     <button onClick={() => onClick()} className={styles.right_arrow}>
-      <Image width={12} height={18} src={'/RightArrow.svg'} alt={'Next'} />
+      <Image width={12} height={18} src={'/rightArrow_icon.svg'} alt={'Next'} />
     </button>
   );
 };
@@ -53,7 +53,7 @@ const CustomLeftArrow = ({ onClick, ...rest }: any) => {
   } = rest;
   return (
     <button onClick={() => onClick()} className={styles.left_arrow}>
-      <Image width={12} height={18} src={'/LeftArrow.svg'} alt={'Prev'} />
+      <Image width={12} height={18} src={'/leftArrow_icon.svg'} alt={'Prev'} />
     </button>
   );
 };
