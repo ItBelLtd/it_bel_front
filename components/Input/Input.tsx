@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { FC } from 'react';
 import styles from './input.module.css';
 import Image from 'next/image';

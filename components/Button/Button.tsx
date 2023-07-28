@@ -1,6 +1,5 @@
 import { roboto_mono } from '@/app/fonts';
 import styles from './button.module.css';
-
 interface ButtonProps {
   type: 'button' | 'submit' | 'reset';
   text: string;

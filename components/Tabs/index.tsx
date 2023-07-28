@@ -92,7 +92,7 @@ const Tabs = () => {
         {data.map(({ id, label }) => (
           <div key={id} className={styles.tab}>
             <input
-              type="radio"
+              type='radio'
               id={id}
               className={styles.tabSwitch}
               checked={id === activeTabID}

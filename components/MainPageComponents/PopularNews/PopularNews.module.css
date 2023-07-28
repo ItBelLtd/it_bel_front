@@ -4,10 +4,10 @@
 	gap: 30px;
 }
 .recNews {
-	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	gap: 30px;
+	display: flex;
 }
 .text {
 	max-width: 65%;
@@ -19,7 +19,7 @@
 .date {
 	margin-top: 10px;
 	font-size: 14px;
-	color: #878787
+	color: #878787;
 }
 .dscr {
 	margin-top: 15px;
