@@ -1,3 +1,8 @@
+.news p {
+    letter-spacing: .05rem;
+    line-height: 135%;
+}
+
 /* Top Part*/
 .topPart {
     position: absolute;
@@ -73,6 +78,7 @@
 .content {
     margin-bottom: 80px;
     font-size: 18px;
+    text-align: justify;
 }
 
 /* Comments */
