@@ -2,7 +2,7 @@
   "extends": "next/core-web-vitals",
   "env": {
     "browser": true,
-    "es2021": true
+    "es2016": true
   },
   "parserOptions": {
     "ecmaVersion": "latest",
