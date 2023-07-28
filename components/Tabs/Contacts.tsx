@@ -38,7 +38,9 @@ const Contacts = ({
         </span>
       </p>
       <div className={styles.bio}>
-        <span className={`${styles.header} ${roboto_mono.className}`}>About me</span>
+        <span className={`${styles.header} ${roboto_mono.className}`}>
+          About me
+        </span>
         <p className={styles.paragraph}>{bio}</p>
         <p className={styles.paragraph}>{bio}</p>
       </div>
