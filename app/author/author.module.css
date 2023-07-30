@@ -1,8 +1,13 @@
 .container {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: center;
 }
 
-.container > *:first-child {
-  margin-top: 42px;
+.container div {
+  overflow: hidden;
 }
+
+/* .container > *:first-child {
+  margin-top: 42px;
+} */
