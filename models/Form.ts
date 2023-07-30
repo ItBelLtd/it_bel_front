@@ -1,8 +1,10 @@
-export interface FormValues {
-    surname?: string,
-    name?: string,
-    birthday?: string,
-    password: string,
-    repeatedPassword?: string,
-    email?: string,
+export interface SigninValues {
+  password: string;
+  email: string;
+}
+
+export interface SignupValues {
+  userName: string;
+  email: string;
+  password: string;
 }

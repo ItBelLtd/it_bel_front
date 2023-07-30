@@ -1,0 +1,105 @@
+/* Top Part*/
+.topPart {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 370px;
+
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(26, 26, 26, 0.5);
+}
+.container {
+    max-width: 1100px;
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.title {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+}
+.author {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+.authorName {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+.authorImg {
+    border-radius: 100px;
+}
+.hr {
+    width: 100%;
+    border: 1px solid white;
+    color: white;
+    margin: 0;
+}
+.underlinePart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 10px 0;
+}
+
+.buttonGroup {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.commentsButton, .shareButton {
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* Content */
+.contentWrapper {
+    margin: 430px 95px 80px 50px;
+}
+.content {
+    margin-bottom: 80px;
+    font-size: 18px;
+}
+
+/* Comments */
+.commentBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.abovePart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.share {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    gap: 10px;
+}
+.numberComments {
+    font-size: 18px;
+    font-weight: bold;
+}
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

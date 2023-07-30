@@ -1,8 +1,11 @@
+import { Comment } from '@/models/Comment';
+
 export interface News {
-  id: number,
-  title: string,
-  date: string,
-	dscr: string,
-	img: string,
-    authorName: string
+  id: number;
+  title: string;
+  date: string;
+  dscr: string;
+  img: string;
+  authorName: string;
+  comments: Comment[];
 }

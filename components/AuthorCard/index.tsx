@@ -25,11 +25,11 @@ const AuthorCard = ({
     <div className={styles.card}>
       <div className={styles.cover}>
         <Image
-          alt="Аватар автора публикаций"
+          alt='Аватар автора публикаций'
           src={avatarURL}
-          objectFit="cover"
-          width="120"
-          height="160"
+          objectFit='cover'
+          width='120'
+          height='160'
         />
       </div>
 
@@ -40,8 +40,8 @@ const AuthorCard = ({
 
       <Button
         className={styles.button}
-        type="button"
-        text="Unfollow"
+        type='button'
+        text='Unfollow'
         clickHandler={handleUnfollowEvent}
       />
     </div>
