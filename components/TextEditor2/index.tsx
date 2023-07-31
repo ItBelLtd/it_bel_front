@@ -1,32 +1,24 @@
 'use client';
-import { useEffect, useState } from 'react';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import React, { useState, useRef, useMemo } from 'react';
+import JoditEditor from 'jodit-react';
+import dynamic from 'next/dynamic';
 
 const TextEditor = () => {
-  const [textEditor, setTextEditor] = useState<any>(null);
-  const [editorContent, setEditorContent] = useState<string>('');
-
-  const handleEditorChange = (editorState: string) => {
-    setEditorContent(editorState);
+  const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false });
+  const editor = useRef(null);
+  const [content, setContent] = useState('');
+  const config = {
+    language: 'ru',
+    tabIndex: 1,
   };
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      import('react-draft-wysiwyg').then((Editor) => {
-        setTextEditor(Editor);
-      });
-    }
-  }, []);
-
-  if (!textEditor) {
-    return null;
-  }
-
   return (
-    <textEditor.Editor onChange={handleEditorChange} localization={{
-      locale: 'ru',
-    }} />
+    <JoditEditor
+      ref={editor}
+      value={content}
+      config={config} // tabIndex of textarea
+      // onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+      // onChange={(newContent) => setContent(newContent)}
+    />
   );
 };
-
 export default TextEditor;
