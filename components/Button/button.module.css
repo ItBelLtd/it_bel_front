@@ -13,4 +13,11 @@
 
   color: white;
   background-color: #3f92d2;
+
+  cursor: pointer;
+  transition: filter .2s ease-in-out;
+}
+
+.button:hover {
+  filter: brightness(110%);
 }

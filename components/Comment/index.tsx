@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './comment.module.css';
-import {Comment} from '@/models/Comment';
+import { Comment } from '@/models/Comment';
 import Image from 'next/image';
 
 interface CommentProps {
-    comment: Comment
+  comment: Comment;
 }
 
-const Comment = ({ comment } : CommentProps) => {
+const Comment = ({ comment }: CommentProps) => {
   return (
-    <div className={styles.comment} >
+    <div className={styles.comment}>
       <Image
         src={'/userAvatar.jpg'}
         width={50}

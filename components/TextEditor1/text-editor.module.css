@@ -1,0 +1,134 @@
+.textEditorWrapper {
+  max-width: 1000px;
+}
+
+.textEditorWrapper div:nth-child(1) div:nth-child(2) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+[data-test-id='image-modal-option-sample'] {
+  display: none;
+}
+
+[data-test-id='image-modal-option-url'],
+[data-test-id='image-modal-option-file'],
+[data-test-id='image-modal-url-input'],
+[data-test-id='image-modal-alt-text-input'],
+[aria-label='Close modal'] {
+  color: #000000;
+}
+
+[aria-label="Insert specialized editor node"] span:nth-child(2) {
+  visibility: hidden;
+  width: 0;
+}
+
+[tabindex='-1'] h2:nth-of-type(1) {
+  position: relative;
+
+  color: #ffffff;
+  user-select: none;
+}
+
+[data-test-id='image-modal-url-input'] {
+  margin-left: 10px;
+}
+
+[data-test-id='image-modal-alt-text-input']::placeholder {
+  opacity: 0;
+}
+
+[tabindex='-1'] > div:nth-of-type(1) {
+  width: 350px;
+}
+
+[tabindex='-1'] > div:nth-of-type(1) > div:nth-of-type(1) > label,
+[tabindex='-1'] > div:nth-of-type(1) > div:nth-of-type(2) > label {
+  position: relative;
+  color: #ffffff;
+  user-select: none;
+}
+
+[data-test-id='image-modal-file-upload'] {
+  cursor: pointer;
+}
+
+[tabindex='-1'] h2:nth-of-type(1):before {
+  content: 'Добавить изображение';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  font-size: 18px;
+  text-align: center;
+
+  color: #000000;
+
+  transform: translate(-50%, -50%);
+}
+
+[data-test-id="image-modal-confirm-btn"],
+[data-test-id="image-modal-file-upload-btn"] {
+  color: #eeeeee;
+  position: relative;
+}
+
+[data-test-id="image-modal-confirm-btn"]:not([disabled]):hover,
+[data-test-id="image-modal-file-upload-btn"]:not([disabled]):hover {
+  color: #dddddd;
+}
+
+[data-test-id='image-modal-confirm-btn']:before,
+[data-test-id='image-modal-file-upload-btn']:before {
+  content: 'Отправить';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  font-size: 14px;
+  text-align: center;
+
+  color: #000000;
+
+  transform: translate(-50%, -50%);
+}
+
+[tabindex='-1'] > div:nth-of-type(1) > div:nth-of-type(1) > label:before {
+  content: 'Ссылка/файл';
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  font-size: 14px;
+
+  color: #000000;
+
+  transform: translateY(-50%);
+}
+
+[tabindex='-1'] > div:nth-of-type(1) > div:nth-of-type(2) > label:before {
+  content: 'Альт. текст';
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  font-size: 14px;
+
+  color: #000000;
+
+  transform: translateY(-50%);
+}
+
+[data-lexical-decorator="true"] > button:nth-of-type(1) {
+  display: none;
+}
+
+.button {
+  width: 100%;
+  border-radius: 15px;
+
+  background-color: #00508c;
+
+  cursor: pointer;
+}
