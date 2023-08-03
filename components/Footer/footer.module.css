@@ -1,51 +1,53 @@
 .container {
-	background-color: #151515;
-	color: #ffffff;
+  color: #fff;
+  background-color: #151515;
 }
 
 .wrapper {
-	height: 80px;
-	max-width: 1110px;
-	margin: 0 auto;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1110px;
+  height: 80px;
+  margin: 0 auto;
 }
+
 .links {
-	display: flex;
+  display: flex;
 }
+
 .usLink {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .usLink > a:hover {
-	color: #3f92d2;
+  color: #3f92d2;
 }
 
 .usLink > a:focus {
-	color: #3f92d2;
+  color: #3f92d2;
 }
 
 .usLink > a:last-child {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 .serviceLink {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .serviceLink > a:hover {
-	color: #3f92d2;
+  color: #3f92d2;
 }
 
 .serviceLink > a:focus {
-	color: #3f92d2;
+  color: #3f92d2;
 }
 
 .serviceLink > a:last-child {
-	margin-top: 10px;
+  margin-top: 10px;
 }

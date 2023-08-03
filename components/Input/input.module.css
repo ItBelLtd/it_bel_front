@@ -3,30 +3,30 @@
 }
 
 .input {
-  outline: none;
   width: 350px;
-  border: none;
-  font-size: 16px;
-  font-weight: 400;
   padding: 6px 0 6px 15px;
-  border-radius: 3px;
   color: #878787;
+  font-weight: 400;
+  font-size: 16px;
   background-image: url('/search_icon.svg');
-  background-position: 310px 3px;
   background-repeat: no-repeat;
+  background-position: 310px 3px;
   background-size: 25px 25px;
+  border: none;
+  border-radius: 3px;
+  outline: none;
 }
 
 .input:focus {
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 .input:active {
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 .input:hover {
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 .input::placeholder {
@@ -38,4 +38,3 @@
   right: 10px;
   cursor: pointer;
 }
-
