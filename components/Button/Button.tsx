@@ -3,7 +3,11 @@ import styles from './button.module.css';
 interface ButtonProps {
   type: 'button' | 'submit' | 'reset';
   text: string;
-  clickHandler?: (event?: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLButtonElement>) => void;
+  clickHandler?: (
+    event?:
+      | React.MouseEvent<HTMLButtonElement>
+      | React.FormEvent<HTMLButtonElement>,
+  ) => void;
   className?: string;
   disabled?: boolean;
 }
@@ -15,7 +19,9 @@ const Button = ({
   className,
   disabled,
 }: ButtonProps) => {
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLButtonElement>) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLButtonElement>,
+  ) => {
     if (clickHandler) {
       clickHandler(e);
     }
