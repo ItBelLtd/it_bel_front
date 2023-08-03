@@ -1,42 +1,51 @@
 .container {
-	display: flex;
-	flex-direction: column;
-	gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
-.recNews {
-	flex-direction: row;
-	justify-content: space-between;
-	gap: 30px;
-	display: flex;
-}
-.text {
-	max-width: 65%;
-}
-.title {
-	font-weight: bold;
-	font-size: 20px;
-}
-.date {
-	margin-top: 10px;
-	font-size: 14px;
-	color: #878787;
-}
-.dscr {
-	margin-top: 15px;
-	font-size: 18px;
-	text-align: justify;
 
-	display: -webkit-box;
-	-webkit-line-clamp: 6;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
+.recNews {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: space-between;
 }
-/*.dscr::after {*/
-/*	content: 'Читать далее...';*/
-/*	color: white;*/
-/*	display: block;*/
-/*}*/
+
+.text {
+  max-width: 65%;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.date {
+  margin-top: 10px;
+  color: #878787;
+  font-size: 14px;
+}
+
+.dscr {
+  display: -webkit-box;
+  margin-top: 15px;
+  overflow: hidden;
+  font-size: 18px;
+  text-align: justify;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+
+/* .dscr::after { */
+
+/*	content: 'Читать далее...'; */
+
+/*	color: white; */
+
+/*	display: block; */
+
+/* } */
 
 .img {
-	max-width: 350px;
+  max-width: 350px;
 }
