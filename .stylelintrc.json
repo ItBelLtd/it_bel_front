@@ -1,19 +1,15 @@
 {
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-rational-order"
-  ],
-  "plugins": [
-    "stylelint-order",
-    "stylelint-prettier"
-  ],
+  "extends": ["stylelint-config-standard", "stylelint-config-rational-order"],
+  "plugins": ["stylelint-order", "stylelint-prettier"],
   "rules": {
-    "indentation": "tab",
-    "color-hex-case": "upper",
+    "color-hex-case": "lower",
     "prettier/prettier": true,
-    "plugin/rational-order": [true, {
-      "empty-line-between-groups": true
-    }],
+    "plugin/rational-order": [
+      true,
+      {
+        "empty-line-between-groups": true
+      }
+    ],
     "selector-class-pattern": "^[a-z0-9]+([A-Z]{1}[a-z]*)*$",
     "no-descending-specificity": null
   }

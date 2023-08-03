@@ -2,7 +2,7 @@ import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import { Metadata } from 'next';
 import { merriweather_sans } from './fonts';
-import { Providers } from './store/Provider';
+import { Providers } from './store/Providers';
 import './globals.css';
 import './reset.css';
 
