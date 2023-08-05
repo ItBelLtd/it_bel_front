@@ -1,3 +1,49 @@
+import { useHttp } from '@/hook/usehttp';
+
+const ItBelServices = () => {
+  const { request } = useHttp();
+
+  const signin = async (values: object) => {
+    const res = await request({
+      url: 'http://127.0.0.1/api/auth/token/login/',
+      data: {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: { 'Content-Type': 'application/json' },
+      },
+    });
+    return res;
+  };
+  const signup = async (values: object) => {
+    const res = await request({
+      url: 'http://127.0.0.1/api/users/',
+      data: {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: { 'Content-Type': 'application/json' },
+      },
+    });
+    return res;
+  };
+  const getAllAuthors = async () => {
+    const res = await request({
+      url: 'http://127.0.0.1/api/users/',
+      data: {
+        method: 'GET',
+        body: null,
+        headers: { 'Content-Type': 'application/json' },
+      },
+    });
+    return res;
+  };
+  return {
+    signup,
+    signin,
+    getAllAuthors,
+  };
+};
+
+export default ItBelServices;
 // import { useHttp } from '../hooks/http.hook';
 
 // const useMarvelService = () => {
