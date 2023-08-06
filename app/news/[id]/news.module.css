@@ -1,9 +1,9 @@
 .news p {
-    letter-spacing: .05rem;
-    line-height: 135%;
+  line-height: 135%;
+  letter-spacing: 0.05rem;
 }
 
-/* Top Part*/
+/* Top Part */
 .topPart {
   position: absolute;
   top: 0;
@@ -16,14 +16,13 @@
 }
 
 .container {
-    max-width: 1100px;
-    height: 100%;
-    margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-end;
+  max-width: 1100px;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .title {
@@ -91,29 +90,33 @@
 
 /* Comments */
 .commentBlock {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
+
 .abovePart {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
+
 .share {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 14px;
-    gap: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
 }
+
 .numberComments {
-    font-size: 18px;
-    font-weight: bold;
+  font-weight: bold;
+  font-size: 18px;
 }
+
 .comments {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
