@@ -41,7 +41,7 @@ const CustomRightArrow = ({ onClick, ...rest }: any) => {
     carouselState: { currentSlide, deviceType },
   } = rest;
   return (
-    <button onClick={() => onClick()} className={styles.right_arrow}>
+    <button onClick={() => onClick()} className={styles.rightArrow}>
       <Image width={12} height={18} src={'/rightArrow_icon.svg'} alt={'Next'} />
     </button>
   );
@@ -52,7 +52,7 @@ const CustomLeftArrow = ({ onClick, ...rest }: any) => {
     carouselState: { currentSlide, deviceType },
   } = rest;
   return (
-    <button onClick={() => onClick()} className={styles.left_arrow}>
+    <button onClick={() => onClick()} className={styles.leftArrow}>
       <Image width={12} height={18} src={'/leftArrow_icon.svg'} alt={'Prev'} />
     </button>
   );
@@ -66,7 +66,7 @@ const CustomDot = ({ onClick, ...rest }: any) => {
   } = rest;
   return (
     <div
-      className={`${active ? styles.active_dot : ''} ${styles.dot}`}
+      className={`${active ? styles.activeDot : ''} ${styles.dot}`}
       onClick={() => onClick()}
     />
   );
@@ -95,15 +95,15 @@ const MyCarousel = () => {
               key={news.id}
               className={styles.news}
             >
-              <div className={styles.left_part}>
-                <div className={styles.top_part}>
-                  <h4 className={styles.author_name}>{news.authorName}</h4>
+              <div className={styles.leftPart}>
+                <div className={styles.topPart}>
+                  <h4 className={styles.authorName}>{news.authorName}</h4>
                   <h4 className={styles.date}>{news.date}</h4>
                 </div>
                 <h3 className={styles.title}>{news.title}</h3>
                 <div className='controllers' />
               </div>
-              <div className={styles.right_part}>
+              <div className={styles.rightPart}>
                 <Image width={445} height={270} src={news.img} alt={'image'} />
               </div>
             </Link>

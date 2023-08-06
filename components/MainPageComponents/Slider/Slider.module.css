@@ -1,52 +1,60 @@
 .news {
-    display: flex;
-    justify-content: space-between;
-    gap: 50px;
-    margin: 0 40px;
-    align-items: center;
-    font-size: 28px;
-    font-weight: bold;
-    height: 100%;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  margin: 0 40px;
+  font-weight: bold;
+  font-size: 28px;
 }
-.left_part {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    padding-bottom: 30px;
+
+.leftPart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 30px;
 }
-.author_name, .date {
-    font-size: 14px;
-    color: #878787;
+
+.authorName,
+.date {
+  color: #878787;
+  font-size: 14px;
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 100px;
-    background-color: #00508C;
-    cursor: pointer;
-}
-.active_dot {
-    width: 15px;
-    height: 15px;
-    background-color: #3F92D2;
-}
-.carousel {
-    height: 350px;
-    background-color: #151515;
+  width: 12px;
+  height: 12px;
+  background-color: #00508c;
+  border-radius: 100px;
+  cursor: pointer;
 }
 
-.left_arrow, .right_arrow {
-    bottom: 38px;
-    position: absolute;
-    background: none;
-    border: none;
-    cursor: pointer;
+.activeDot {
+  width: 15px;
+  height: 15px;
+  background-color: #3f92d2;
 }
-.left_arrow {
-    left: 40px;
+
+.carousel {
+  height: 350px;
+  background-color: #151515;
 }
-.right_arrow {
-    left: 70px;
+
+.leftArrow,
+.rightArrow {
+  position: absolute;
+  bottom: 38px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.leftArrow {
+  left: 40px;
+}
+
+.rightArrow {
+  left: 70px;
 }

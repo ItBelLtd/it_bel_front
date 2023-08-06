@@ -38,10 +38,10 @@ const TextEditor1 = () => {
         <verbum.EditorComposer>
           <verbum.Editor
             hashtagsEnabled={false}
-            locale="ru"
+            locale='ru'
             onChange={handleEditorChange}
           >
-            <verbum.ToolbarPlugin defaultFontSize="25px">
+            <verbum.ToolbarPlugin defaultFontSize='25px'>
               <verbum.FontFamilyDropdown />
               <verbum.FontSizeDropdown />
               <verbum.Divider />
@@ -81,8 +81,8 @@ const TextEditor1 = () => {
 
         <Button
           className={styles.button}
-          type="submit"
-          text="Отправить"
+          type='submit'
+          text='Отправить'
           clickHandler={handleSubmitEvent}
         />
       </form>

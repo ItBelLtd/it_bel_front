@@ -16,18 +16,17 @@
 [data-test-id='image-modal-url-input'],
 [data-test-id='image-modal-alt-text-input'],
 [aria-label='Close modal'] {
-  color: #000000;
+  color: #000;
 }
 
-[aria-label="Insert specialized editor node"] span:nth-child(2) {
-  visibility: hidden;
+[aria-label='Insert specialized editor node'] span:nth-child(2) {
   width: 0;
+  visibility: hidden;
 }
 
 [tabindex='-1'] h2:nth-of-type(1) {
   position: relative;
-
-  color: #ffffff;
+  color: #fff;
   user-select: none;
 }
 
@@ -46,7 +45,7 @@
 [tabindex='-1'] > div:nth-of-type(1) > div:nth-of-type(1) > label,
 [tabindex='-1'] > div:nth-of-type(1) > div:nth-of-type(2) > label {
   position: relative;
-  color: #ffffff;
+  color: #fff;
   user-select: none;
 }
 
@@ -54,81 +53,67 @@
   cursor: pointer;
 }
 
-[tabindex='-1'] h2:nth-of-type(1):before {
-  content: 'Добавить изображение';
+[tabindex='-1'] h2:nth-of-type(1)::before {
   position: absolute;
   top: 50%;
   left: 50%;
-
+  color: #000;
   font-size: 18px;
   text-align: center;
-
-  color: #000000;
-
   transform: translate(-50%, -50%);
+  content: 'Добавить изображение';
 }
 
-[data-test-id="image-modal-confirm-btn"],
-[data-test-id="image-modal-file-upload-btn"] {
-  color: #eeeeee;
+[data-test-id='image-modal-confirm-btn'],
+[data-test-id='image-modal-file-upload-btn'] {
   position: relative;
+  color: #eee;
 }
 
-[data-test-id="image-modal-confirm-btn"]:not([disabled]):hover,
-[data-test-id="image-modal-file-upload-btn"]:not([disabled]):hover {
-  color: #dddddd;
+[data-test-id='image-modal-confirm-btn']:not([disabled]):hover,
+[data-test-id='image-modal-file-upload-btn']:not([disabled]):hover {
+  color: #ddd;
 }
 
-[data-test-id='image-modal-confirm-btn']:before,
-[data-test-id='image-modal-file-upload-btn']:before {
-  content: 'Отправить';
+[data-test-id='image-modal-confirm-btn']::before,
+[data-test-id='image-modal-file-upload-btn']::before {
   position: absolute;
   top: 50%;
   left: 50%;
-
+  color: #000;
   font-size: 14px;
   text-align: center;
-
-  color: #000000;
-
   transform: translate(-50%, -50%);
+  content: 'Отправить';
 }
 
-[tabindex='-1'] > div:nth-of-type(1) > div:nth-of-type(1) > label:before {
+[tabindex='-1'] > div:nth-of-type(1) > div:nth-of-type(1) > label::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  color: #000;
+  font-size: 14px;
+  transform: translateY(-50%);
   content: 'Ссылка/файл';
+}
+
+[tabindex='-1'] > div:nth-of-type(1) > div:nth-of-type(2) > label::before {
   position: absolute;
   top: 50%;
   left: 0;
-
+  color: #000;
   font-size: 14px;
-
-  color: #000000;
-
   transform: translateY(-50%);
-}
-
-[tabindex='-1'] > div:nth-of-type(1) > div:nth-of-type(2) > label:before {
   content: 'Альт. текст';
-  position: absolute;
-  top: 50%;
-  left: 0;
-
-  font-size: 14px;
-
-  color: #000000;
-
-  transform: translateY(-50%);
 }
 
-[data-lexical-decorator="true"] > button:nth-of-type(1) {
+[data-lexical-decorator='true'] > button:nth-of-type(1) {
   display: none;
 }
 
 .button {
   width: 100%;
-  border-radius: 15px;
-
   background-color: #00508c;
-
+  border-radius: 15px;
   cursor: pointer;
 }
