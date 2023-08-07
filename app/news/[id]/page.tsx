@@ -8,17 +8,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Comment } from '@/models/Comment';
 import CommentComp from '@/components/Comment';
-import { useMarvelService } from '@/services/services';
 
 
 export default function Page({ params }: { params: { id: string } }) {
-  const { getAllNews } = useMarvelService();
   const [newsData, setData] = useState<News>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   useEffect(() => {
     setData(someNews.find((news) => news.id === parseInt(params.id)));
     setIsLoading(true);
-    getAllNews();
   }, []);
   return (
     <div>

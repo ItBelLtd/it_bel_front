@@ -7,6 +7,9 @@ import { useState } from 'react';
 import Button from '@/components/Button/Button';
 import Link from 'next/link';
 import styles from './signup.module.css';
+import ItBelServices from '@/services/services';
+import { useStore } from '../store';
+
 export const metadata: Metadata = {
   title: 'IT_BEL | Sign up',
 };
@@ -17,36 +20,42 @@ const Signup = () => {
     email: '',
     password: '',
   };
-  const [allError, setAllError] = useState({ email: '', password: '' });
+  const { signup, email, password, nonField } = useStore((state) => ({
+    signup: state.signup,
+    email: state.errors.email,
+    password: state.errors.password,
+    nonField: state.errors.non_field_errors,
+  }));
   return (
     <div>
       <Formik
         initialValues={initialValues}
-        onSubmit={async (values) => {
-          const response = await fetch('http://127.0.0.1/api/users/', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(values),
-          });
-          try {
-            if (!response.ok) {
-              const errors = await response.json();
-              if (errors) {
-                setAllError(errors);
-                console.log(allError);
-              }
-            }
-            const data = await response.json();
-            console.log(data.auth_token);
-            return data;
-          } catch (e) {
-            console.log('Произошла ошибка');
-          }
-          // console.log(JSON.stringify(values, null, 2));
-        }}
+        onSubmit={async (values) => signup(values)}
+        // {
+        //   const response = await fetch('http://127.0.0.1/api/users/', {
+        //     method: 'POST',
+        //     mode: 'cors',
+        //     headers: {
+        //       'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(values),
+        //   });
+        //   try {
+        //     if (!response.ok) {
+        //       const errors = await response.json();
+        //       if (errors) {
+        //         setAllError(errors);
+        //         console.log(allError);
+        //       }
+        //     }
+        //     const data = await response.json();
+        //     console.log(data.auth_token);
+        //     return data;
+        //   } catch (e) {
+        //     console.log('Произошла ошибка');
+        //   }
+        //   // console.log(JSON.stringify(values, null, 2));
+        // }
       >
         {({ isSubmitting }) => (
           <Form className={`${styles.form} + ${merriweather_sans.className}`}>
@@ -65,14 +74,14 @@ const Signup = () => {
               placeholder='Email'
               className={styles.input}
             />
-            <div>{allError.email}</div>
+            <div>{email}</div>
             <Field
               type='password'
               name='password'
               placeholder='Придумайте пароль'
               className={`${styles.lastInput} ${styles.input}`}
             />
-            <div>{allError.password}</div>
+            <div>{password}</div>
             <div className={styles.buttonWrap}>
               <Button
                 type='submit'

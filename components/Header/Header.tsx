@@ -4,7 +4,7 @@ import styles from './header.module.css';
 import { FC } from 'react';
 import Input from '@/components/Input/Input';
 
-const auth: Boolean = false;
+const auth: Boolean = true;
 
 const Header: FC = () => {
   return (
