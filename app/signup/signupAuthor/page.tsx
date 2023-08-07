@@ -2,21 +2,23 @@
 import { Metadata } from 'next';
 import { Formik, Form, Field } from 'formik';
 import { merriweather_sans, roboto_mono } from '@/app/fonts';
-import { SignupUserValues } from '@/models/Form';
+import { SignupAuthorValues } from '@/models/Form';
 
 import Button from '@/components/Button/Button';
 import Link from 'next/link';
-import styles from './signup.module.css';
+import styles from '../signup.module.css';
 
-import { useSigninSignup } from '../store';
+import { useSigninSignup } from '../../store';
 
 export const metadata: Metadata = {
   title: 'IT_BEL | Sign up',
 };
 
 const Signup = () => {
-  const initialValues: SignupUserValues = {
-    userName: '',
+  const initialValues: SignupAuthorValues = {
+    name: '',
+    surName: '',
+    dateOfBirth: '',
     email: '',
     password: '',
   };
@@ -35,8 +37,20 @@ const Signup = () => {
         <Form className={`${styles.form} + ${merriweather_sans.className}`}>
           <Field
             type='text'
-            name='userName'
-            placeholder='Никнейм'
+            name='name'
+            placeholder='Имя'
+            className={styles.input}
+          />
+          <Field
+            type='text'
+            name='surName'
+            placeholder='Фамилия'
+            className={styles.input}
+          />
+          <Field
+            type='text'
+            name='dateOfBirth'
+            placeholder='Дата рождения'
             className={styles.input}
           />
           <Field
