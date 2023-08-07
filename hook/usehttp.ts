@@ -1,16 +1,14 @@
-type method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
-
-interface UseHttp {
-  url: string;
-  data: {
-    method: method;
-    body: BodyInit | null;
-    headers: HeadersInit;
-  };
-}
+import { UseHttp } from '@/models/UseHttp';
 
 export const useHttp = () => {
-  const request = async ({ url, data: { method, body, headers } }: UseHttp) => {
+  const request = async ({
+    url,
+    data: {
+      method = 'GET',
+      body = null,
+      headers = { 'Content-Type': 'application/json' },
+    },
+  }: UseHttp) => {
     try {
       const response = await fetch(url, { method, body, headers });
 
@@ -18,10 +16,10 @@ export const useHttp = () => {
         const errors = await response.json();
         return errors;
       }
-
       const data = await response.json();
       return data;
-    } catch (e) {}
+    } finally {
+    }
   };
 
   return {
