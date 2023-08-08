@@ -6,15 +6,14 @@ import Button from '@/components/Button/Button';
 import Link from 'next/link';
 import styles from './signin.module.css';
 import { SigninValues } from '@/models/Form';
-import { useState } from 'react';
-import { useStore } from '../store';
+import { useSigninSignup } from '../stores/store';
 
 export const metadata: Metadata = {
   title: 'IT_BEL | Sign in',
 };
 
 const Signin = () => {
-  const { signin, email, password, nonField } = useStore((state) => ({
+  const { signin, email, password, nonField } = useSigninSignup((state) => ({
     signin: state.signin,
     email: state.errors.email,
     password: state.errors.password,
@@ -27,8 +26,8 @@ const Signin = () => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values, e) => {
-        signin(values);
+      onSubmit={(values) => {
+        signin(values, 'auth/token/login/');
       }}
       // const response = await fetch('http://127.0.0.1/api/auth/token/login/', {
       //   method: 'POST',
