@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { Comment } from '@/models/Comment';
 import CommentComp from '@/components/Comment';
 
+
 export default function Page({ params }: { params: { id: string } }) {
   const [newsData, setData] = useState<News>();
   const [isLoading, setIsLoading] = useState<boolean>(false);

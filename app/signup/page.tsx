@@ -3,13 +3,12 @@ import { Metadata } from 'next';
 import { Formik, Form, Field } from 'formik';
 import { merriweather_sans, roboto_mono } from '@/app/fonts';
 import { SignupValues } from '@/models/Form';
-
+import { useState } from 'react';
 import Button from '@/components/Button/Button';
 import Link from 'next/link';
 import styles from './signup.module.css';
 
-import { useAuth } from '../store';
-import { useState } from 'react';
+import { useAuth } from '@/app/stores/authStore';
 
 export const metadata: Metadata = {
   title: '1',
@@ -30,8 +29,8 @@ const Signup = () => {
     },
     toggle: false,
   };
-  const { signin, email, password, nonField } = useAuth((state) => ({
-    signin: state.signin,
+  const { signup, email, password, nonField } = useAuth((state) => ({
+    signup: state.signup,
     email: state.errors.email,
     password: state.errors.password,
     nonField: state.errors.non_field_errors,
@@ -63,10 +62,10 @@ const Signup = () => {
       initialValues={initialValues}
       onSubmit={async (values) => {
         if (check) {
-          signin(values.user, 'users/');
-          signin(values.author, 'authors/');
-        }else {
-          signin(values.user, 'users/');
+          signup(values.user, 'users/');
+          signup(values.author, 'authors/');
+        } else {
+          signup(values.user, 'users/');
         }
       }}
     >

@@ -86,6 +86,7 @@ const MyCarousel = () => {
         customDot={<CustomDot />}
         autoPlay={true}
         autoPlaySpeed={3000}
+        className={styles.carousel}
       >
         {someNews.map((news) => {
           return (

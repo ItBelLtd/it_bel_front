@@ -2,11 +2,17 @@
 export interface Authors {
   authors: [];
   loading: boolean;
-  getAllAuthors: (url: string) => void;
+  getAllAuthors: () => void;
+  getAuthor: (id: number) => void;
+  getAuthorNews: (id: number) => void;
 }
 // Для всех авторов
 export interface Author {
-  id: number;
+  author_id: number;
   name: string;
-  link: string;
+  surname: string;
+  age: number;
+  email: string;
+  date_joined: string;
+  link?: string;
 }
