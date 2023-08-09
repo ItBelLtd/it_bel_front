@@ -1,5 +1,4 @@
 'use client';
-import { Metadata } from 'next';
 import { Formik, Form, Field } from 'formik';
 import { merriweather_sans, roboto_mono } from '@/app/fonts';
 import { SignupAuthorValues } from '@/models/Form';
@@ -10,9 +9,6 @@ import styles from '../signup.module.css';
 
 import { useAuth } from '@/app/stores/authStore';
 
-export const metadata: Metadata = {
-  title: 'IT_BEL | Sign up',
-};
 
 const Signup = () => {
   const initialValues: SignupAuthorValues = {

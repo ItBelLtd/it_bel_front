@@ -26,15 +26,6 @@ const Header: FC = () => {
           </Link>
           {!auth ? (
             <div className={styles.linksAuth}>
-              <Link href='/signup' className={styles.link}>
-                Регистрация
-              </Link>
-              <Link href='/signin' className={styles.link}>
-                Вход
-              </Link>
-            </div>
-          ) : (
-            <div className={styles.linksAuth}>
               <Link href='/publish' className={styles.link}>
                 Сделать публикацию
               </Link>
@@ -46,6 +37,15 @@ const Header: FC = () => {
                   className={styles.avatar}
                   alt='user avatar'
                 />
+              </Link>
+            </div>
+          ) : (
+            <div className={styles.linksAuth}>
+              <Link href='/signup' className={styles.link}>
+                Регистрация
+              </Link>
+              <Link href='/signin' className={styles.link}>
+                Вход
               </Link>
             </div>
           )}

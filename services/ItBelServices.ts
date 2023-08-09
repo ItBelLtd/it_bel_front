@@ -21,7 +21,6 @@ const ItBelServices = () => {
     });
   };
   return {
-    // signup,
     auth,
     getAuthors,
   };

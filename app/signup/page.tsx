@@ -1,7 +1,6 @@
 'use client';
-import { Metadata } from 'next';
 import { Formik, Form, Field } from 'formik';
-import { merriweather_sans, roboto_mono } from '@/app/fonts';
+import { merriweather_sans} from '@/app/fonts';
 import { SignupValues } from '@/models/Form';
 import { useState } from 'react';
 import Button from '@/components/Button/Button';
@@ -10,9 +9,7 @@ import styles from './signup.module.css';
 
 import { useAuth } from '@/app/stores/authStore';
 
-export const metadata: Metadata = {
-  title: '1',
-};
+
 
 const Signup = () => {
   const [check, setCheck] = useState(false);
