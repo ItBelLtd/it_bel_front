@@ -4,17 +4,7 @@ const ItBelServices = () => {
   const _apiBase = 'http://127.0.0.1/api/';
   const { request } = useHttp();
 
-  const signin = async (values: object, url: string) => {
-    return await request({
-      url: `${_apiBase}${url}`,
-      data: {
-        method: 'POST',
-        body: JSON.stringify(values),
-        headers: { 'Content-Type': 'application/json' },
-      },
-    });
-  };
-  const signup = async (values: object, url: string) => {
+  const auth = async (values: object, url: string) => {
     return await request({
       url: `${_apiBase}${url}`,
       data: {
@@ -31,8 +21,7 @@ const ItBelServices = () => {
     });
   };
   return {
-    signup,
-    signin,
+    auth,
     getAuthors,
   };
 };
