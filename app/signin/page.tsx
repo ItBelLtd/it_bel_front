@@ -6,7 +6,7 @@ import Button from '@/components/Button/Button';
 import Link from 'next/link';
 import styles from './signin.module.css';
 import { SigninValues } from '@/models/Form';
-import { useSigninSignup } from '../store';
+import { useSigninSignup } from '../stores/store';
 
 export const metadata: Metadata = {
   title: 'IT_BEL | Sign in',

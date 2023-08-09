@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.container div {
+    overflow: hidden;
+}
+
+.container > *:first-child {
+  margin-top: 42px;
+}

@@ -24,16 +24,16 @@ const ItBelServices = () => {
       },
     });
   };
-  const getAllAuthors = async (url: string) => {
+  const getAuthors = async (url: string = '') => {
     return await request({
-      url: `${_apiBase}${url}`,
+      url: `${_apiBase}authors/${url}`,
       data: {},
     });
   };
   return {
     signup,
     signin,
-    getAllAuthors,
+    getAuthors,
   };
 };
 

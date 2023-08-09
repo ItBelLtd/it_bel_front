@@ -1,3 +1,8 @@
+.news p {
+  line-height: 135%;
+  letter-spacing: 0.05rem;
+}
+
 /* Top Part */
 .topPart {
   position: absolute;

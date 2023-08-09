@@ -2,8 +2,6 @@ import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import ItBelServices from '@/services/ItBelServices';
 import { Auth } from '@/models/Auth';
-import { Authors } from '@/models/Authors';
-import { url } from 'inspector';
 
 export const useSigninSignup = create<Auth>()(
   devtools((set) => ({
@@ -35,22 +33,5 @@ export const useSigninSignup = create<Auth>()(
   })),
 );
 
-export const useAuthors = create<Authors>()(
-  devtools((set) => ({
-    authors: [],
-    loading: false,
-    getAllAuthors: async (url) => {
-      const { getAllAuthors } = ItBelServices();
-      try {
-        const res = getAllAuthors(url);
-        set({ loading: true });
-        res.then((data) => set({ authors: data.results, loading: false }));
-      } catch (error) {
-        throw new Error('Что-то пошло не так');
-      }
-    },
-  })),
-);
-
-export const useNews = create<Authors>()(devtools((set) => ({})));
-export const useUsers = create<Authors>()(devtools((set) => ({})));
+// export const useNews = create<Authors>()(devtools((set) => ({})));
+// export const useUsers = create<Authors>()(devtools((set) => ({})));

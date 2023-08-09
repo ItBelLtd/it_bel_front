@@ -8,7 +8,7 @@ import Button from '@/components/Button/Button';
 import Link from 'next/link';
 import styles from '../signup.module.css';
 
-import { useSigninSignup } from '../../store';
+import { useSigninSignup } from '../../stores/store';
 
 export const metadata: Metadata = {
   title: 'IT_BEL | Sign up',
