@@ -5,7 +5,7 @@ import { Auth } from '@/models/Auth';
 import { Authors } from '@/models/Authors';
 import { url } from 'inspector';
 
-export const useSigninSignup = create<Auth>()(
+export const useAuth = create<Auth>()(
   devtools((set) => ({
     errors: {
       email: '',
@@ -21,17 +21,17 @@ export const useSigninSignup = create<Auth>()(
         throw new Error('Что-то пошло не так');
       }
     },
-    signup: async (values, url) => {
-      const { signup } = ItBelServices();
-      try {
-        const res = signup(values, url);
-        res.then((data) => {
-          set({ errors: data });
-        });
-      } catch {
-        throw new Error('Что-то пошло не так');
-      }
-    },
+    // signup: async (values, url) => {
+    //   const { signup } = ItBelServices();
+    //   try {
+    //     const res = signup(values, url);
+    //     res.then((data) => {
+    //       set({ errors: data });
+    //     });
+    //   } catch {
+    //     throw new Error('Что-то пошло не так');
+    //   }
+    // },
   })),
 );
 
@@ -51,6 +51,3 @@ export const useAuthors = create<Authors>()(
     },
   })),
 );
-
-export const useNews = create<Authors>()(devtools((set) => ({})));
-export const useUsers = create<Authors>()(devtools((set) => ({})));

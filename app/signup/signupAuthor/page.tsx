@@ -8,7 +8,7 @@ import Button from '@/components/Button/Button';
 import Link from 'next/link';
 import styles from '../signup.module.css';
 
-import { useSigninSignup } from '../../store';
+import { useAuth } from '../../store';
 
 export const metadata: Metadata = {
   title: 'IT_BEL | Sign up',
@@ -22,8 +22,8 @@ const Signup = () => {
     email: '',
     password: '',
   };
-  const { signup, email, password, nonField } = useSigninSignup((state) => ({
-    signup: state.signup,
+  const { signin, email, password, nonField } = useAuth((state) => ({
+    signin: state.signin,
     email: state.errors.email,
     password: state.errors.password,
     nonField: state.errors.non_field_errors,
@@ -31,7 +31,7 @@ const Signup = () => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={async (values) => signup(values)}
+      onSubmit={async (values) => signin(values,'')}
     >
       {({ isSubmitting }) => (
         <Form className={`${styles.form} + ${merriweather_sans.className}`}>

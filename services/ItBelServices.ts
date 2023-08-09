@@ -14,16 +14,16 @@ const ItBelServices = () => {
       },
     });
   };
-  const signup = async (values: object, url: string) => {
-    return await request({
-      url: `${_apiBase}${url}`,
-      data: {
-        method: 'POST',
-        body: JSON.stringify(values),
-        headers: { 'Content-Type': 'application/json' },
-      },
-    });
-  };
+  // const signup = async (values: object, url: string) => {
+  //   return await request({
+  //     url: `${_apiBase}${url}`,
+  //     data: {
+  //       method: 'POST',
+  //       body: JSON.stringify(values),
+  //       headers: { 'Content-Type': 'application/json' },
+  //     },
+  //   });
+  
   const getAllAuthors = async (url: string) => {
     return await request({
       url: `${_apiBase}${url}`,
@@ -31,7 +31,7 @@ const ItBelServices = () => {
     });
   };
   return {
-    signup,
+    // signup,
     signin,
     getAllAuthors,
   };

@@ -6,14 +6,14 @@ import Button from '@/components/Button/Button';
 import Link from 'next/link';
 import styles from './signin.module.css';
 import { SigninValues } from '@/models/Form';
-import { useSigninSignup } from '../store';
+import { useAuth } from '../store';
 
 export const metadata: Metadata = {
   title: 'IT_BEL | Sign in',
 };
 
 const Signin = () => {
-  const { signin, email, password, nonField } = useSigninSignup((state) => ({
+  const { signin, email, password, nonField } = useAuth((state) => ({
     signin: state.signin,
     email: state.errors.email,
     password: state.errors.password,
