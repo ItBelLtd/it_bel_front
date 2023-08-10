@@ -10,8 +10,16 @@ export interface SignupAuthorValues {
   email: string;
   password: string;
 }
-export interface SignupUserValues {
-  userName: string;
-  email: string;
-  password: string;
+export interface SignupValues {
+  user: {
+    userName: string;
+    email: string;
+    password: string;
+  };
+  author: {
+    name?: string;
+    surName?: string;
+    dateOfBirth?: string;
+  };
+  toggle: boolean;
 }

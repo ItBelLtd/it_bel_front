@@ -24,7 +24,7 @@ export const useNews = create<NewsStore>()(
       const { getNews } = ItBelServices();
 
       try {
-        const res = await getNews('http://127.0.0.1/api/news/popular/');
+        const res = await getNews('news/popular/');
         set({ popularNews: res.results });
       } catch (e) {
         /*какие-то действия */
@@ -34,7 +34,7 @@ export const useNews = create<NewsStore>()(
       const { getNews } = ItBelServices();
 
       try {
-        const res = await getNews(`http://127.0.0.1/api/news/?page=${page}`);
+        const res = await getNews(`news/?page=${page}`);
         set({ latestNews: res.results });
       } catch (e) {
         /*какие-то действия */
@@ -44,17 +44,27 @@ export const useNews = create<NewsStore>()(
       const { getNews } = ItBelServices();
 
       try {
-        const res = await getNews(`http://127.0.0.1/api/news/${id}/`);
+        const res = await getNews(`news/${id}/`);
         set({ news: res.results });
       } catch (e) {
         /*какие-то действия */
       }
     },
-    fetchNewsComments: async (id: number) => {
+    fetchNewsComments: async (newsId: number) => {
       const { getNewsComments } = ItBelServices();
 
       try {
-        const res = await getNewsComments(id);
+        const res = await getNewsComments(`news/${newsId}/comments`);
+        set({ newsComments: res.results });
+      } catch (e) {
+        /*какие-то действия */
+      }
+    },
+    fetchNewsComment: async (newsId: number, commentId: string) => {
+      const { getNewsComments } = ItBelServices();
+
+      try {
+        const res = await getNewsComments(`news/${newsId}/comments/${commentId}`);
         set({ newsComments: res.results });
       } catch (e) {
         /*какие-то действия */

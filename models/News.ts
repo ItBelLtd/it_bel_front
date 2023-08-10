@@ -47,6 +47,7 @@ export interface NewsStore {
   fetchPopularNews: () => void;
   fetchLatestNews: (page: number) => void;
   fetchNews: (id: number) => void;
-  fetchNewsComments: (id: number) => void;
+  fetchNewsComments: (newsId: number) => void;
+  fetchNewsComment: (newsId: number, commentId: string) => void;
   addNews: (news: object) => void;
 }

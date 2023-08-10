@@ -4,17 +4,7 @@ const ItBelServices = () => {
   const _apiBase = 'http://127.0.0.1/api/';
   const { request } = useHttp();
 
-  const signin = async (values: object, url: string) => {
-    return await request({
-      url: `${_apiBase}${url}`,
-      data: {
-        method: 'POST',
-        body: JSON.stringify(values),
-        headers: { 'Content-Type': 'application/json' },
-      },
-    });
-  };
-  const signup = async (values: object, url: string) => {
+  const auth = async (values: object, url: string) => {
     return await request({
       url: `${_apiBase}${url}`,
       data: {
@@ -31,23 +21,23 @@ const ItBelServices = () => {
     });
   };
 
-  const getNews = async (url: string = `${_apiBase}news/`) => {
+  const getNews = async (url: string = 'news/') => {
     return await request({
-      url: url,
+      url: `${_apiBase}${url}`,
       data: {},
     });
   };
 
-  const getNewsComments = async (id: number) => {
+  const getNewsComments = async (url: string) => {
     return await request({
-      url: `http://127.0.0.1/api/news/${id}/comments`,
+      url: `${_apiBase}${url}`,
       data: {},
     });
   };
 
   const addNew = async (news: object) => {
     return await request({
-      url: 'http://127.0.0.1/api/news/',
+      url: `${_apiBase}news/`,
       data: {
         method: 'POST',
         body: JSON.stringify(news),
@@ -57,8 +47,7 @@ const ItBelServices = () => {
   };
 
   return {
-    signup,
-    signin,
+    auth,
     getAuthors,
     getNews,
     getNewsComments,

@@ -1,6 +1,6 @@
 'use client';
 import { useEffect } from 'react';
-import { useNews } from '@/app/stores/storeNews';
+import { useNews } from '@/app/stores/newsStore';
 import { merriweather_sans, roboto_mono } from '@/app/fonts';
 import someNews from '@/data/News';
 import { News } from '@/models/News';

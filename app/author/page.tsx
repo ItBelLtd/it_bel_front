@@ -1,9 +1,9 @@
 'use client';
-import { Metadata, NextPage } from 'next';
+import { NextPage } from 'next';
 import styles from './author.module.css';
 import { useAuthors } from '@/app/stores/authorsStore';
 import { useEffect } from 'react';
-import { Author, Authors } from '@/models/Authors';
+import { Author } from '@/models/Authors';
 
 const Author: NextPage = () => {
   const { getAllAuthors, authors } = useAuthors((state) => state);
