@@ -20,9 +20,38 @@ const ItBelServices = () => {
       data: {},
     });
   };
+
+  const getNews = async (url: string = 'news/') => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {},
+    });
+  };
+
+  const getNewsComments = async (url: string) => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {},
+    });
+  };
+
+  const addNew = async (news: object) => {
+    return await request({
+      url: `${_apiBase}news/`,
+      data: {
+        method: 'POST',
+        body: JSON.stringify(news),
+        headers: { 'Content-Type': 'application/json' },
+      },
+    });
+  };
+
   return {
     auth,
     getAuthors,
+    getNews,
+    getNewsComments,
+    addNew,
   };
 };
 

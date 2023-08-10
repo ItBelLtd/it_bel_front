@@ -1,11 +1,11 @@
 .container {
-    display: flex;
+  display: flex;
 
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .container div {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .container > *:first-child {
