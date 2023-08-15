@@ -1,6 +1,7 @@
 // Для стора
 export interface Authors {
   authors: [];
+  author: any;
   loading: boolean;
   getAllAuthors: () => void;
   getAuthor: (id: number) => void;

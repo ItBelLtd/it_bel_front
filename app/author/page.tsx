@@ -6,13 +6,15 @@ import { useEffect } from 'react';
 import { Author, Authors } from '@/models/Authors';
 
 const Author: NextPage = () => {
-  const { getAllAuthors, authors } = useAuthors(state => state);
+  const { getAuthor, author } = useAuthors(state => state);
   useEffect(() => {
-    getAllAuthors();
-  }, []);
+    getAuthor(1);
+    console.log('SOME TEST');
+    console.log(author);
+  }, [author]);
   return (
     <div className={styles.container}>
-      { authors.map((author : Author) => <p key={author.name}>{author.surname}</p>) }
+      {/*{ author.name }*/}
     </div>
   );
 };
