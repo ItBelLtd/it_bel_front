@@ -1,5 +1,4 @@
 'use client';
-import { Metadata } from 'next';
 import { Formik, Form, Field } from 'formik';
 import { merriweather_sans, roboto_mono } from '@/app/fonts';
 import { SignupAuthorValues } from '@/models/Form';
@@ -8,11 +7,8 @@ import Button from '@/components/Button/Button';
 import Link from 'next/link';
 import styles from '../signup.module.css';
 
-import { useSigninSignup } from '../../stores/store';
+import { useAuth } from '@/app/stores/authStore';
 
-export const metadata: Metadata = {
-  title: 'IT_BEL | Sign up',
-};
 
 const Signup = () => {
   const initialValues: SignupAuthorValues = {
@@ -22,8 +18,8 @@ const Signup = () => {
     email: '',
     password: '',
   };
-  const { signup, email, password, nonField } = useSigninSignup((state) => ({
-    signup: state.signup,
+  const { signup, email, password, nonField } = useAuth((state) => ({
+    signup: state.signin,
     email: state.errors.email,
     password: state.errors.password,
     nonField: state.errors.non_field_errors,
@@ -31,7 +27,7 @@ const Signup = () => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={async (values) => signup(values)}
+      onSubmit={async (values) => signup(values,'authors/')}
     >
       {({ isSubmitting }) => (
         <Form className={`${styles.form} + ${merriweather_sans.className}`}>

@@ -1,3 +1,6 @@
+'use client';
+import { useEffect } from 'react';
+import { useNews } from '@/app/stores/newsStore';
 import { merriweather_sans, roboto_mono } from '@/app/fonts';
 import someNews from '@/data/News';
 import { News } from '@/models/News';
@@ -7,6 +10,15 @@ import { calculateSizeAdjustValues } from 'next/dist/server/font-utils';
 import Link from 'next/link';
 
 const PopularNews = () => {
+  const { fetchPopularNews, popularNews } = useNews((state) => ({
+    fetchPopularNews: state.fetchPopularNews,
+    popularNews: state.popularNews,
+  }));
+
+  useEffect(() => {
+    fetchPopularNews();
+  }, []);
+
   return (
     <div className={styles.container}>
       {someNews.map((news: News) => {

@@ -1,19 +1,14 @@
 'use client';
-import { Metadata } from 'next';
 import { Formik, Form, Field } from 'formik';
 import { merriweather_sans, roboto_mono } from '@/app/fonts';
 import Button from '@/components/Button/Button';
 import Link from 'next/link';
 import styles from './signin.module.css';
 import { SigninValues } from '@/models/Form';
-import { useSigninSignup } from '../stores/store';
-
-export const metadata: Metadata = {
-  title: 'IT_BEL | Sign in',
-};
+import { useAuth } from '../stores/authStore';
 
 const Signin = () => {
-  const { signin, email, password, nonField } = useSigninSignup((state) => ({
+  const { signin, email, password, nonField } = useAuth((state) => ({
     signin: state.signin,
     email: state.errors.email,
     password: state.errors.password,

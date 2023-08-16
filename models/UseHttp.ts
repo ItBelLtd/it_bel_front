@@ -1,4 +1,4 @@
-type method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+export type method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
 export interface UseHttp {
   url: string;
