@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './header.module.css';
-import { FC } from 'react';
 import Input from '@/components/Input/Input';
 
 const auth: Boolean = true;
 
-const Header: FC = () => {
+const Header = () => {
   return (
     <header className={styles.container}>
       <div className={styles.wrapper}>

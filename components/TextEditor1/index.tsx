@@ -1,24 +1,24 @@
 'use client';
 import { useEffect, useState } from 'react';
 import styles from './text-editor.module.css';
-import Button from '@/components/Button/Button';
+// import Button from '@/components/Button/Button';
 
 const TextEditor1 = () => {
   const [verbum, setVerbum] = useState<any>(null);
   const [editorContent, setEditorContent] = useState<string>('');
 
-  const handleEditorChange = (editorState: any) => {
-    console.log(editorState);
-
-    setEditorContent(editorState);
-  };
-
-  const handleSubmitEvent = (event?: React.FormEvent<HTMLButtonElement>) => {
-    event && event.preventDefault();
-
-    // здесь будет запрос для отправки данных на сервер
+  const handleEditorChange = (editorContent: any) => {
     console.log(editorContent);
+
+    setEditorContent(editorContent);
   };
+
+  // const handleSubmitEvent = (event?: React.FormEvent<HTMLButtonElement>) => {
+  //   event && event.preventDefault();
+
+  //   // здесь будет запрос для отправки данных на сервер
+  //   console.log(editorContent);
+  // };
 
   useEffect(() => {
     if (typeof window !== 'undefined' && !verbum) {
@@ -79,12 +79,16 @@ const TextEditor1 = () => {
           </verbum.Editor>
         </verbum.EditorComposer>
 
-        <Button
+        <button
           className={styles.button}
           type='submit'
-          text='Отправить'
-          clickHandler={handleSubmitEvent}
-        />
+          onSubmit={(e) => {
+            e.preventDefault();
+            console.log(editorContent);
+          }}
+        >
+          Отправить
+        </button>
       </form>
     </div>
   );

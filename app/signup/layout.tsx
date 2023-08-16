@@ -1,6 +1,8 @@
+import { roboto_mono } from '@/app/fonts';
+
 import Link from 'next/link';
 import styles from './signup.module.css';
-import { merriweather_sans, roboto_mono } from '@/app/fonts';
+
 export default function RootLayout({
   children,
 }: {

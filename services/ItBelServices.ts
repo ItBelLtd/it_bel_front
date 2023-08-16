@@ -4,7 +4,7 @@ const ItBelServices = () => {
   const _apiBase = 'http://127.0.0.1/api/';
   const { request } = useHttp();
 
-  const auth = async (values: object, url: string) => {
+  const auth = async (url: string, values?: object) => {
     return await request({
       url: `${_apiBase}${url}`,
       data: {

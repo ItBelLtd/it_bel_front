@@ -1,9 +1,15 @@
+interface Errors {
+  email: string;
+  password: string;
+  non_field_errors: string;
+}
+interface PromiseError {
+  errors: Errors;
+}
 export interface Auth {
-  errors: {
-    email: string;
-    password: string;
-    non_field_errors: string;
-  };
-  signin: (smth: object, url: string) => void;
-  signup: (smth: object, url: string) => void;
+  token: string;
+  errors: Errors | null;
+  signin: (url: string, values?: object) => void;
+  signup: (url: string, values?: object) => Promise<PromiseError>;
+  logout: (url: string) => void;
 }

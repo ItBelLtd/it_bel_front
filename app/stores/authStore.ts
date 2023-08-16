@@ -1,30 +1,53 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-import ItBelServices from '@/services/ItBelServices';
 import { Auth } from '@/models/Auth';
+
+import ItBelServices from '@/services/ItBelServices';
+
 export const useAuth = create<Auth>()(
   devtools((set) => ({
+    token: '',
     errors: {
       email: '',
       password: '',
       non_field_errors: '',
     },
-    signin: async (values, url) => {
+
+    signin: async (url, values) => {
       const { auth } = ItBelServices();
       try {
-        const res = auth(values, url);
-        res.then((data) => set({ errors: data }));
+        const res = auth(url, values);
+        res.then((data) => {
+          if (data.errors) {
+            set({ errors: data.errors });
+          } else {
+            set({ token: data.auth_token, errors: null });
+          }
+        });
       } catch {
         throw new Error('Что-то пошло не так');
       }
     },
-    signup: async (values, url) => {
+    signup: async (url, values) => {
       const { auth } = ItBelServices();
       try {
-        const res = auth(values, url);
+        const res = auth(url, values);
         res.then((data) => {
-          set({ errors: data });
+          if (data.errors) {
+            set({ errors: data.errors });
+          } else {
+            set({ errors: null });
+          }
         });
+        return res;
+      } catch {
+        throw new Error('Что-то пошло не так');
+      }
+    },
+    logout: async (url) => {
+      const { auth } = ItBelServices();
+      try {
+        const res = auth(url);
       } catch {
         throw new Error('Что-то пошло не так');
       }
