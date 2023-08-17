@@ -1,7 +1,7 @@
 'use client';
 import { Metadata } from 'next';
 import { Formik, Form, Field } from 'formik';
-import { merriweather_sans, roboto_mono } from '@/app/fonts';
+import { merriweather_sans } from '@/app/fonts';
 import { AuthorSignupValues } from '@/models/Form';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/app/stores/authStore';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'IT_BEL | Sign up',
 };
 
-const Signup = () => {
+const SignupAuthor = () => {
   const router = useRouter();
   const initialValues: AuthorSignupValues = {
     userName: '',
@@ -97,4 +97,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignupAuthor;

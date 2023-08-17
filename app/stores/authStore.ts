@@ -6,6 +6,7 @@ import ItBelServices from '@/services/ItBelServices';
 
 export const useAuth = create<Auth>()(
   devtools((set) => ({
+    userId: 0,
     token: '',
     errors: {
       email: '',
@@ -36,7 +37,7 @@ export const useAuth = create<Auth>()(
           if (data.errors) {
             set({ errors: data.errors });
           } else {
-            set({ errors: null });
+            set({ errors: null, userId: data.user_id });
           }
         });
         return res;
