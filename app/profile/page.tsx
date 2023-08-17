@@ -8,7 +8,6 @@ export const metadata: Metadata = {
 };
 
 const Profile: NextPage = () => {
-
   const avatarURL = '/author-avatar-slug.png'; // В последствие переделать
   return (
     <div className={styles.container}>

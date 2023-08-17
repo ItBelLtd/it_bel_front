@@ -3,7 +3,6 @@ import { Authors } from '@/models/Authors';
 import { devtools } from 'zustand/middleware';
 import ItBelServices from '@/services/ItBelServices';
 import { User } from '@/models/User';
-import { redirect, useRouter } from 'next/navigation';
 
 export const useAuthors = create<Authors>()(
   devtools((set) => ({
@@ -13,7 +12,6 @@ export const useAuthors = create<Authors>()(
     getAllAuthors: async () => {
       const url = '';
       const { getAuthors } = ItBelServices();
-
       try {
         const res = await getAuthors(url);
         set({ author: res });
