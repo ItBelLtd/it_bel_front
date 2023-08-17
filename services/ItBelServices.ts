@@ -35,7 +35,7 @@ const ItBelServices = () => {
     });
   };
 
-  const addNew = async (news: object) => {
+  const addNews = async (news: object) => {
     return await request({
       url: `${_apiBase}news/`,
       data: {
@@ -46,12 +46,60 @@ const ItBelServices = () => {
     });
   };
 
+  const addNewsComment = async (url: string, comment: object) => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {
+        method: 'POST',
+        body: JSON.stringify(comment),
+        headers: { 'Content-Type': 'application/json' },
+      },
+    });
+  };
+
+  // const toggleLikeUnlike = async (url: string, data: object) => {
+  //   return await request({
+  //     url: `${_apiBase}${url}`,
+  //     data: {
+  //       method: 'POST',
+  //       body: JSON.stringify(data),
+  //       headers: { 'Content-Type': 'application/json' },
+  //     },
+  //   });
+  // };
+
+  const changeNewsOrComment = async (url: string, changes: object) => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {
+        method: 'PATCH',
+        body: JSON.stringify(changes),
+        headers: { 'Content-Type': 'application/json' },
+      },
+    });
+  };
+
+  const deleteNewsOrComment = async (url: string) => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {
+        method: 'DELETE',
+        body: null,
+        headers: { 'Content-Type': 'application/json' },
+      },
+    });
+  };
+
   return {
     auth,
     getAuthors,
     getNews,
     getNewsComments,
-    addNew,
+    addNews,
+    addNewsComment,
+    // toggleLikeUnlike,
+    changeNewsOrComment,
+    deleteNewsOrComment,
   };
 };
 
