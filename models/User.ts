@@ -7,6 +7,6 @@ export interface User {
 }
 export interface UserInfo {
   getUserInfo: (url: string) => void;
-  patchUserInfo: (url: string, id: number) => void;
+  changeUserInfo: (url: string, id: number) => void;
   deleteUser: (url: string, id: number) => void;
 }

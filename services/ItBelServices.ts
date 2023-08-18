@@ -20,7 +20,7 @@ const ItBelServices = () => {
       data: {},
     });
   };
-  const patchUserInfo = async (url: string, id: number) => {
+  const changeUserInfo = async (url: string, id: number) => {
     return await request({
       url: `${_apiBase}${url}`,
       data: {
@@ -119,7 +119,7 @@ const ItBelServices = () => {
   return {
     auth,
     getUserInfo,
-    patchUserInfo,
+    changeUserInfo,
     deleteUser,
     getAuthors,
     getNews,

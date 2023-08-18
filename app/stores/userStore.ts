@@ -15,10 +15,10 @@ export const useUser = create<UserInfo>()(
         throw new Error('Что-то пошло не так');
       }
     },
-    patchUserInfo: async (url, id) => {
-      const { patchUserInfo } = ItBelServices();
+    changeUserInfo: async (url, id) => {
+      const { changeUserInfo } = ItBelServices();
       try {
-        const res = patchUserInfo(url, id);
+        const res = changeUserInfo(url, id);
         res.then((data) => {});
       } catch {
         throw new Error('Что-то пошло не так');
