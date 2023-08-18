@@ -1,14 +1,7 @@
-// Для стора
-export interface Authors {
-  authors: [] | Array<Author>;
-  author: Author;
-  authorFollowers: [] | Array<Author>;
-  fetchAllAuthors: () => void;
-  fetchAuthor: (id: number) => void;
-  fetchAuthorNews: (id: number) => void;
-  fetchAuthorsFollowers: (id: number) => void;
-}
 // Для всех авторов
+import { News } from '@/models/News';
+import authorCard from '@/components/AuthorCard';
+
 export interface Author {
   author_id: number;
   name: string;
@@ -17,4 +10,24 @@ export interface Author {
   email: string;
   date_joined: string;
   link?: string;
+}
+
+// Для стора
+export interface Authors {
+  allAuthors: [] | Array<Author>;
+  author: null | Author;
+  authorNews: [] | Array<News>;
+  authorFollowers: [] | Array<Author>;
+  // authorStats: any;
+
+  fetchAllAuthors: (page: number, search: string) => void;
+  fetchAuthor: (authorId: number) => void;
+  fetchAuthorNews: (authorId: number) => void;
+  fetchAuthorsFollowers: (authorId: number) => void;
+  changeAuthor: (authorId: number, author: Object) => void;
+  deleteAuthor: (authorId: number) => void;
+  addAuthor: (author: object) => void;
+  // fetchAuthorStats: (authorId: number) => void;
+  // followAuthor: (authorId: number, data: object) => void;
+  // unfollowAuthor: (authorId: number, data: object) => void;
 }

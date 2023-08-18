@@ -1,92 +1,116 @@
 import { create } from 'zustand';
 import { Authors } from '@/models/Authors';
-import { devtools } from 'zustand/middleware';
 import ItBelServices from '@/services/ItBelServices';
+import { devtools } from 'zustand/middleware';
 
 export const useAuthors = create<Authors>()(
   devtools((set) => ({
-    authors: [],
-    author: { author_id: 0, name: '', surname: '', email: '', age: 0, date_joined: '' },
+    allAuthors: [],
+    author: null,
+    authorNews: [],
     authorFollowers: [],
-    fetchAllAuthors: async () => {
+    // authorStats: null,
+    fetchAllAuthors: async (page: number, search: string) => {
       const { getAuthors } = ItBelServices();
-      const url = '';
 
       try {
-        const res = await getAuthors(url);
-        set({ authors: res });
-      } catch (error) {
+        const res = await getAuthors(`authors/?page=${page}&search=${search}/`);
+        set({ allAuthors: res.results });
+      } catch (e) {
         throw new Error('Что-то пошло не так');
       }
     },
-    fetchAuthor: async (id: number) => {
+    fetchAuthor: async (authorId: number) => {
       const { getAuthors } = ItBelServices();
-      const url = `${id}/`;
 
       try {
-        const res = await getAuthors(url);
+        const res = await getAuthors(`authors/${authorId}/`);
         set({ author: res });
-      } catch (error) {
+      } catch (e) {
         throw new Error('Что-то пошло не так');
       }
     },
-    fetchAuthorNews: async (id: number) => {
+    fetchAuthorNews: async (authorId: number) => {
       const { getAuthors } = ItBelServices();
-      const url = `${id}/news/`;
 
       try {
-        const res = await getAuthors(url);
-        set({ authors: res });
-      } catch (error) {
+        const res = await getAuthors(`authors/${authorId}/news/`);
+        set({ authorNews: res });
+      } catch (e) {
         throw new Error('Что-то пошло не так');
       }
     },
-    fetchAuthorsFollowers: async (id: number) => {
-      const url = `${id}/followers`;
+    fetchAuthorsFollowers: async (authorId: number) => {
       const { getAuthors } = ItBelServices();
+
       try {
-        const res = await getAuthors(url);
+        const res = await getAuthors(`authors/${authorId}/followers/`);
         set({ authorFollowers: res });
-      } catch(err) {
+      } catch(e) {
         throw new Error('Что-то пошло не так');
       }
     },
-    // TODO Разобраться с body для follow/unfollow, news-like/news-unlike
-    // followAuthor: async (id: number, user: User) => {
-    //   const url = `${id}/follow`;
-    //   const { getAuthors } = ItBelServices();
-    //   try {
-    //     const body = JSON.stringify({
-    //       'name': user.username,
-    //       'surname': user.surname,
-    //     });
-    //     const res = getAuthors(url, 'POST', body);
-    //   } catch(err) {
-    //     throw new Error('Что-то пошло не так');
-    //   }
-    // },
-    // unfollowAuthor: async (id: number, user: User) => {
-    //   const url = `${id}/unfollow`;
-    //   const { getAuthors } = ItBelServices();
-    //   try {
-    //     const body = JSON.stringify({
-    //       'name': user.username,
-    //       'surname': user.surname,
-    //     });
-    //     const res = getAuthors(url, 'POST', body);
-    //   } catch(err) {
-    //     throw new Error('Что-то пошло не так');
-    //   }
-    // },
-    editAuthor: async (id: number, values: Object) => {
-      const url = `${id}/`;
-      const { getAuthors } = ItBelServices();
+    changeAuthor: async (authorId: number, author: Object) => {
+      const { changeAuthor } = ItBelServices();
+
       try {
-        const res = await getAuthors(url);
-        console.log(res, 'Successful');
-      } catch(err) {
+        const res = await changeAuthor(`authors/${authorId}/`, author);
+        set({ author: res });
+      } catch(e) {
         throw new Error('Что-то пошло не так');
       }
-    }
+    },
+    deleteAuthor: async (authorId: number) => {
+      const { deleteAuthor, getAuthors } = ItBelServices();
+
+      try {
+        await deleteAuthor(`authors/${authorId}/`);
+        const res = await getAuthors('authors/');
+        set({ allAuthors: res.results });
+      } catch(e) {
+        throw new Error('Что-то пошло не так');
+      }
+    },
+    addAuthor: async (author: object) => {
+      const { addAuthor, getAuthors } = ItBelServices();
+
+      try {
+        await addAuthor(author);
+        const res = await getAuthors('authors/');
+        set({ allAuthors: res.results });
+      } catch(e) {
+        throw new Error('Что-то пошло не так');
+      }
+    },
+  //   fetchAuthorStats: async (authorId: number) => {
+  //     const { getAuthors } = ItBelServices();
+  //
+  //     try {
+  //       const res = await getAuthors(`authors/author_stats/${authorId}`);
+  //       set({ authorStats: res });
+  //     } catch(err) {
+  //       throw new Error('Что-то пошло не так');
+  //     }
+  //   },
+  //   followAuthor: async (authorId: number, data: object) => {
+  //     const { toggleFollowUnfollow } = ItBelServices();
+  //
+  //     try {
+  //       const res = await toggleFollowUnfollow('authors/${authorId}/follow');
+  //       console.log(res);
+  //     } catch(err) {
+  //       throw new Error('Что-то пошло не так');
+  //     }
+  //   },
+  //   unfollowAuthor: async (authorId: number, data: object) => {
+  //     const { toggleFollowUnfollow } = ItBelServices();
+  //
+  //     try {
+  //       const res = await toggleFollowUnfollow('authors/${authorId}/unfollow');
+  //       console.log(res);
+  //     } catch(err) {
+  //       throw new Error('Что-то пошло не так');
+  //     }
+  //   },
   })),
 );
