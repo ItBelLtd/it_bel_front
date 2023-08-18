@@ -1,5 +1,6 @@
 import { useHttp } from '@/hook/usehttp';
 
+
 const ItBelServices = () => {
   const _apiBase = 'http://127.0.0.1/api/';
   const { request } = useHttp();
@@ -40,12 +41,57 @@ const ItBelServices = () => {
       },
     });
   };
-  const getAuthors = async (url: string = '') => {
+
+  const getAuthors = async (url: string = 'authors/') => {
     return await request({
-      url: `${_apiBase}authors/${url}`,
+      url: `${_apiBase}${url}`,
       data: {},
     });
   };
+
+  const addAuthor = async (author: object) => {
+    return await request({
+      url: `${_apiBase}/authors/`,
+      data: {
+        method: 'POST',
+        body: JSON.stringify(author),
+        headers: { 'Content-Type': 'application/json' },
+      },
+    });
+  };
+
+  const changeAuthor = async (url: string = 'authors/', changes: object) => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {
+        method: 'PATCH',
+        body: JSON.stringify(changes),
+        headers: { 'Content-Type': 'application/json' },
+      },
+    });
+  };
+
+  const deleteAuthor = async (url: string = 'authors/') => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {
+        method: 'DELETE',
+        body: null,
+        headers: { 'Content-Type': 'application/json' },
+      },
+    });
+  };
+
+  // const toggleFollowUnfollow = async (url: string, data: object) => {
+  //   return await request({
+  //     url: `${_apiBase}${url}`,
+  //     data: {
+  //       method: 'POST',
+  //       body: JSON.stringify(data),
+  //       headers: { 'Content-Type': 'application/json' },
+  //     },
+  //   });
+  // };
 
   const getNews = async (url: string = 'news/') => {
     return await request({
@@ -122,6 +168,10 @@ const ItBelServices = () => {
     changeUserInfo,
     deleteUser,
     getAuthors,
+    addAuthor,
+    changeAuthor,
+    deleteAuthor,
+    // toggleFollowUnfollow,
     getNews,
     getNewsComments,
     addNews,
