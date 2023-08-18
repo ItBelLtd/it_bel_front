@@ -14,6 +14,32 @@ const ItBelServices = () => {
       },
     });
   };
+  const getUserInfo = async (url: string) => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {},
+    });
+  };
+  const patchUserInfo = async (url: string, id: number) => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {
+        method: 'PATCH',
+        body: JSON.stringify(id),
+        headers: { 'Content-Type': 'application/json' },
+      },
+    });
+  };
+  const deleteUser = async (url: string, id: number) => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {
+        method: 'DELETE',
+        body: JSON.stringify(id),
+        headers: { 'Content-Type': 'application/json' },
+      },
+    });
+  };
   const getAuthors = async (url: string = '') => {
     return await request({
       url: `${_apiBase}authors/${url}`,
@@ -48,6 +74,9 @@ const ItBelServices = () => {
 
   return {
     auth,
+    getUserInfo,
+    patchUserInfo,
+    deleteUser,
     getAuthors,
     getNews,
     getNewsComments,
