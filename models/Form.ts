@@ -3,23 +3,16 @@ export interface SigninValues {
   email: string;
 }
 
-export interface SignupAuthorValues {
-  name: string;
-  surName: string;
-  dateOfBirth: string;
+export interface UserSignupValues {
+  userName: string;
   email: string;
   password: string;
 }
-export interface SignupValues {
-  user: {
-    userName: string;
-    email: string;
-    password: string;
-  };
+
+export interface AuthorSignupValues extends UserSignupValues{
   author: {
-    name?: string;
-    surName?: string;
-    dateOfBirth?: string;
+    name: string;
+    surname: string;
+    age: number | string;
   };
-  toggle: boolean;
 }

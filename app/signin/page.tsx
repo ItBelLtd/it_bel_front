@@ -1,18 +1,19 @@
 'use client';
 import { Formik, Form, Field } from 'formik';
 import { merriweather_sans, roboto_mono } from '@/app/fonts';
+import { SigninValues } from '@/models/Form';
+import { useAuth } from '../stores/authStore';
+
 import Button from '@/components/Button/Button';
 import Link from 'next/link';
 import styles from './signin.module.css';
-import { SigninValues } from '@/models/Form';
-import { useAuth } from '../stores/authStore';
 
 const Signin = () => {
   const { signin, email, password, nonField } = useAuth((state) => ({
     signin: state.signin,
-    email: state.errors.email,
-    password: state.errors.password,
-    nonField: state.errors.non_field_errors,
+    email: state.errors?.email,
+    password: state.errors?.password,
+    nonField: state.errors?.non_field_errors,
   }));
   const initialValues: SigninValues = {
     email: '',
@@ -21,31 +22,9 @@ const Signin = () => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values) => {
+      onSubmit={async (values) => {
         signin(values, 'auth/token/login/');
       }}
-      // const response = await fetch('http://127.0.0.1/api/auth/token/login/', {
-      //   method: 'POST',
-      //   mode: 'cors',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(values),
-      // });
-      // try {
-      //   if (!response.ok) {
-      //     const errors = await response.json();
-      //     if (errors) {
-      //       setAllError(errors);
-      //       console.log(allError);
-      //     }
-      //   }
-      //   const data = await response.json();
-      //   console.log(data.auth_token);
-      //   return data;
-      // } catch (e) {
-      //   console.log('Произошла ошибка');
-      // }
     >
       {({ isSubmitting }) => (
         <Form className={`${styles.form} + ${merriweather_sans.className}`}>
