@@ -6,8 +6,9 @@ import ItBelServices from '@/services/ItBelServices';
 
 export const useUser = create<UserInfo>()(
   devtools((set) => ({
-    getUserInfo: async (url) => {
+    getUserInfo: async (id) => {
       const { getUserInfo } = ItBelServices();
+      const url = `users/${id}`;
       try {
         const res = getUserInfo(url);
         res.then((data) => {});
@@ -15,10 +16,21 @@ export const useUser = create<UserInfo>()(
         throw new Error('Что-то пошло не так');
       }
     },
-    changeUserInfo: async (url, id) => {
-      const { changeUserInfo } = ItBelServices();
+    getUserFollowing: async (id) => {
+      const { getUserInfo } = ItBelServices();
+      const url = `users/${id}`;
       try {
-        const res = changeUserInfo(url, id);
+        const res = getUserInfo(url);
+        res.then((data) => {});
+      } catch {
+        throw new Error('Что-то пошло не так');
+      }
+    },
+    changeUserInfo: async (id, value) => {
+      const { changeUserInfo } = ItBelServices();
+      const url = `users/${id}`;
+      try {
+        const res = changeUserInfo(url, value);
         res.then((data) => {});
       } catch {
         throw new Error('Что-то пошло не так');

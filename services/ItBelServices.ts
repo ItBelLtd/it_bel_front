@@ -1,6 +1,5 @@
 import { useHttp } from '@/hook/usehttp';
 
-
 const ItBelServices = () => {
   const _apiBase = 'http://127.0.0.1/api/';
   const { request } = useHttp();
@@ -21,12 +20,12 @@ const ItBelServices = () => {
       data: {},
     });
   };
-  const changeUserInfo = async (url: string, id: number) => {
+  const changeUserInfo = async (url: string, value: object) => {
     return await request({
       url: `${_apiBase}${url}`,
       data: {
         method: 'PATCH',
-        body: JSON.stringify(id),
+        body: JSON.stringify(value),
         headers: { 'Content-Type': 'application/json' },
       },
     });

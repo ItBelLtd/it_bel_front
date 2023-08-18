@@ -25,6 +25,7 @@ export const useAuth = create<Auth>()(
             set({ token: data.auth_token, errors: null });
           }
         });
+        return res;
       } catch {
         throw new Error('Что-то пошло не так');
       }
@@ -49,6 +50,7 @@ export const useAuth = create<Auth>()(
       const { auth } = ItBelServices();
       try {
         const res = auth(url);
+        set({ token: '' });
       } catch {
         throw new Error('Что-то пошло не так');
       }
