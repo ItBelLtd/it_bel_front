@@ -15,13 +15,18 @@ const ItBelServices = () => {
       },
     });
   };
-  const getAuthors = async (url: string = '', method: method = 'GET', body: BodyInit | null = null) => {
+
+  const getAuthors = async (url: string = '') => {
     return await request({
       url: `${_apiBase}authors/${url}`,
-      data: {
-        method: method,
-        body: body,
-      },
+      data: {},
+    });
+  };
+
+  const getAuthorNews = async (url: string = '') => {
+    return await request({
+      url: `${_apiBase}authors/${url}`,
+      data: {},
     });
   };
 
@@ -53,6 +58,7 @@ const ItBelServices = () => {
   return {
     auth,
     getAuthors,
+    getAuthorNews,
     getNews,
     getNewsComments,
     addNew,

@@ -3,10 +3,10 @@ export interface Authors {
   authors: [] | Array<Author>;
   author: Author;
   authorFollowers: [] | Array<Author>;
-  getAllAuthors: () => void;
-  getAuthor: (id: number) => void;
-  getAuthorNews: (id: number) => void;
-  getAuthorsFollowers: (id: number) => void;
+  fetchAllAuthors: () => void;
+  fetchAuthor: (id: number) => void;
+  fetchAuthorNews: (id: number) => void;
+  fetchAuthorsFollowers: (id: number) => void;
 }
 // Для всех авторов
 export interface Author {
