@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import { Auth } from '@/models/Auth';
-import { deleteCookie, setCookie } from '@/helpers/cookie';
+import { deleteCookie, setCookie } from '@/services/cookie';
 
 import ItBelServices from '@/services/ItBelServices';
 

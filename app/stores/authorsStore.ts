@@ -82,32 +82,33 @@ export const useAuthors = create<Authors>()(
         throw new Error('Что-то пошло не так');
       }
     },
+    followAuthor: async (authorId: number) => {
+      const { toggleFollowUnfollow } = ItBelServices();
+
+      try {
+        const res = await toggleFollowUnfollow(`authors/${authorId}/follow`);
+        console.log(res);
+      } catch (err) {
+        throw new Error('Что-то пошло не так');
+      }
+    },
+    unfollowAuthor: async (authorId: number) => {
+      const { toggleFollowUnfollow } = ItBelServices();
+
+      try {
+        const res = await toggleFollowUnfollow(`authors/${authorId}/unfollow`);
+        console.log(res);
+      } catch (err) {
+        throw new Error('Что-то пошло не так');
+      }
+    },
+    // // THIS IS FOR MODERATORS
     //   fetchAuthorStats: async (authorId: number) => {
     //     const { getAuthors } = ItBelServices();
     //
     //     try {
     //       const res = await getAuthors(`authors/author_stats/${authorId}`);
     //       set({ authorStats: res });
-    //     } catch(err) {
-    //       throw new Error('Что-то пошло не так');
-    //     }
-    //   },
-    //   followAuthor: async (authorId: number, data: object) => {
-    //     const { toggleFollowUnfollow } = ItBelServices();
-    //
-    //     try {
-    //       const res = await toggleFollowUnfollow('authors/${authorId}/follow');
-    //       console.log(res);
-    //     } catch(err) {
-    //       throw new Error('Что-то пошло не так');
-    //     }
-    //   },
-    //   unfollowAuthor: async (authorId: number, data: object) => {
-    //     const { toggleFollowUnfollow } = ItBelServices();
-    //
-    //     try {
-    //       const res = await toggleFollowUnfollow('authors/${authorId}/unfollow');
-    //       console.log(res);
     //     } catch(err) {
     //       throw new Error('Что-то пошло не так');
     //     }

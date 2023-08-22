@@ -3,7 +3,7 @@ import { anonymousLinks, authorLinks, userLinks } from '@/data/Inputs';
 import { useAuth } from '@/app/stores/authStore';
 import { usePathname } from 'next/navigation';
 import { Links } from '@/models/Links';
-import { getCookie } from '@/helpers/cookie';
+import { getCookie } from '@/services/cookie';
 import { useUser } from '@/app/stores/userStore';
 import { useEffect } from 'react';
 

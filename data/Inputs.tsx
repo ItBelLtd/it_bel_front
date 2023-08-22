@@ -19,7 +19,7 @@ export const authorLinks = [
   },
   {
     label: 'Сделать публикацию',
-    href: '/publish',
+    href: '/make_publish',
   },
   {
     label: 'Выход',
