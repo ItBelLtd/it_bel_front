@@ -7,7 +7,6 @@ interface PromiseError {
   errors: Errors;
 }
 export interface Auth {
-  userId: number;
   token: string;
   errors: Errors | null;
   signin: (url: string, values?: object) => Promise<PromiseError>;

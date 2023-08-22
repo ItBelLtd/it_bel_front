@@ -1,4 +1,5 @@
 import { useHttp } from '@/hook/usehttp';
+import { getCookie } from '@/helpers/cookie';
 
 const ItBelServices = () => {
   const _apiBase = 'http://127.0.0.1/api/';
@@ -10,14 +11,35 @@ const ItBelServices = () => {
       data: {
         method: 'POST',
         body: JSON.stringify(values),
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    });
+  };
+  const logout = async (url: string) => {
+    const token = getCookie('userToken');
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Token ${token}`,
+        },
       },
     });
   };
   const getUserInfo = async (url: string) => {
+    const token = getCookie('userToken');
     return await request({
       url: `${_apiBase}${url}`,
-      data: {},
+      data: {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Token ${token}`,
+        },
+      },
     });
   };
   const changeUserInfo = async (url: string, value: object) => {
@@ -95,7 +117,11 @@ const ItBelServices = () => {
   const getNews = async (url: string = 'news/') => {
     return await request({
       url: `${_apiBase}${url}`,
-      data: {},
+      data: {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
     });
   };
 
@@ -163,6 +189,7 @@ const ItBelServices = () => {
 
   return {
     auth,
+    logout,
     getUserInfo,
     changeUserInfo,
     deleteUser,

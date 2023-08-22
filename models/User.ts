@@ -6,7 +6,23 @@ export interface User {
   password: string;
 }
 
+interface Info {
+  user_id: number;
+  username: string | null;
+  email: string;
+  as_author: {
+    author_id: number;
+    name: string;
+    surname: string;
+    age: number;
+    date_joined: string;
+  };
+  news: [];
+}
+
 export interface UserInfo {
+  info: Info;
+  getUserProfile: () => void;
   getUserInfo: (id: number) => void;
   getUserFollowing: (id: number) => void;
   changeUserInfo: (id: number, value: object) => void;
