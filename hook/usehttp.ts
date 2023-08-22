@@ -15,9 +15,10 @@ export const useHttp = () => {
       if (!response.ok) {
         const errors = await response.json();
         return errors;
+      } else if (response.status !== 204) {
+        const data = await response.json();
+        return data;
       }
-      const data = await response.json();
-      return data;
     } finally {
     }
   };

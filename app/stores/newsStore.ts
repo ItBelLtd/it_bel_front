@@ -64,7 +64,9 @@ export const useNews = create<NewsStore>()(
       const { getNewsComments } = ItBelServices();
 
       try {
-        const res = await getNewsComments(`news/${newsId}/comments/${commentId}/`);
+        const res = await getNewsComments(
+          `news/${newsId}/comments/${commentId}/`,
+        );
         // set({ newsComments: res });
       } catch (e) {
         /*какие-то действия */
@@ -144,11 +146,18 @@ export const useNews = create<NewsStore>()(
         /*какие-то действия */
       }
     },
-    changeNewsComment: async (newsId: number, commentId: number, comment: object) => {
+    changeNewsComment: async (
+      newsId: number,
+      commentId: number,
+      comment: object,
+    ) => {
       const { changeNewsOrComment } = ItBelServices();
 
       try {
-        const res = await changeNewsOrComment(`news/${newsId}/comments/${commentId}/`, comment);
+        const res = await changeNewsOrComment(
+          `news/${newsId}/comments/${commentId}/`,
+          comment,
+        );
         set({ newsComments: res });
       } catch (e) {
         /*какие-то действия */

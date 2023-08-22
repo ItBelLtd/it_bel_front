@@ -3,12 +3,14 @@ import { Formik, Form, Field } from 'formik';
 import { merriweather_sans, roboto_mono } from '@/app/fonts';
 import { SigninValues } from '@/models/Form';
 import { useAuth } from '../stores/authStore';
+import { useRouter } from 'next/navigation';
 
 import Button from '@/components/Button/Button';
 import Link from 'next/link';
 import styles from './signin.module.css';
 
 const Signin = () => {
+  const router = useRouter();
   const { signin, email, password, nonField } = useAuth((state) => ({
     signin: state.signin,
     email: state.errors?.email,
@@ -23,7 +25,11 @@ const Signin = () => {
     <Formik
       initialValues={initialValues}
       onSubmit={async (values) => {
-        signin(values, 'auth/token/login/');
+        signin('auth/token/login/', values).then((data) => {
+          if (!data.errors) {
+            router.push('/');
+          }
+        });
       }}
     >
       {({ isSubmitting }) => (
