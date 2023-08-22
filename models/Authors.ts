@@ -27,7 +27,7 @@ export interface Authors {
   changeAuthor: (authorId: number, author: Object) => void;
   deleteAuthor: (authorId: number) => void;
   addAuthor: (author: object) => void;
+  followAuthor: (authorId: number) => void;
+  unfollowAuthor: (authorId: number) => void;
   // fetchAuthorStats: (authorId: number) => void;
-  // followAuthor: (authorId: number, data: object) => void;
-  // unfollowAuthor: (authorId: number, data: object) => void;
 }

@@ -4,7 +4,6 @@
   "arrowParens": "always",
   "max-len": ["error", 140, 2],
   "useTabs": false,
-  "tabWidth": 2,
   "bracketSpacing": true,
   "bracketSameLine": false,
   "endOfLine": "crlf",
