@@ -102,6 +102,7 @@ export const useAuthors = create<Authors>()(
         throw new Error('Что-то пошло не так');
       }
     },
+    // // THIS IS FOR MODERATORS
     //   fetchAuthorStats: async (authorId: number) => {
     //     const { getAuthors } = ItBelServices();
     //

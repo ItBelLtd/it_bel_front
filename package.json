@@ -10,11 +10,6 @@
     "stylelint": "stylelint \"**/*.css\" --fix",
     "pretty-quick": "./node_modules/pretty-quick/bin/pretty-quick.js"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "dependencies": {
     "@types/node": "20.3.3",
     "@types/react": "18.2.14",
@@ -32,7 +27,6 @@
     "zustand": "^4.4.0"
   },
   "devDependencies": {
-    "husky": "^8.0.3",
     "moment": "2.9.0",
     "prettier": "^3.0.1",
     "pretty-quick": "^3.1.3",
