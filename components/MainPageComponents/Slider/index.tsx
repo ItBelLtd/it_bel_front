@@ -2,7 +2,7 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import styles from './Slider.module.css';
-import {news} from '@/models/News';
+import {News} from '@/models/News';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useNews } from '@/app/stores/newsStore';
@@ -101,7 +101,7 @@ const MyCarousel = () => {
         autoPlaySpeed={3000}
         className={styles.carousel}
       >
-        {latestNews.map((news: news) => {
+        {latestNews.map((news: News) => {
           return (
             <Link
               href={`news/${String(news.news_id)}`}

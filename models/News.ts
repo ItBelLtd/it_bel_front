@@ -1,4 +1,4 @@
-export type author = {
+export interface Author {
   author_id: number;
   name: string;
   surname: string;
@@ -7,17 +7,17 @@ export type author = {
   date_joined: string;
 };
 
-export type news = {
+export interface News {
   news_id: number;
   title: string;
-  author: author;
+  author: Author;
   description: string;
   content: string;
   total_likes: number;
   added: string;
 };
 
-export type comment = {
+export interface Comment {
   comment_id: number;
   text: string;
   author: number;
@@ -27,11 +27,11 @@ export type comment = {
 
 export interface NewsStore {
   isLoading: boolean;
-  allNews: [] | Array<news>;
-  popularNews: [] | Array<news>;
-  latestNews: [] | Array<news>;
-  news: null | news;
-  newsComments: null | Array<comment>;
+  allNews: [] | Array<News>;
+  popularNews: [] | Array<News>;
+  latestNews: [] | Array<News>;
+  news: null | News;
+  newsComments: null | Array<Comment>;
   fetchAllNews: () => void;
   fetchPopularNews: () => void;
   fetchLatestNews: (page: number) => void;

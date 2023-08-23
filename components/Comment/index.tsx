@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './comment.module.css';
 import Image from 'next/image';
-import { comment } from '@/models/News';
+import { Comment } from '@/models/News';
 
-const Comment = ({ comment_id, text, author, total_likes, added }: comment) => {
+const Comment = ({ comment_id, text, author, total_likes, added }: Comment) => {
   return (
     <div className={styles.comment}>
       <Image

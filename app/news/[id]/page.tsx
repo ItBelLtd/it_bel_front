@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import CommentComp from '@/components/Comment';
 
-import { comment, news, NewsStore } from '@/models/News';
+import { Comment, News, NewsStore } from '@/models/News';
 
 import styles from './news.module.css';
 import { roboto_mono } from '@/app/fonts';
@@ -23,12 +23,10 @@ const Page = () => {
   }));
 
   useEffect(() => {
-    if (!id) {
-      return;
+    if (id) {
+      fetchNews(id);
+      fetchNewsComments(id);
     }
-
-    fetchNews(id);
-    fetchNewsComments(id);
   }, [id]);
 
   const loading = isLoading ? 'Загрузка данных' : null;
@@ -42,7 +40,7 @@ const Page = () => {
   );
 };
 
-const View = ({news, newsComments}: {news: news, newsComments: Array<comment>}) => {
+const View = ({news, newsComments}: {news: News, newsComments: Array<Comment>}) => {
 
   return (
     <div className='news'>
@@ -118,7 +116,7 @@ const View = ({news, newsComments}: {news: news, newsComments: Array<comment>}) 
             100+ комментариев к этой статье
           </p>
           <div className={styles.comments}>
-            {newsComments.map((comment: comment) => {
+            {newsComments.map((comment: Comment) => {
               return (
                 <CommentComp {...comment} key={comment.comment_id} />
               );
