@@ -45,11 +45,7 @@ export interface NewsStore {
   // likeNewsComment: (newsId: number, commentId: number, data: object) => void;
   // unlikeNewsComment: (newsId: number, commentId: number, data: object) => void;
   changeNews: (newsId: number, news: object) => void;
-  changeNewsComment: (
-    newsId: number,
-    commentId: number,
-    comment: object,
-  ) => void;
+  changeNewsComment: (newsId: number, commentId: number, comment: object) => void;
   deleteNews: (newsId: number) => void;
   deleteNewsComment: (newsId: number, commentId: number) => void;
 }
