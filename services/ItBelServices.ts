@@ -132,23 +132,31 @@ const ItBelServices = () => {
   };
 
   const addNews = async (news: object) => {
+    const token = getCookie('userToken');
     return await request({
       url: `${_apiBase}news/`,
       data: {
         method: 'POST',
         body: JSON.stringify(news),
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Token ${token}`,
+        },
       },
     });
   };
 
   const addNewsComment = async (url: string, comment: object) => {
+    const token = getCookie('userToken');
     return await request({
       url: `${_apiBase}${url}`,
       data: {
         method: 'POST',
         body: JSON.stringify(comment),
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Token ${token}`,
+        },
       },
     });
   };
@@ -165,23 +173,31 @@ const ItBelServices = () => {
   // };
 
   const changeNewsOrComment = async (url: string, changes: object) => {
+    const token = getCookie('userToken');
     return await request({
       url: `${_apiBase}${url}`,
       data: {
         method: 'PATCH',
         body: JSON.stringify(changes),
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Token ${token}`,
+        },
       },
     });
   };
 
   const deleteNewsOrComment = async (url: string) => {
+    const token = getCookie('userToken');
     return await request({
       url: `${_apiBase}${url}`,
       data: {
         method: 'DELETE',
         body: null,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Token ${token}`,
+        },
       },
     });
   };
