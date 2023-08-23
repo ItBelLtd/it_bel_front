@@ -1,0 +1,13 @@
+.links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.active {
+  color: #00508c;
+}
+
+.avatar {
+  border-radius: 20px;
+}

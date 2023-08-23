@@ -12,34 +12,8 @@
   margin: 0 auto;
 }
 
-.links {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.links > a:hover {
-  color: #00508c;
-}
-
-.links > a:focus {
-  color: #00508c;
-}
-
 .linksAuth {
   display: flex;
   gap: 15px;
   align-items: center;
-}
-
-.linksAuth > a:hover {
-  color: #00508c;
-}
-
-.linksAuth > a:focus {
-  color: #00508c;
-}
-
-.avatar {
-  border-radius: 20px;
 }

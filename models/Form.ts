@@ -9,7 +9,7 @@ export interface UserSignupValues {
   password: string;
 }
 
-export interface AuthorSignupValues extends UserSignupValues{
+export interface AuthorSignupValues extends UserSignupValues {
   author: {
     name: string;
     surname: string;
