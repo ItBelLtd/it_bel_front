@@ -1,25 +1,13 @@
-import { Comment } from '@/models/Comment';
-
-export interface News {
-  id: number;
-  title: string;
-  date: string;
-  dscr: string;
-  img: string;
-  authorName: string;
-  comments: Comment[];
-}
-
-type author = {
+export type author = {
   author_id: number;
   name: string;
   surname: string;
   age: number;
-  email: string;
+  // email: string;
   date_joined: string;
 };
 
-type news = {
+export type news = {
   news_id: number;
   title: string;
   author: author;
@@ -29,7 +17,7 @@ type news = {
   added: string;
 };
 
-type comment = {
+export type comment = {
   comment_id: number;
   text: string;
   author: number;
@@ -38,6 +26,7 @@ type comment = {
 }
 
 export interface NewsStore {
+  isLoading: boolean;
   allNews: [] | Array<news>;
   popularNews: [] | Array<news>;
   latestNews: [] | Array<news>;

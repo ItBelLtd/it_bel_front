@@ -1,13 +1,9 @@
 import React from 'react';
 import styles from './comment.module.css';
-import { Comment } from '@/models/Comment';
 import Image from 'next/image';
+import { comment } from '@/models/News';
 
-interface CommentProps {
-  comment: Comment;
-}
-
-const Comment = ({ comment }: CommentProps) => {
+const Comment = ({ comment_id, text, author, total_likes, added }: comment): React.JSX.Element => {
   return (
     <div className={styles.comment}>
       <Image
@@ -19,10 +15,10 @@ const Comment = ({ comment }: CommentProps) => {
       />
       <div className={styles.commentContent}>
         <div className={styles.commentTopPart}>
-          <p className={styles.commentAuthor}>{comment.author}</p>
-          <p className={styles.commentDate}>{comment.added}</p>
+          <p className={styles.commentAuthor}>{author}</p>
+          <p className={styles.commentDate}>{added.slice(0, 10).replace(/-/g, '.')}</p>
         </div>
-        <p className={styles.commentText}>{comment.text}</p>
+        <p className={styles.commentText}>{text}</p>
       </div>
     </div>
   );

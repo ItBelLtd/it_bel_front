@@ -2,9 +2,11 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import styles from './Slider.module.css';
-import someNews from '@/data/News';
+import {news} from '@/models/News';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useNews } from '@/app/stores/newsStore';
+import { useEffect } from 'react';
 
 const css = `
   .react-multi-carousel-dot-list {
@@ -40,6 +42,7 @@ const CustomRightArrow = ({ onClick, ...rest }: any) => {
     onMove,
     carouselState: { currentSlide, deviceType },
   } = rest;
+
   return (
     <button onClick={() => onClick()} className={styles.rightArrow}>
       <Image width={12} height={18} src={'/rightArrow_icon.svg'} alt={'Next'} />
@@ -51,6 +54,7 @@ const CustomLeftArrow = ({ onClick, ...rest }: any) => {
     onMove,
     carouselState: { currentSlide, deviceType },
   } = rest;
+
   return (
     <button onClick={() => onClick()} className={styles.leftArrow}>
       <Image width={12} height={18} src={'/leftArrow_icon.svg'} alt={'Prev'} />
@@ -73,6 +77,15 @@ const CustomDot = ({ onClick, ...rest }: any) => {
 };
 
 const MyCarousel = () => {
+  const { fetchLatestNews, latestNews } = useNews((state) => ({
+    fetchLatestNews: state.fetchLatestNews,
+    latestNews: state.latestNews,
+  }));
+
+  useEffect(() => {
+    fetchLatestNews(1);
+  }, []);
+
   return (
     <>
       <Carousel
@@ -88,23 +101,23 @@ const MyCarousel = () => {
         autoPlaySpeed={3000}
         className={styles.carousel}
       >
-        {someNews.map((news) => {
+        {latestNews.map((news: news) => {
           return (
             <Link
-              href={`news/${String(news.id)}`}
-              key={news.id}
+              href={`news/${String(news.news_id)}`}
+              key={news.news_id}
               className={styles.news}
             >
               <div className={styles.leftPart}>
                 <div className={styles.topPart}>
-                  <h4 className={styles.authorName}>{news.authorName}</h4>
-                  <h4 className={styles.date}>{news.date}</h4>
+                  <h4 className={styles.authorName}>{news.author.name}</h4>
+                  <h4 className={styles.date}>{news.added.slice(0, 10).replace(/-/g, '.')}</h4>
                 </div>
                 <h3 className={styles.title}>{news.title}</h3>
                 <div className='controllers' />
               </div>
               <div className={styles.rightPart}>
-                <Image width={445} height={270} src={news.img} alt={'image'} />
+                <Image width={445} height={270} src={'https://farm2.staticflickr.com/1949/45717354341_a8dc471d63_b.jpg'} alt={'image'} />
               </div>
             </Link>
           );
