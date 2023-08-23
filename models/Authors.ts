@@ -18,7 +18,7 @@ export interface Authors {
   author: null | Author;
   authorNews: [] | Array<News>;
   authorFollowers: [] | Array<Author>;
-  // authorStats: any;
+  // authorStats: any; // THIS IS FOR MODERATORS
 
   fetchAllAuthors: (page: number, search: string) => void;
   fetchAuthor: (authorId: number) => void;
@@ -27,7 +27,7 @@ export interface Authors {
   changeAuthor: (authorId: number, author: Object) => void;
   deleteAuthor: (authorId: number) => void;
   addAuthor: (author: object) => void;
-  // fetchAuthorStats: (authorId: number) => void;
-  // followAuthor: (authorId: number, data: object) => void;
-  // unfollowAuthor: (authorId: number, data: object) => void;
+  followAuthor: (authorId: number) => void;
+  unfollowAuthor: (authorId: number) => void;
+  // fetchAuthorStats: (authorId: number) => void; // THIS IS FOR MODERATORS
 }

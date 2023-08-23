@@ -1,5 +1,5 @@
 import { useHttp } from '@/hook/usehttp';
-import { getCookie } from '@/helpers/cookie';
+import { getCookie } from '@/services/cookie';
 
 const ItBelServices = () => {
   const _apiBase = 'http://127.0.0.1/api/';
@@ -103,16 +103,15 @@ const ItBelServices = () => {
     });
   };
 
-  // const toggleFollowUnfollow = async (url: string, data: object) => {
-  //   return await request({
-  //     url: `${_apiBase}${url}`,
-  //     data: {
-  //       method: 'POST',
-  //       body: JSON.stringify(data),
-  //       headers: { 'Content-Type': 'application/json' },
-  //     },
-  //   });
-  // };
+  const toggleFollowUnfollow = async (url: string) => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      },
+    });
+  };
 
   const getNews = async (url: string = 'news/') => {
     return await request({
@@ -193,7 +192,7 @@ const ItBelServices = () => {
     addAuthor,
     changeAuthor,
     deleteAuthor,
-    // toggleFollowUnfollow,
+    toggleFollowUnfollow,
     getNews,
     getNewsComments,
     addNews,
