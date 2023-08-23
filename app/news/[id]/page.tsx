@@ -31,8 +31,8 @@ const Page = () => {
     fetchNewsComments(id);
   }, [id]);
 
-  const loading: string | null = isLoading ? 'Загрузка данных' : null;
-  const content: React.JSX.Element | null  = (!isLoading && news && newsComments) ? <View news={news} newsComments={newsComments} /> : null;
+  const loading = isLoading ? 'Загрузка данных' : null;
+  const content = (!isLoading && news && newsComments) ? <View news={news} newsComments={newsComments} /> : null;
 
   return (
     <div>

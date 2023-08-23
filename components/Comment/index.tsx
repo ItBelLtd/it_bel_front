@@ -3,7 +3,7 @@ import styles from './comment.module.css';
 import Image from 'next/image';
 import { comment } from '@/models/News';
 
-const Comment = ({ comment_id, text, author, total_likes, added }: comment): React.JSX.Element => {
+const Comment = ({ comment_id, text, author, total_likes, added }: comment) => {
   return (
     <div className={styles.comment}>
       <Image

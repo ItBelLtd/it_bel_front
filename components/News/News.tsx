@@ -14,7 +14,7 @@ type props = {
   img?: string
 };
 
-const News: React.FC<props> = ({ id, title, date, description, img }: props): React.JSX.Element => {
+const News = ({ id, title, date, description, img }: props) => {
   return (
     <Link href={`news/${String(id)}`}>
       <div className={styles.recNews}>
