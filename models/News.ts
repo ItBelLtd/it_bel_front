@@ -1,35 +1,23 @@
-import { Comment } from '@/models/Comment';
-
-export interface News {
-  id: number;
-  title: string;
-  date: string;
-  dscr: string;
-  img: string;
-  authorName: string;
-  comments: Comment[];
-}
-
-type author = {
+export interface Author {
   author_id: number;
   name: string;
   surname: string;
   age: number;
-  email: string;
+  // email: string;
   date_joined: string;
 };
 
-type news = {
+export interface News {
   news_id: number;
   title: string;
-  author: author;
+  author: Author;
   description: string;
   content: string;
   total_likes: number;
   added: string;
 };
 
-type comment = {
+export interface Comment {
   comment_id: number;
   text: string;
   author: number;
@@ -38,11 +26,12 @@ type comment = {
 };
 
 export interface NewsStore {
-  allNews: [] | Array<news>;
-  popularNews: [] | Array<news>;
-  latestNews: [] | Array<news>;
-  news: null | news;
-  newsComments: null | Array<comment>;
+  isLoading: boolean;
+  allNews: [] | Array<News>;
+  popularNews: [] | Array<News>;
+  latestNews: [] | Array<News>;
+  news: null | News;
+  newsComments: null | Array<Comment>;
   fetchAllNews: () => void;
   fetchPopularNews: () => void;
   fetchLatestNews: (page: number) => void;
@@ -56,11 +45,7 @@ export interface NewsStore {
   // likeNewsComment: (newsId: number, commentId: number, data: object) => void;
   // unlikeNewsComment: (newsId: number, commentId: number, data: object) => void;
   changeNews: (newsId: number, news: object) => void;
-  changeNewsComment: (
-    newsId: number,
-    commentId: number,
-    comment: object,
-  ) => void;
+  changeNewsComment: (newsId: number, commentId: number, comment: object) => void;
   deleteNews: (newsId: number) => void;
   deleteNewsComment: (newsId: number, commentId: number) => void;
 }

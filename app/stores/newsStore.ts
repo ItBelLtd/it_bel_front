@@ -1,10 +1,12 @@
-import { create } from 'zustand';
+import { createWithEqualityFn } from 'zustand/traditional';
 import { NewsStore } from '@/models/News';
 import ItBelServices from '@/services/ItBelServices';
 import { devtools } from 'zustand/middleware';
+import { shallow } from 'zustand/shallow';
 
-export const useNews = create<NewsStore>()(
+export const useNews = createWithEqualityFn<NewsStore>()(
   devtools((set) => ({
+    isLoading: false,
     allNews: [],
     popularNews: [],
     latestNews: [],
@@ -25,7 +27,7 @@ export const useNews = create<NewsStore>()(
 
       try {
         const res = await getNews('news/popular/');
-        set({ popularNews: res.results });
+        set({ popularNews: res });
       } catch (e) {
         /*какие-то действия */
       }
@@ -34,7 +36,7 @@ export const useNews = create<NewsStore>()(
       const { getNews } = ItBelServices();
 
       try {
-        const res = await getNews(`news/?page=${page}/`);
+        const res = await getNews(`news/?page=${page}`);
         set({ latestNews: res.results });
       } catch (e) {
         /*какие-то действия */
@@ -42,12 +44,15 @@ export const useNews = create<NewsStore>()(
     },
     fetchNews: async (newsId: number) => {
       const { getNews } = ItBelServices();
+      set({isLoading: true});
 
       try {
         const res = await getNews(`news/${newsId}/`);
         set({ news: res });
       } catch (e) {
         /*какие-то действия */
+      } finally {
+        set({ isLoading: false });
       }
     },
     fetchNewsComments: async (newsId: number) => {
@@ -185,5 +190,5 @@ export const useNews = create<NewsStore>()(
         /*какие-то действия */
       }
     },
-  })),
+  })), shallow
 );
