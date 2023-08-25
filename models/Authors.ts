@@ -20,7 +20,7 @@ export interface Authors {
   authorFollowers: [] | Array<Author>;
   // authorStats: any; // THIS IS FOR MODERATORS
 
-  fetchAllAuthors: (page: number, search: string) => void;
+  fetchAllAuthors: (page: number, search?: string) => void;
   fetchAuthor: (authorId: number) => void;
   fetchAuthorNews: (authorId: number) => void;
   fetchAuthorsFollowers: (authorId: number) => void;

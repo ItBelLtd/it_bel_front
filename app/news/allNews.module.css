@@ -1,0 +1,10 @@
+.newsContainer {
+  display: flex;
+    justify-content: space-between;
+}
+.authors {
+  background:  #151515;
+}
+.wrapper {
+  padding: 20px 15px;
+}

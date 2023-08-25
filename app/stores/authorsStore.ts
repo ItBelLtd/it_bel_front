@@ -10,11 +10,11 @@ export const useAuthors = create<Authors>()(
     authorNews: [],
     authorFollowers: [],
     // authorStats: null,
-    fetchAllAuthors: async (page: number, search: string) => {
+    fetchAllAuthors: async (page: number, search: string = '') => {
       const { getAuthors } = ItBelServices();
-
+      const searchText = search == '' ? '' : `&search=${search}/`;
       try {
-        const res = await getAuthors(`authors/?page=${page}&search=${search}/`);
+        const res = await getAuthors(`authors/?page=${page}${searchText}`);
         set({ allAuthors: res.results });
       } catch (e) {
         throw new Error('Что-то пошло не так');
