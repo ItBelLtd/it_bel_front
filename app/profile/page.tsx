@@ -1,23 +1,23 @@
-import { Metadata, NextPage } from 'next';
+'use client';
+import { NextPage } from 'next';
 import AuthorCard from '@/components/AuthorCard';
 import Tabs from '@/components/Tabs';
 import styles from './profile.module.css';
-
-export const metadata: Metadata = {
-  title: 'IT_BEL | Profile',
-};
+import { useEffect } from 'react';
+import { useUser } from '@/app/stores/userStore';
 
 const Profile: NextPage = () => {
-  const avatarURL = '/author-avatar-slug.png'; // В последствие переделать
+  const { getUserProfile, info } = useUser((state) => ({
+    getUserProfile: state.getUserProfile,
+    info: state.info,
+  }));
+  useEffect(() => {
+    getUserProfile();
+  });
   return (
     <div className={styles.container}>
-      <AuthorCard
-        avatarURL={avatarURL}
-        name={'Иван Иванов'}
-        contact={'@ivanI'}
-        authorID={1}
-      />
-      <Tabs />
+      <AuthorCard info={info} />
+      <Tabs info={info} />
     </div>
   );
 };
