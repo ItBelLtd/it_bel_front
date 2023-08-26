@@ -1,10 +1,10 @@
 'use client';
-import styles from './profile.module.css';
-import React from 'react';
+import styles from './works.module.css';
+import React, { useEffect } from 'react';
 import { useUser } from '@/app/stores/userStore';
 import { roboto_mono } from '@/app/fonts';
 
-const Profile = () => {
+const Works = () => {
   const { info } = useUser((state) => ({
     info: state.info,
   }));
@@ -28,4 +28,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Works;
