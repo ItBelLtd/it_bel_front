@@ -17,7 +17,7 @@ const PopularNews = () => {
 
   return (
     <div className={styles.container}>
-      <News dataNews={popularNews} width={260} height={177} />;
+      <News dataNews={popularNews} width={260} height={177} />
     </div>
   );
 };
