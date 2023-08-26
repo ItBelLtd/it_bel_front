@@ -2,7 +2,7 @@
 import styles from './input.module.css';
 
 export const Input = ({
-  text= 'Поиск',
+  text = 'Поиск',
   width = '350px',
 }: {
   text: string;

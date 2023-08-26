@@ -13,14 +13,15 @@ import styles from './news.module.css';
 import { roboto_mono } from '@/app/fonts';
 
 const Page = () => {
-  const { id }: {id?: number} = useParams();
-  const { fetchNews, news, isLoading, fetchNewsComments, newsComments } = useNews((state: NewsStore) => ({
-    fetchNews: state.fetchNews,
-    news: state.news,
-    fetchNewsComments: state.fetchNewsComments,
-    newsComments: state.newsComments,
-    isLoading: state.isLoading,
-  }));
+  const { id }: { id?: number } = useParams();
+  const { fetchNews, news, isLoading, fetchNewsComments, newsComments } =
+    useNews((state: NewsStore) => ({
+      fetchNews: state.fetchNews,
+      news: state.news,
+      fetchNewsComments: state.fetchNewsComments,
+      newsComments: state.newsComments,
+      isLoading: state.isLoading,
+    }));
 
   useEffect(() => {
     if (id) {
@@ -30,7 +31,10 @@ const Page = () => {
   }, [id]);
 
   const loading = isLoading ? 'Загрузка данных' : null;
-  const content = (!isLoading && news && newsComments) ? <View news={news} newsComments={newsComments} /> : null;
+  const content =
+    !isLoading && news && newsComments ? (
+      <View news={news} newsComments={newsComments} />
+    ) : null;
 
   return (
     <div>
@@ -40,14 +44,20 @@ const Page = () => {
   );
 };
 
-const View = ({news, newsComments}: {news: News, newsComments: Array<Comment>}) => {
-
+const View = ({
+  news,
+  newsComments,
+}: {
+  news: News;
+  newsComments: Array<Comment>;
+}) => {
   return (
     <div className='news'>
       <div
         className={styles.topPart}
         style={{
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://farm2.staticflickr.com/1949/45717354341_a8dc471d63_b.jpg")',
+          backgroundImage:
+            'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://farm2.staticflickr.com/1949/45717354341_a8dc471d63_b.jpg")',
         }}
       >
         <div className={styles.container}>
@@ -68,7 +78,9 @@ const View = ({news, newsComments}: {news: News, newsComments: Array<Comment>}) 
           </Link>
           <hr className={styles.hr} />
           <div className={styles.underlinePart}>
-            <p className={styles.date}>{news.added.slice(0, 10).replace(/-/g, '.')}</p>
+            <p className={styles.date}>
+              {news.added.slice(0, 10).replace(/-/g, '.')}
+            </p>
             <div className={styles.buttonGroup}>
               <button className={styles.commentsButton}>
                 <Image
@@ -101,25 +113,16 @@ const View = ({news, newsComments}: {news: News, newsComments: Array<Comment>}) 
             <p>{news.added.slice(0, 10).replace(/-/g, '.')}</p>
             <button className={`${styles.shareButton} + ${styles.share}`}>
               <p>Поделиться</p>
-              <Image
-                src={'/share_icon.svg'}
-                width={24}
-                height={24}
-                alt={''}
-              />
+              <Image src={'/share_icon.svg'} width={24} height={24} alt={''} />
             </button>
           </div>
           <hr className={styles.hr} />
-          <p
-            className={`${styles.numberComments} + ${roboto_mono.className}`}
-          >
+          <p className={`${styles.numberComments} + ${roboto_mono.className}`}>
             100+ комментариев к этой статье
           </p>
           <div className={styles.comments}>
             {newsComments.map((comment: Comment) => {
-              return (
-                <CommentComp {...comment} key={comment.comment_id} />
-              );
+              return <CommentComp {...comment} key={comment.comment_id} />;
             })}
           </div>
         </div>

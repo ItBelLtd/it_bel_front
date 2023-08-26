@@ -1,10 +1,21 @@
 .newsContainer {
   display: flex;
-    justify-content: space-between;
+  justify-content: space-between;
 }
+
 .authors {
-  background:  #151515;
+  height: fit-content;
+  background: #151515;
 }
+
 .wrapper {
   padding: 20px 15px;
+}
+
+.title {
+  margin-bottom: 34px;
+  font-weight: 700;
+  font-size: 24px;
+  font-style: normal;
+  line-height: normal;
 }

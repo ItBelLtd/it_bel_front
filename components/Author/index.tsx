@@ -1,19 +1,14 @@
 'use client';
-import { useAuthors } from '@/app/stores/authorsStore';
-import { useEffect } from 'react';
+import { Author } from '@/models/Authors';
 
 import Image from 'next/image';
 import styles from './author.module.css';
 
-const Author = () => {
-  const { getAuthors, allAuthors } = useAuthors((state) => ({
-    getAuthors: state.fetchAllAuthors,
-    allAuthors: state.allAuthors,
-  }));
-  useEffect(() => {
-    getAuthors(1);
-  }, []);
+interface Props {
+  allAuthors: Author[];
+}
 
+const Author = ({ allAuthors }: Props) => {
   const renderAuthor = () => {
     const authors = allAuthors.map((item) => {
       return (

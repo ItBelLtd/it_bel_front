@@ -21,9 +21,7 @@ const PopularNews = () => {
   return (
     <div className={styles.container}>
       {popularNews.map((news: ModelNews) => {
-        return (
-          <News key={news.news_id} {...news}/>
-        );
+        return <News key={news.news_id} {...news} />;
       })}
     </div>
   );

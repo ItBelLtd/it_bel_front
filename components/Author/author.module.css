@@ -1,18 +1,20 @@
 .authorCard {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  margin: 10px 8px 0px;
+  justify-content: space-between;
+  margin: 10px 8px 0;
 }
-.authorCard:first-child{
+
+.authorCard:first-child {
   margin-top: 15px;
 }
+
 .name {
   margin: 0;
-  color: #FFF;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  font-style: normal;
+  line-height: normal;
 }

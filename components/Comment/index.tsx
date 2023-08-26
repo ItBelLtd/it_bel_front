@@ -16,7 +16,9 @@ const Comment = ({ comment_id, text, author, total_likes, added }: Comment) => {
       <div className={styles.commentContent}>
         <div className={styles.commentTopPart}>
           <p className={styles.commentAuthor}>{author}</p>
-          <p className={styles.commentDate}>{added.slice(0, 10).replace(/-/g, '.')}</p>
+          <p className={styles.commentDate}>
+            {added.slice(0, 10).replace(/-/g, '.')}
+          </p>
         </div>
         <p className={styles.commentText}>{text}</p>
       </div>

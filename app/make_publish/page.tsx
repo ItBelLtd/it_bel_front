@@ -15,7 +15,6 @@ const TextEditor: NextPage = () => {
       <input placeholder='Введите название новости' />
       <input placeholder='Введите краткое описание новости' />
       <TinyMCEEditor value={content} onChange={handleContentChange} />
-      
     </div>
   );
 };
