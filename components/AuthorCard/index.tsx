@@ -2,31 +2,45 @@
 import Button from '@/components/Button/Button';
 import Image from 'next/image';
 import styles from './author-card.module.css';
+import { Info } from '@/models/User';
+import { useEffect, useState } from 'react';
 
-interface AuthorCardProps {
+interface AuthorCardFields {
   avatarURL: string;
-  name: string;
-  contact: string;
-  authorID: number;
+  firstField: string;
+  secondField: string;
 }
 
-const AuthorCard = ({
-  avatarURL,
-  name,
-  contact,
-  authorID,
-}: AuthorCardProps) => {
+const AuthorCard = ({ info }: { info: Info }) => {
+  const [fields, setFields] = useState<AuthorCardFields>({
+    avatarURL: '/author-avatar-slug.png',
+    firstField: 'Loading...',
+    secondField: 'Loading...',
+  });
+  useEffect(() => {
+    info.as_author !== null
+      ? setFields({
+          avatarURL: '/author-avatar-slug.png',
+          firstField: `${info.as_author.name} ${info.as_author.surname}`,
+          secondField: info.email,
+        })
+      : setFields({
+          avatarURL: '/author-avatar-slug.png',
+          firstField: info.username ? info.username : 'Какой-то ник',
+          secondField: `${info.email}`,
+        });
+  }, []);
+
   const handleUnfollowEvent = () => {
     // здесь будет запрос для отписки от автора по его ID
     // console.log(authorID);
   };
-
   return (
     <div className={styles.card}>
       <div className={styles.cover}>
         <Image
-          alt='Аватар автора публикаций'
-          src={avatarURL}
+          alt='Аватар'
+          src={fields.avatarURL}
           objectFit='cover'
           width='120'
           height='160'
@@ -34,8 +48,8 @@ const AuthorCard = ({
       </div>
 
       <div className={styles.meta}>
-        <span className={styles.name}>{name}</span>
-        <span className={styles.contact}>{contact}</span>
+        <span className={styles.name}>{fields.firstField}</span>
+        <span className={styles.contact}>{fields.secondField}</span>
       </div>
 
       <Button
