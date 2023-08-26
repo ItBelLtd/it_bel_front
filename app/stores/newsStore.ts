@@ -44,7 +44,7 @@ export const useNews = createWithEqualityFn<NewsStore>()(
     },
     fetchNews: async (newsId: number) => {
       const { getNews } = ItBelServices();
-      set({isLoading: true});
+      set({ isLoading: true });
 
       try {
         const res = await getNews(`news/${newsId}/`);
@@ -190,5 +190,6 @@ export const useNews = createWithEqualityFn<NewsStore>()(
         /*какие-то действия */
       }
     },
-  })), shallow
+  })),
+  shallow,
 );

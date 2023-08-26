@@ -1,7 +1,7 @@
 export const anonymousLinks = [
   {
-    label: 'Авторы',
-    href: '/author',
+    label: 'Новости',
+    href: '/news',
   },
   {
     label: 'Регистрация',
@@ -14,8 +14,8 @@ export const anonymousLinks = [
 ];
 export const authorLinks = [
   {
-    label: 'Авторы',
-    href: '/author',
+    label: 'Новости',
+    href: '/news',
   },
   {
     label: 'Сделать публикацию',
@@ -28,8 +28,8 @@ export const authorLinks = [
 ];
 export const userLinks = [
   {
-    label: 'Авторы',
-    href: '/author',
+    label: 'Новости',
+    href: '/news',
   },
   {
     label: 'Выход',

@@ -45,13 +45,13 @@ const NavLinks = () => {
   }
 
   const links = LinksRender(
-    token == '' ? anonymousLinks : authorId == null ? userLinks : authorLinks,
+    !token ? anonymousLinks : authorId ? authorLinks : userLinks,
   );
-
+  console.log(token);
   return (
     <>
-      {token == '' ? (
-        links
+      {!token ? (
+        <>{links}</>
       ) : (
         <>
           {links}

@@ -3,9 +3,6 @@ import { useEffect } from 'react';
 import { useNews } from '@/app/stores/newsStore';
 
 import News from '@/components/News/News';
-import { News as ModelNews } from '@/models/News';
-// import { merriweather_sans, ro/boto_mono } from '@/app/fonts';
-
 import styles from './PopularNews.module.css';
 
 const PopularNews = () => {
@@ -20,11 +17,7 @@ const PopularNews = () => {
 
   return (
     <div className={styles.container}>
-      {popularNews.map((news: ModelNews) => {
-        return (
-          <News key={news.news_id} {...news}/>
-        );
-      })}
+      <News dataNews={popularNews} width={260} height={177} />;
     </div>
   );
 };

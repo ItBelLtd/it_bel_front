@@ -116,11 +116,7 @@ const ItBelServices = () => {
   const getNews = async (url: string = 'news/') => {
     return await request({
       url: `${_apiBase}${url}`,
-      data: {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      },
+      data: {},
     });
   };
 

@@ -2,7 +2,7 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import styles from './Slider.module.css';
-import {News} from '@/models/News';
+import { News } from '@/models/News';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useNews } from '@/app/stores/newsStore';
@@ -111,13 +111,22 @@ const MyCarousel = () => {
               <div className={styles.leftPart}>
                 <div className={styles.topPart}>
                   <h4 className={styles.authorName}>{news.author.name}</h4>
-                  <h4 className={styles.date}>{news.added.slice(0, 10).replace(/-/g, '.')}</h4>
+                  <h4 className={styles.date}>
+                    {news.added.slice(0, 10).replace(/-/g, '.')}
+                  </h4>
                 </div>
                 <h3 className={styles.title}>{news.title}</h3>
                 <div className='controllers' />
               </div>
               <div className={styles.rightPart}>
-                <Image width={445} height={270} src={'https://farm2.staticflickr.com/1949/45717354341_a8dc471d63_b.jpg'} alt={'image'} />
+                <Image
+                  width={445}
+                  height={270}
+                  src={
+                    'https://farm2.staticflickr.com/1949/45717354341_a8dc471d63_b.jpg'
+                  }
+                  alt={'image'}
+                />
               </div>
             </Link>
           );

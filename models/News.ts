@@ -5,7 +5,7 @@ export interface Author {
   age: number;
   // email: string;
   date_joined: string;
-};
+}
 
 export interface News {
   news_id: number;
@@ -15,7 +15,7 @@ export interface News {
   content: string;
   total_likes: number;
   added: string;
-};
+}
 
 export interface Comment {
   comment_id: number;
@@ -23,7 +23,7 @@ export interface Comment {
   author: number;
   total_likes: number;
   added: string;
-};
+}
 
 export interface NewsStore {
   isLoading: boolean;
@@ -45,7 +45,11 @@ export interface NewsStore {
   // likeNewsComment: (newsId: number, commentId: number, data: object) => void;
   // unlikeNewsComment: (newsId: number, commentId: number, data: object) => void;
   changeNews: (newsId: number, news: object) => void;
-  changeNewsComment: (newsId: number, commentId: number, comment: object) => void;
+  changeNewsComment: (
+    newsId: number,
+    commentId: number,
+    comment: object,
+  ) => void;
   deleteNews: (newsId: number) => void;
   deleteNewsComment: (newsId: number, commentId: number) => void;
 }
