@@ -5,14 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './news.module.css';
 
-// import { News } from '@/models/News';
-// type Props = {
-//   id?: number;
-//   title?: string;
-//   date?: string;
-//   description?: string;
-//   img?: string;
-// };
 interface Props {
   dataNews: News[];
   width: number;
