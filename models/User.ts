@@ -6,7 +6,7 @@ export interface User {
   password: string;
 }
 
-interface Info {
+export interface Info {
   user_id: number;
   username: string | null;
   email: string;
