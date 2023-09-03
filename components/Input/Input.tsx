@@ -4,9 +4,11 @@ import styles from './input.module.css';
 export const Input = ({
   text = 'Поиск',
   width = '350px',
+  margin = '',
 }: {
-  text: string;
+  text: string ;
   width: string;
+  margin?: string ;
 }) => {
   return (
     <div className={styles.container}>
@@ -15,7 +17,7 @@ export const Input = ({
         type='text'
         name='name'
         placeholder={text}
-        style={{ width: width }}
+        style={{ width: width, margin:margin }}
       />
       {/*<Image*/}
       {/*  src='/saerch_icon.svg'*/}

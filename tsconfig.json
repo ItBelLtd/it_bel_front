@@ -28,7 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/TextEditor2/index.js"
+    "components/TextEditor2/index.js",
+    "app/news/loading.tsx"
   ],
   "exclude": ["node_modules"]
 }

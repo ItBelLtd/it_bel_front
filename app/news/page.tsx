@@ -26,11 +26,12 @@ const NewsPage = () => {
     <div className={`${styles.newsContainer} ${merriweather_sans.className}`}>
       <div className='news'>
         <h3 className={styles.title}> Все новости</h3>
+        <Input text='Ищите новости' width='226px' margin='0 0 20px'/>
         <News dataNews={allNews} width={260} height={177} />
       </div>
       <div className={styles.authors}>
         <div className={styles.wrapper}>
-          <Input text='Ищите автора' width='226px' />
+          <Input text='Ищите автора' width='226px'/>
           <Author allAuthors={allAuthors} />
         </div>
       </div>
