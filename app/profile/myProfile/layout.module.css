@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+.container div {
+  overflow: hidden;
+}
+.container > *:first-child {
+  margin-top: 42px;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 826px;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+}
+
+.tab {
+  font-size: 18px;
+  font-weight: bold;
+
+  display: block;
+  padding: 10px 20px;
+  background-color: #00508c;
+}
+
+.active {
+  background-color: #3f92d2;
+}
+
+.tabContent {
+  padding: 30px 20px;
+  min-height: 440px;
+  border: 1px solid #878787;
+
+  font-size: 16px;
+}

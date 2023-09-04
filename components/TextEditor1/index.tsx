@@ -8,8 +8,6 @@ const TextEditor1 = () => {
   const [editorContent, setEditorContent] = useState<string>('');
 
   const handleEditorChange = (editorContent: any) => {
-    console.log(editorContent);
-
     setEditorContent(editorContent);
   };
 
@@ -84,7 +82,6 @@ const TextEditor1 = () => {
           type='submit'
           onSubmit={(e) => {
             e.preventDefault();
-            console.log(editorContent);
           }}
         >
           Отправить

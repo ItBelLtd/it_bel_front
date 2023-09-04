@@ -1,8 +1,9 @@
 import { createWithEqualityFn } from 'zustand/traditional';
 import { NewsStore } from '@/models/News';
-import ItBelServices from '@/services/ItBelServices';
 import { devtools } from 'zustand/middleware';
 import { shallow } from 'zustand/shallow';
+
+import ItBelServices from '@/services/ItBelServices';
 
 export const useNews = createWithEqualityFn<NewsStore>()(
   devtools((set) => ({
@@ -82,7 +83,6 @@ export const useNews = createWithEqualityFn<NewsStore>()(
 
       try {
         const res = await addNews(news);
-        console.log(res, 'Successful');
       } catch (e) {
         /*какие-то действия */
       }
@@ -92,7 +92,6 @@ export const useNews = createWithEqualityFn<NewsStore>()(
 
       try {
         const res = await addNewsComment(`news/${newsId}/comments/`, comment);
-        console.log(res, 'Successful');
       } catch (e) {
         /*какие-то действия */
       }

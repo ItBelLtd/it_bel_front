@@ -15,7 +15,7 @@ const Profile = () => {
       </span>
       <p className={styles.timeIntervals}>
         <span className={styles.registrationInterval}>
-          Регистрация: {/*calculateTimePeriod(info.as_author.date_joined)*/}{' '}
+          Регистрация:1 {/*calculateTimePeriod(info.as_author.date_joined)*/}{' '}
           назад
         </span>
       </p>

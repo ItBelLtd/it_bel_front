@@ -1,51 +1,4 @@
 'use client';
-// import React, { useEffect, useState } from 'react';
-// import JoditEditor from 'jodit-react';
-// import dynamic from 'next/dynamic';
-// const TextEditorJodit = () => {
-//   // const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false });
-//   // const [content, setContent] = useState('');
-//   let content: string = '';
-//   console.log(content);
-//   // const config = {
-//   //   language: 'ru',
-//   //   tabIndex: 1,
-
-//   // };
-
-//   const config = {
-//     uploader: {
-//       insertImageAsBase64URI: true, // Вставлять изображения в виде base64
-//       insertImageAsBase64Mime: 'image/png', // MIME тип изображений
-//       filesVariableName: 'file', // Имя переменной для загрузки файла
-//       language: 'ru',
-//       events: {
-//         files: {
-//           beforeUpload: (files: any) => {
-//             // Обработчик загрузки файлов
-//             console.log('Files', files);
-//           },
-//         },
-//       },
-//     },
-//   };
-//   // const handleChange = (text: any) => {
-//   //   setContent(text);
-//   //   console.log(content);
-//   // };
-//   return (
-//     <JoditEditor
-//       value={content}
-//       config={config} // tabIndex of textarea
-//       // onBlur={(text) => handleChange(text)} // preferred to use only this option to update the content for performance reasons
-//       onChange={(text) => {
-//         content = text;
-//         console.log(content);
-//       }}
-//     />
-//   );
-// };
-// export default TextEditorJodit;
 import React from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 
@@ -57,7 +10,6 @@ type Props = {
 const TinyMCEEditor: React.FC<Props> = ({ value, onChange }) => {
   const handleEditorChange = (content: string) => {
     onChange(content);
-    console.log(content);
   };
   return (
     <Editor
