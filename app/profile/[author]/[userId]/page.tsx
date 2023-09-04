@@ -1,10 +1,10 @@
 'use client';
-import styles from './contacts.module.css';
-import React, { useEffect } from 'react';
+import styles from '../../myProfile/profile.module.css';
+import React from 'react';
 import { useUser } from '@/app/stores/userStore';
 import { roboto_mono } from '@/app/fonts';
 
-const Contacts = () => {
+const Profile = () => {
   const { info } = useUser((state) => ({
     info: state.info,
   }));
@@ -28,4 +28,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default Profile;

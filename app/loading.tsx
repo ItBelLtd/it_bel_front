@@ -4,7 +4,7 @@ const Loading = () => {
       xmlns='http://www.w3.org/2000/svg'
       style={{
         margin: 'auto',
-        background:' none',
+        background: ' none',
         display: 'block',
         shapeRendering: 'auto',
       }}

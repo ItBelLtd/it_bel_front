@@ -6,6 +6,7 @@ export interface Author {
   author_id: number;
   name: string;
   surname: string;
+  username: string;
   age: number;
   email: string;
   date_joined: string;

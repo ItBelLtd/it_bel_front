@@ -1,9 +1,11 @@
-import { create } from 'zustand';
+import { createWithEqualityFn } from 'zustand/traditional';
 import { Authors } from '@/models/Authors';
-import ItBelServices from '@/services/ItBelServices';
 import { devtools } from 'zustand/middleware';
+import { shallow } from 'zustand/shallow';
 
-export const useAuthors = create<Authors>()(
+import ItBelServices from '@/services/ItBelServices';
+
+export const useAuthors = createWithEqualityFn<Authors>()(
   devtools((set) => ({
     allAuthors: [],
     author: null,
@@ -87,7 +89,6 @@ export const useAuthors = create<Authors>()(
 
       try {
         const res = await toggleFollowUnfollow(`authors/${authorId}/follow`);
-        console.log(res);
       } catch (err) {
         throw new Error('Что-то пошло не так');
       }
@@ -97,7 +98,6 @@ export const useAuthors = create<Authors>()(
 
       try {
         const res = await toggleFollowUnfollow(`authors/${authorId}/unfollow`);
-        console.log(res);
       } catch (err) {
         throw new Error('Что-то пошло не так');
       }
@@ -114,4 +114,5 @@ export const useAuthors = create<Authors>()(
     //     }
     //   },
   })),
+  shallow,
 );

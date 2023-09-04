@@ -8,7 +8,7 @@ export interface User {
 
 export interface Info {
   user_id: number;
-  username: string | null;
+  username: string;
   email: string;
   as_author: {
     author_id: number;
@@ -17,11 +17,12 @@ export interface Info {
     age: number;
     date_joined: string;
   };
-  news: [];
+  news?: [];
 }
 
 export interface UserInfo {
   info: Info;
+  aboutSomeone: Info;
   getUserProfile: () => void;
   getUserInfo: (id: number) => void;
   getUserFollowing: (id: number) => void;

@@ -10,7 +10,6 @@ type Props = {
 const TinyMCEEditor: React.FC<Props> = ({ value, onChange }) => {
   const handleEditorChange = (content: string) => {
     onChange(content);
-    console.log(content);
   };
   return (
     <Editor

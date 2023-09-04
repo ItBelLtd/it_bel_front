@@ -1,9 +1,10 @@
 'use client';
+import { Info } from '@/models/User';
+import { useEffect, useState } from 'react';
+
 import Button from '@/components/Button/Button';
 import Image from 'next/image';
 import styles from './author-card.module.css';
-import { Info } from '@/models/User';
-import { useEffect, useState } from 'react';
 
 interface AuthorCardFields {
   avatarURL: string;
@@ -17,17 +18,18 @@ const AuthorCard = ({ info }: { info: Info }) => {
     firstField: 'Loading...',
     secondField: 'Loading...',
   });
+
   useEffect(() => {
     info.as_author !== null
       ? setFields({
           avatarURL: '/author-avatar-slug.png',
           firstField: `${info.as_author.name} ${info.as_author.surname}`,
-          secondField: info.email,
+          secondField: `${info.username}`,
         })
       : setFields({
           avatarURL: '/author-avatar-slug.png',
           firstField: info.username ? info.username : 'Какой-то ник',
-          secondField: `${info.email}`,
+          secondField: `${info.username}`,
         });
   }, []);
 
@@ -51,13 +53,14 @@ const AuthorCard = ({ info }: { info: Info }) => {
         <span className={styles.name}>{fields.firstField}</span>
         <span className={styles.contact}>{fields.secondField}</span>
       </div>
-
-      <Button
-        className={styles.button}
-        type='button'
-        text='Unfollow'
-        clickHandler={handleUnfollowEvent}
-      />
+      {info.as_author === null ? null : (
+        <Button
+          className={styles.button}
+          type='button'
+          text='Unfollow'
+          clickHandler={handleUnfollowEvent}
+        />
+      )}
     </div>
   );
 };

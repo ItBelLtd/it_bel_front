@@ -64,7 +64,7 @@ const View = ({
           <h1 className={`${styles.title} + ${roboto_mono.className}`}>
             {news.title}
           </h1>
-          <Link href={`/${news.author.name}`}>
+          <Link href={`/profile/${news.author.name}/${news.author.author_id}`}>
             <div className={styles.author}>
               <Image
                 className={styles.authorImg}
@@ -73,7 +73,10 @@ const View = ({
                 height={30}
                 alt={'img'}
               />
-              <p className={styles.authorName}>{news.author.name}</p>
+              <p className={styles.authorName}>
+                {news.author.name + ' '}
+                {news.author.surname}
+              </p>
             </div>
           </Link>
           <hr className={styles.hr} />

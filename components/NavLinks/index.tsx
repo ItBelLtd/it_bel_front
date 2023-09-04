@@ -47,7 +47,6 @@ const NavLinks = () => {
   const links = LinksRender(
     !token ? anonymousLinks : authorId ? authorLinks : userLinks,
   );
-  console.log(token);
   return (
     <>
       {!token ? (
@@ -55,7 +54,7 @@ const NavLinks = () => {
       ) : (
         <>
           {links}
-          <Link href='/profile'>
+          <Link href={'/profile/myProfile/'}>
             <Image
               src='/userAvatar.jpg'
               width={40}

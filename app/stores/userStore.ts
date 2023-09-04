@@ -19,6 +19,18 @@ export const useUser = create<UserInfo>()(
       },
       news: [],
     },
+    aboutSomeone: {
+      user_id: 0,
+      username: '',
+      email: '',
+      as_author: {
+        author_id: 0,
+        name: '',
+        surname: '',
+        age: 0,
+        date_joined: '',
+      },
+    },
     getUserProfile: async () => {
       const { getUserInfo } = ItBelServices();
       const url = 'users/profile/';
@@ -36,7 +48,9 @@ export const useUser = create<UserInfo>()(
       const url = `users/${id}`;
       try {
         const res = getUserInfo(url);
-        res.then((data) => {});
+        res.then((data) => {
+          set({ aboutSomeone: data });
+        });
       } catch {
         throw new Error('Что-то пошло не так');
       }
