@@ -112,7 +112,7 @@ const MyCarousel = () => {
                 <div className={styles.topPart}>
                   <h4 className={styles.authorName}>{news.author.name}</h4>
                   <h4 className={styles.date}>
-                    {news.added.slice(0, 10).replace(/-/g, '.')}
+                    {news.added.replace(/ /g, '.')}
                   </h4>
                 </div>
                 <h3 className={styles.title}>{news.title}</h3>
@@ -122,9 +122,8 @@ const MyCarousel = () => {
                 <Image
                   width={445}
                   height={270}
-                  src={
-                    'https://farm2.staticflickr.com/1949/45717354341_a8dc471d63_b.jpg'
-                  }
+                  src={news.cover ? news.cover.replace('back:8000', '127.0.0.1') : 'https://farm2.staticflickr.com/1949/45717354341_a8dc471d63_b.jpg'}
+                  //src={'https://farm2.staticflickr.com/1949/45717354341_a8dc471d63_b.jpg'}
                   alt={'image'}
                 />
               </div>

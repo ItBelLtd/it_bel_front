@@ -116,7 +116,23 @@ const ItBelServices = () => {
   const getNews = async (url: string = 'news/') => {
     return await request({
       url: `${_apiBase}${url}`,
-      data: {},
+      data: {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    });
+  };
+
+  const getNewsWithAuth = async (url: string = 'news/', token: string) => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Token ${token}`,
+        },
+      },
     });
   };
 
@@ -157,16 +173,20 @@ const ItBelServices = () => {
     });
   };
 
-  // const toggleLikeUnlike = async (url: string, data: object) => {
-  //   return await request({
-  //     url: `${_apiBase}${url}`,
-  //     data: {
-  //       method: 'POST',
-  //       body: JSON.stringify(data),
-  //       headers: { 'Content-Type': 'application/json' },
-  //     },
-  //   });
-  // };
+  const toggleLikeDislike = async (url: string) => {
+    const token = getCookie('userToken');
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {
+        method: 'POST',
+        body: JSON.stringify({}),
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Token ${token}`,
+        },
+      },
+    });
+  };
 
   const changeNewsOrComment = async (url: string, changes: object) => {
     const token = getCookie('userToken');
@@ -210,10 +230,11 @@ const ItBelServices = () => {
     deleteAuthor,
     toggleFollowUnfollow,
     getNews,
+    getNewsWithAuth,
     getNewsComments,
     addNews,
     addNewsComment,
-    // toggleLikeUnlike,
+    toggleLikeDislike,
     changeNewsOrComment,
     deleteNewsOrComment,
   };

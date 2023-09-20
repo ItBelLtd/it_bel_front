@@ -48,6 +48,7 @@ const TinyMCEEditor: React.FC<Props> = ({ value, onChange }) => {
           }
         },
       }}
+      value={value}
       onEditorChange={handleEditorChange}
     />
   );

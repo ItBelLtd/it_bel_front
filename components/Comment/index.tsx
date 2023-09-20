@@ -1,9 +1,38 @@
-import React from 'react';
-import styles from './comment.module.css';
+import React, {useState, useEffect} from 'react';
+import {useParams} from 'next/navigation';
+import { useNews } from '@/app/stores/newsStore';
+import {getCookie} from '@/services/cookie';
+
+import LikeIcon from '@/components/LikeIcon/LikeIcon';
 import Image from 'next/image';
-import { Comment } from '@/models/News';
+
+import { Comment, NewsStore } from '@/models/News';
+
+import styles from './comment.module.css';
 
 const Comment = ({ comment_id, text, author, total_likes, added }: Comment) => {
+  const [like, setLike] = useState(false);
+  const {id}: {id?: number} = useParams();
+  const token = getCookie('userToken');
+  const {likeNewsComment} = useNews((state: NewsStore) => ({
+    likeNewsComment: state.likeNewsComment,
+  }));
+
+  // useEffect(() => {
+  //   updateLike();
+  // }, []);
+
+  const onLike = () => {
+    if (id) {
+      setLike(!like);
+      likeNewsComment(id, comment_id);
+    }
+  };
+
+  // const updateLike = () => {
+  //   vote ? setLike(true) : null;
+  // };
+
   return (
     <div className={styles.comment}>
       <Image
@@ -15,10 +44,15 @@ const Comment = ({ comment_id, text, author, total_likes, added }: Comment) => {
       />
       <div className={styles.commentContent}>
         <div className={styles.commentTopPart}>
-          <p className={styles.commentAuthor}>{author}</p>
+          <p className={styles.commentAuthor}>{author.username}</p>
           <p className={styles.commentDate}>
-            {added.slice(0, 10).replace(/-/g, '.')}
+            {added.replace(/ /g, '.')}
           </p>
+          {token && (
+            <button className={styles.likeButton} onClick={onLike}>
+              <LikeIcon color={like ? '#3f92d2' : '#ffffff'} />
+            </button>
+          )}
         </div>
         <p className={styles.commentText}>{text}</p>
       </div>

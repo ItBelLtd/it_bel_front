@@ -7,7 +7,6 @@ import ItBelServices from '@/services/ItBelServices';
 
 export const useNews = createWithEqualityFn<NewsStore>()(
   devtools((set) => ({
-    isLoading: false,
     allNews: [],
     popularNews: [],
     latestNews: [],
@@ -45,15 +44,22 @@ export const useNews = createWithEqualityFn<NewsStore>()(
     },
     fetchNews: async (newsId: number) => {
       const { getNews } = ItBelServices();
-      set({ isLoading: true });
 
       try {
         const res = await getNews(`news/${newsId}/`);
         set({ news: res });
       } catch (e) {
         /*какие-то действия */
-      } finally {
-        set({ isLoading: false });
+      }
+    },
+    fetchNewsWithAuth: async (newsId: number, token: string) => {
+      const { getNewsWithAuth } = ItBelServices();
+
+      try {
+        const res = await getNewsWithAuth(`news/${newsId}/`, token);
+        set({ news: res });
+      } catch (e) {
+        /*какие-то действия */
       }
     },
     fetchNewsComments: async (newsId: number) => {
@@ -82,64 +88,49 @@ export const useNews = createWithEqualityFn<NewsStore>()(
       const { addNews } = ItBelServices();
 
       try {
-        const res = await addNews(news);
+        await addNews(news);
       } catch (e) {
         /*какие-то действия */
       }
     },
     addNewsComment: async (newsId: number, comment: object) => {
-      const { addNewsComment } = ItBelServices();
+      const { addNewsComment, getNewsComments } = ItBelServices();
 
       try {
-        const res = await addNewsComment(`news/${newsId}/comments/`, comment);
+        await addNewsComment(`news/${newsId}/comments/`, comment);
+        const res = await getNewsComments(`news/${newsId}/comments/`);
+        set({ newsComments: res.results });
       } catch (e) {
         /*какие-то действия */
       }
     },
-    // likeNews: async (newsId: number, data: object) => {
-    //   const { toggleLikeUnlike } = ItBelServices();
-    //
-    //   try {
-    //     const res = await toggleLikeUnlike(`news/${newsId}/like/`, data);
-    //     console.log(res);
-    //     // set({ newsComments: res.results });
-    //   } catch (e) {
-    //     /*какие-то действия */
-    //   }
-    // },
-    // unlikeNews: async (newsId: number, data: object) => {
-    //   const { toggleLikeUnlike } = ItBelServices();
-    //
-    //   try {
-    //     const res = await toggleLikeUnlike(`news/${newsId}/unlike/`, data);
-    //     console.log(res);
-    //     // set({ newsComments: res.results });
-    //   } catch (e) {
-    //     /*какие-то действия */
-    //   }
-    // },
-    // likeNewsComment: async (newsId: number, commentId: number, data: object) => {
-    //   const { toggleLikeUnlike } = ItBelServices();
-    //
-    //   try {
-    //     const res = await toggleLikeUnlike(`news/${newsId}/comments/${commentId}/like/`, data);
-    //     console.log(res);
-    //     // set({ newsComments: res.results });
-    //   } catch (e) {
-    //     /*какие-то действия */
-    //   }
-    // },
-    // unlikeNewsComment: async (newsId: number, commentId: number, data: object) => {
-    //   const { toggleLikeUnlike } = ItBelServices();
-    //
-    //   try {
-    //     const res = await toggleLikeUnlike(`news/${newsId}/comments/${commentId}/unlike/`, data);
-    //     console.log(res);
-    //     // set({ newsComments: res.results });
-    //   } catch (e) {
-    //     /*какие-то действия */
-    //   }
-    // },
+    likeNews: async (newsId: number) => {
+      const { toggleLikeDislike } = ItBelServices();
+
+      try {
+        await toggleLikeDislike(`news/${newsId}/like/`);
+      } catch (e) {
+        /*какие-то действия */
+      }
+    },
+    dislikeNews: async (newsId: number) => {
+      const { toggleLikeDislike } = ItBelServices();
+
+      try {
+        await toggleLikeDislike(`news/${newsId}/dislike/`);
+      } catch (e) {
+        /*какие-то действия */
+      }
+    },
+    likeNewsComment: async (newsId: number, commentId: number) => {
+      const { toggleLikeDislike } = ItBelServices();
+
+      try {
+        await toggleLikeDislike(`news/${newsId}/comments/${commentId}/like/`);
+      } catch (e) {
+        /*какие-то действия */
+      }
+    },
     changeNews: async (newsId: number, news: object) => {
       const { changeNewsOrComment } = ItBelServices();
 

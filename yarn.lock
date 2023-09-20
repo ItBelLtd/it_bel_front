@@ -597,6 +597,13 @@
     prop-types "^15.6.2"
     tinymce "^6.3.1"
 
+"@types/dompurify@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@types/dompurify/-/dompurify-3.0.2.tgz#c1cd33a475bc49c43c2a7900e41028e2136a4553"
+  integrity sha512-YBL4ziFebbbfQfH5mlC+QTJsvh0oJUrWbmxKMyEdL7emlHJqGR2Qb34TEFKj+VCayBvjKy3xczMFNhugThUsfQ==
+  dependencies:
+    "@types/trusted-types" "*"
+
 "@types/glob@^7.1.1":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.2.0.tgz#bc1b5bf3aa92f25bd5dd39f35c57361bdce5b2eb"
@@ -674,6 +681,11 @@
   version "0.16.3"
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.3.tgz#cef09e3ec9af1d63d2a6cc5b383a737e24e6dcf5"
   integrity sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==
+
+"@types/trusted-types@*":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.3.tgz#a136f83b0758698df454e328759dbd3d44555311"
+  integrity sha512-NfQ4gyz38SL8sDNrSixxU2Os1a5xcdFxipAFxYEuLUlvU2uDwS4NUpsImcf1//SlWItCVMMLiylsxbmNMToV/g==
 
 "@types/unist@*", "@types/unist@^3.0.0":
   version "3.0.0"
@@ -1610,6 +1622,11 @@ domhandler@^2.3.0:
   integrity sha512-JiK04h0Ht5u/80fdLMCEmV4zkNh2BcoMFBmZ/91WtYZ8qVXSKjiw7fXMgFPnHcSZgOo3XdinHvmnDUeMf5R4wA==
   dependencies:
     domelementtype "1"
+
+dompurify@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.0.5.tgz#eb3d9cfa10037b6e73f32c586682c4b2ab01fbed"
+  integrity sha512-F9e6wPGtY+8KNMRAVfxeCOHU0/NPWMSENNq4pQctuXRqqdEPW7q3CrLbR5Nse044WwacyjHGOMlvNsBe1y6z9A==
 
 domutils@^1.5.1:
   version "1.7.0"
