@@ -39,6 +39,7 @@ export interface Comment {
   author: AuthorComment;
   total_likes: number;
   added: string;
+  vote: number;
 }
 
 export interface NewsStore {
@@ -53,6 +54,7 @@ export interface NewsStore {
   fetchNews: (newsId: number) => void;
   fetchNewsWithAuth: (newsId: number, token: string) => void;
   fetchNewsComments: (newsId: number) => void;
+  fetchNewsCommentsWithAuth: (newsId: number, token: string) => void;
   fetchNewsComment: (newsId: number, commentId: number) => void;
   addNews: (news: object) => void;
   addNewsComment: (newsId: number, comment: object) => void;

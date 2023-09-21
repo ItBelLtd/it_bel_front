@@ -72,6 +72,16 @@ export const useNews = createWithEqualityFn<NewsStore>()(
         /*какие-то действия */
       }
     },
+    fetchNewsCommentsWithAuth: async (newsId: number, token: string) => {
+      const { getNewsCommentsWithAuth } = ItBelServices();
+
+      try {
+        const res = await getNewsCommentsWithAuth(`news/${newsId}/comments/`, token);
+        set({ newsComments: res.results });
+      } catch (e) {
+        /*какие-то действия */
+      }
+    },
     fetchNewsComment: async (newsId: number, commentId: number) => {
       const { getNewsComments } = ItBelServices();
 

@@ -10,7 +10,7 @@ import { Comment, NewsStore } from '@/models/News';
 
 import styles from './comment.module.css';
 
-const Comment = ({ comment_id, text, author, total_likes, added }: Comment) => {
+const Comment = ({ comment_id, text, author, total_likes, added, vote }: Comment) => {
   const [like, setLike] = useState(false);
   const {id}: {id?: number} = useParams();
   const token = getCookie('userToken');
@@ -18,9 +18,9 @@ const Comment = ({ comment_id, text, author, total_likes, added }: Comment) => {
     likeNewsComment: state.likeNewsComment,
   }));
 
-  // useEffect(() => {
-  //   updateLike();
-  // }, []);
+  useEffect(() => {
+    updateLike();
+  }, []);
 
   const onLike = () => {
     if (id) {
@@ -29,9 +29,9 @@ const Comment = ({ comment_id, text, author, total_likes, added }: Comment) => {
     }
   };
 
-  // const updateLike = () => {
-  //   vote ? setLike(true) : null;
-  // };
+  const updateLike = () => {
+    vote ? setLike(true) : null;
+  };
 
   return (
     <div className={styles.comment}>
@@ -46,7 +46,7 @@ const Comment = ({ comment_id, text, author, total_likes, added }: Comment) => {
         <div className={styles.commentTopPart}>
           <p className={styles.commentAuthor}>{author.username}</p>
           <p className={styles.commentDate}>
-            {added.replace(/ /g, '.')}
+            {added}
           </p>
           {token && (
             <button className={styles.likeButton} onClick={onLike}>

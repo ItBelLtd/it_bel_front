@@ -23,7 +23,7 @@ const News = ({ dataNews, width, height }: Props) => {
                 {item.title || 'Заголовка нет'}
               </h3>
               <h4 className={styles.date}>
-                {item.added.replace(/ /g, '.') || 'Дата добавления не известна'}
+                {item.added || 'Дата добавления не известна'}
               </h4>
               <p className={styles.content} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.content) }}>
                 {/*{item.content || 'Описание пока не придумали...'}*/}

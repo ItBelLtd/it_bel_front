@@ -143,6 +143,18 @@ const ItBelServices = () => {
     });
   };
 
+  const getNewsCommentsWithAuth = async (url: string, token: string) => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Token ${token}`,
+        },
+      },
+    });
+  };
+
   const addNews = async (news: object) => {
     const token = getCookie('userToken');
     return await request({
@@ -232,6 +244,7 @@ const ItBelServices = () => {
     getNews,
     getNewsWithAuth,
     getNewsComments,
+    getNewsCommentsWithAuth,
     addNews,
     addNewsComment,
     toggleLikeDislike,

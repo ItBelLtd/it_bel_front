@@ -25,18 +25,19 @@ const Page = () => {
   const [dislike, setDislike] = useState(false);
   const [commentText, setCommentText] = useState('');
   const { id }: {id?: number} = useParams();
-  const { fetchNews, fetchNewsWithAuth, news, fetchNewsComments, newsComments, addNewsComment, likeNews, dislikeNews } =
+  const { fetchNews, fetchNewsWithAuth, news, fetchNewsComments, fetchNewsCommentsWithAuth, newsComments, addNewsComment, likeNews, dislikeNews } =
     useNews((state: NewsStore) => ({
       fetchNews: state.fetchNews,
       fetchNewsWithAuth: state.fetchNewsWithAuth,
       news: state.news,
       fetchNewsComments: state.fetchNewsComments,
+      fetchNewsCommentsWithAuth: state.fetchNewsCommentsWithAuth,
       newsComments: state.newsComments,
       addNewsComment: state.addNewsComment,
       likeNews: state.likeNews,
       dislikeNews: state.dislikeNews,
     }));
-  const { info } = useUser((state: UserInfo) => ({
+  const { info } = useUser((state) => ({
     info: state.info,
   }));
   const token = getCookie('userToken');
@@ -45,7 +46,7 @@ const Page = () => {
   useEffect(() => {
     if (id) {
       token ? fetchNewsWithAuth(id, token) : fetchNews(id);
-      fetchNewsComments(id);
+      token ? fetchNewsCommentsWithAuth(id, token) : fetchNewsComments(id);
     }
   }, [id]);
 
@@ -97,7 +98,7 @@ const Page = () => {
   const view = (news: News, newsComments: Array<Comment>) => {
     const url = news.cover
       ? news.cover.replace('back:8000', '127.0.0.1')
-      : 'https://farm2.staticflickr.com/1949/45717354341_a8dc471d63_b.jpg';
+      : 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg';
 
     return (
       <div className='news'>
@@ -127,7 +128,7 @@ const Page = () => {
             <hr className={styles.hr} />
             <div className={styles.underlinePart}>
               <p className={styles.date}>
-                {news.added.replace(/ /g, '.')}
+                {news.added}
               </p>
             </div>
           </div>
@@ -137,7 +138,7 @@ const Page = () => {
           <div className={styles.content} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(news.content) }} />
           <div className={styles.commentBlock}>
             <div className={styles.abovePart}>
-              <p>{news.added.replace(/ /g, '.')}</p>
+              <p>{news.added}</p>
               {token && (
                 <div style={{'display': 'flex'}}>
                   <button className={`${styles.shareButton}`} onClick={onDislike}>
