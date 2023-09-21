@@ -32,9 +32,22 @@ p {
 
 .commentDate {
   color: #878787;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .commentText {
   font-size: 16px;
+}
+
+.likeButton {
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.likeButton:hover svg g path {
+  stroke: #3f92d2;
 }
