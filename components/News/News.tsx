@@ -25,10 +25,19 @@ const News = ({ dataNews, width, height }: Props) => {
               <h4 className={styles.date}>
                 {item.added || 'Дата добавления не известна'}
               </h4>
-              <p className={styles.content} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.content) }} />
+              <p
+                className={styles.content}
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(item.content),
+                }}
+              />
             </div>
             <Image
-              src={ item.cover !== null ? item.cover.replace('back:8000', '127.0.0.1') : 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg'}
+              src={
+                item.cover !== null
+                  ? item.cover.replace('back:8000', '127.0.0.1')
+                  : 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg'
+              }
               width={width}
               height={height}
               className={styles.img}

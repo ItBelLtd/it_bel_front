@@ -51,3 +51,7 @@ p {
 .likeButton:hover svg g path {
   stroke: #3f92d2;
 }
+
+.authorComment {
+  display: contents;
+}

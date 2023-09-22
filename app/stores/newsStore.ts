@@ -76,7 +76,10 @@ export const useNews = createWithEqualityFn<NewsStore>()(
       const { getNewsCommentsWithAuth } = ItBelServices();
 
       try {
-        const res = await getNewsCommentsWithAuth(`news/${newsId}/comments/`, token);
+        const res = await getNewsCommentsWithAuth(
+          `news/${newsId}/comments/`,
+          token,
+        );
         set({ newsComments: res.results });
       } catch (e) {
         /*какие-то действия */
@@ -116,7 +119,6 @@ export const useNews = createWithEqualityFn<NewsStore>()(
     },
     likeNews: async (newsId: number) => {
       const { toggleLikeDislike } = ItBelServices();
-
       try {
         await toggleLikeDislike(`news/${newsId}/like/`);
       } catch (e) {

@@ -6,7 +6,7 @@ import { useNews } from '@/app/stores/newsStore';
 import TinyMCEEditor from '@/components/TextEditor2';
 
 const TextEditor: NextPage = () => {
-  const {addNews, deleteNews} = useNews((state) => ({
+  const { addNews, deleteNews } = useNews((state) => ({
     addNews: state.addNews,
     deleteNews: state.deleteNews,
   }));
@@ -25,7 +25,7 @@ const TextEditor: NextPage = () => {
       reader.readAsDataURL(file);
 
       reader.onload = () => {
-        if (typeof(reader.result) === 'string') {
+        if (typeof reader.result === 'string') {
           const src = reader.result;
           setNewsCover(src);
         }
@@ -35,14 +35,14 @@ const TextEditor: NextPage = () => {
 
   const onUpdateValueInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (e.currentTarget.name) {
-    case 'title':
-      setNewsTitle(e.currentTarget.value);
-      break;
-    case 'description':
-      //setNewsDescription(e.currentTarget.value);
-      break;
-    default:
-      return;
+      case 'title':
+        setNewsTitle(e.currentTarget.value);
+        break;
+      case 'description':
+        //setNewsDescription(e.currentTarget.value);
+        break;
+      default:
+        return;
     }
   };
 
@@ -79,7 +79,7 @@ const TextEditor: NextPage = () => {
         placeholder='Введите краткое описание новости'
       />
       <input
-        style={{'backgroundColor': 'white'}}
+        style={{ backgroundColor: 'white' }}
         type='file'
         name='cover'
         onChange={toBase64}

@@ -18,7 +18,6 @@ const AuthorCard = ({ info }: { info: Info }) => {
     firstField: 'Loading...',
     secondField: 'Loading...',
   });
-
   useEffect(() => {
     info.as_author !== null
       ? setFields({
@@ -31,7 +30,7 @@ const AuthorCard = ({ info }: { info: Info }) => {
           firstField: info.username ? info.username : 'Какой-то ник',
           secondField: `${info.username}`,
         });
-  }, []);
+  }, [info]);
 
   const handleUnfollowEvent = () => {
     // здесь будет запрос для отписки от автора по его ID

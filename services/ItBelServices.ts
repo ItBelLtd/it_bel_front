@@ -37,7 +37,6 @@ const ItBelServices = () => {
       data: {
         headers: {
           'Content-Type': 'application/json',
-          authorization: `Token ${token}`,
         },
       },
     });

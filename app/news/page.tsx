@@ -14,7 +14,7 @@ const NewsPage = () => {
     getAuthors: state.fetchAllAuthors,
     allAuthors: state.allAuthors,
   }));
-  
+
   const { fetchAllNews, allNews } = useNews((state) => ({
     fetchAllNews: state.fetchAllNews,
     allNews: state.allNews,

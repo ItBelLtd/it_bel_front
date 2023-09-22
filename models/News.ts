@@ -8,7 +8,7 @@ export interface Author {
 
 export interface AuthorComment {
   asAuthor: Author;
-  userId: number;
+  user_id: number;
   username: string;
   date_joined: string;
 }
@@ -62,7 +62,11 @@ export interface NewsStore {
   dislikeNews: (newsId: number) => void;
   likeNewsComment: (newsId: number, commentId: number) => void;
   changeNews: (newsId: number, news: object) => void;
-  changeNewsComment: (newsId: number, commentId: number, comment: object) => void;
+  changeNewsComment: (
+    newsId: number,
+    commentId: number,
+    comment: object,
+  ) => void;
   deleteNews: (newsId: number) => void;
   deleteNewsComment: (newsId: number, commentId: number) => void;
 }
