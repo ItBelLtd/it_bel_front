@@ -2,9 +2,11 @@
   display: flex;
   justify-content: space-between;
 }
+
 .container div {
   overflow: hidden;
 }
+
 .container > *:first-child {
   margin-top: 42px;
 }
@@ -17,16 +19,15 @@
 .tabs {
   display: flex;
   flex-direction: row;
-  align-items: center;
   gap: 2px;
+  align-items: center;
 }
 
 .tab {
-  font-size: 18px;
-  font-weight: bold;
-
   display: block;
   padding: 10px 20px;
+  font-weight: bold;
+  font-size: 18px;
   background-color: #00508c;
 }
 
@@ -35,9 +36,8 @@
 }
 
 .tabContent {
-  padding: 30px 20px;
   min-height: 440px;
-  border: 1px solid #878787;
-
+  padding: 30px 20px;
   font-size: 16px;
+  border: 1px solid #878787;
 }

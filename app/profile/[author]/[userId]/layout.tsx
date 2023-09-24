@@ -31,7 +31,7 @@ const RootLayout = ({ params: { userId }, children }: Props) => {
       return (
         <Link
           key={id}
-          href={`/profile/${info.as_author.name}/${userId}/${link.href}`}
+          href={`/profile/${info.username}/${userId}/${link.href}`}
           className={`${styles.tab} ${active == id ? styles.active : ''}`}
           onClick={() => setActive(id)}
         >

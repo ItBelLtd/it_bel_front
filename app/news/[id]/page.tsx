@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 import DOMPurify from 'dompurify';
 import { useNews } from '@/app/stores/newsStore';
 import { useUser } from '@/app/stores/userStore';
-import {getCookie} from '@/services/cookie';
+import { getCookie } from '@/services/cookie';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,7 +15,6 @@ import ShareIcon from '@/components/ShareIcon/ShareIcon';
 import AddingArrowIcon from '@/components/AddingArrowIcon/AddingArrowIcon';
 
 import { Comment, News, NewsStore } from '@/models/News';
-import { UserInfo } from '@/models/User';
 
 import styles from './news.module.css';
 import { roboto_mono } from '@/app/fonts';
@@ -24,32 +23,43 @@ const Page = () => {
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
   const [commentText, setCommentText] = useState('');
-  const { id }: {id?: number} = useParams();
-  const { fetchNews, fetchNewsWithAuth, news, fetchNewsComments, fetchNewsCommentsWithAuth, newsComments, addNewsComment, likeNews, dislikeNews } =
-    useNews((state: NewsStore) => ({
-      fetchNews: state.fetchNews,
-      fetchNewsWithAuth: state.fetchNewsWithAuth,
-      news: state.news,
-      fetchNewsComments: state.fetchNewsComments,
-      fetchNewsCommentsWithAuth: state.fetchNewsCommentsWithAuth,
-      newsComments: state.newsComments,
-      addNewsComment: state.addNewsComment,
-      likeNews: state.likeNews,
-      dislikeNews: state.dislikeNews,
-    }));
+  const { id }: { id?: number } = useParams();
+  const {
+    fetchNews,
+    fetchNewsWithAuth,
+    news,
+    fetchNewsComments,
+    fetchNewsCommentsWithAuth,
+    newsComments,
+    addNewsComment,
+    likeNews,
+    dislikeNews,
+  } = useNews((state) => ({
+    fetchNews: state.fetchNews,
+    fetchNewsWithAuth: state.fetchNewsWithAuth,
+    news: state.news,
+    fetchNewsComments: state.fetchNewsComments,
+    fetchNewsCommentsWithAuth: state.fetchNewsCommentsWithAuth,
+    newsComments: state.newsComments,
+    addNewsComment: state.addNewsComment,
+    likeNews: state.likeNews,
+    dislikeNews: state.dislikeNews,
+  }));
   const { info } = useUser((state) => ({
     info: state.info,
   }));
   const token = getCookie('userToken');
-  const isActiveInput = commentText ? `${styles.commentContent} ${styles.activeInput}` : `${styles.commentContent}`;
+  const isActiveInput = commentText
+    ? `${styles.commentContent} ${styles.activeInput}`
+    : `${styles.commentContent}`;
 
   useEffect(() => {
     if (id) {
       token ? fetchNewsWithAuth(id, token) : fetchNews(id);
       token ? fetchNewsCommentsWithAuth(id, token) : fetchNewsComments(id);
     }
-  }, [id]);
-
+  }, []);
+  // или ставить like,dislike
   useEffect(() => {
     news !== null ? updateReaction(news.vote) : null;
   }, [news]);
@@ -72,16 +82,18 @@ const Page = () => {
 
   const updateReaction = (data: number) => {
     switch (data) {
-    case -1:
-      setDislike(true);
-      setLike(false);
-      break;
-    case 1:
-      setLike(true);
-      setDislike(false);
-      break;
-    default:
-      console.log('There is not any reaction');
+      case -1:
+        setDislike(true);
+        setLike(false);
+        break;
+      case 1:
+        setLike(true);
+        setDislike(false);
+        break;
+      default:
+        setLike(false);
+        setDislike(false);
+        break;
     }
   };
 
@@ -95,7 +107,7 @@ const Page = () => {
     setCommentText('');
   };
 
-  const view = (news: News, newsComments: Array<Comment>) => {
+  const View = (news: News, newsComments: Comment[]) => {
     const url = news.cover
       ? news.cover.replace('back:8000', '127.0.0.1')
       : 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg';
@@ -105,15 +117,16 @@ const Page = () => {
         <div
           className={styles.topPart}
           style={{
-            backgroundImage:
-              `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${url})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${url})`,
           }}
         >
           <div className={styles.container}>
             <h1 className={`${styles.title} + ${roboto_mono.className}`}>
               {news.title}
             </h1>
-            <Link href={`/${news.author.name}`}>
+            <Link
+              href={`/profile/${news.author.name}/${news.author.author_id}`}
+            >
               <div className={styles.author}>
                 <Image
                   className={styles.authorImg}
@@ -127,35 +140,43 @@ const Page = () => {
             </Link>
             <hr className={styles.hr} />
             <div className={styles.underlinePart}>
-              <p className={styles.date}>
-                {news.added}
-              </p>
+              <p className={styles.date}>{news.added}</p>
             </div>
           </div>
         </div>
 
         <div className={styles.contentWrapper}>
-          <div className={styles.content} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(news.content) }} />
+          <div
+            className={styles.content}
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(news.content),
+            }}
+          />
           <div className={styles.commentBlock}>
             <div className={styles.abovePart}>
               <p>{news.added}</p>
               {token && (
-                <div style={{'display': 'flex'}}>
-                  <button className={`${styles.shareButton}`} onClick={onDislike}>
-                    <DislikeIcon color={dislike ? '#3f92d2' : '#ffffff'}/>
+                <div style={{ display: 'flex' }}>
+                  <button
+                    className={`${styles.shareButton}`}
+                    onClick={onDislike}
+                  >
+                    <DislikeIcon color={dislike ? '#3f92d2' : '#ffffff'} />
                   </button>
                   <button className={`${styles.shareButton}`} onClick={onLike}>
-                    <LikeIcon color={like ? '#3f92d2' : '#ffffff'}/>
+                    <LikeIcon color={like ? '#3f92d2' : '#ffffff'} />
                   </button>
                   <button className={`${styles.shareButton} ${styles.share}`}>
                     <p>Поделиться</p>
-                    <ShareIcon/>
+                    <ShareIcon />
                   </button>
                 </div>
               )}
             </div>
             <hr className={styles.hr} />
-            <p className={`${styles.numberComments} + ${roboto_mono.className}`}>
+            <p
+              className={`${styles.numberComments} + ${roboto_mono.className}`}
+            >
               100+ комментариев к этой статье
             </p>
             {token && (
@@ -177,7 +198,9 @@ const Page = () => {
                         value={commentText}
                         onChange={(e) => setCommentText(e.target.value)}
                       />
-                      {commentText && <AddingArrowIcon addComment={addComment}/>}
+                      {commentText && (
+                        <AddingArrowIcon addComment={addComment} />
+                      )}
                     </div>
                   </div>
                 </div>
@@ -194,15 +217,9 @@ const Page = () => {
     );
   };
 
-  const content = news && newsComments
-    ? view(news, newsComments)
-    : null;
+  const content = news && newsComments ? View(news, newsComments) : null;
 
-  return (
-    <div>
-      {content}
-    </div>
-  );
+  return <div>{content}</div>;
 };
 
 export default Page;

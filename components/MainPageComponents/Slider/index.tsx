@@ -111,9 +111,7 @@ const MyCarousel = () => {
               <div className={styles.leftPart}>
                 <div className={styles.topPart}>
                   <h4 className={styles.authorName}>{news.author.name}</h4>
-                  <h4 className={styles.date}>
-                    {news.added}
-                  </h4>
+                  <h4 className={styles.date}>{news.added}</h4>
                 </div>
                 <h3 className={styles.title}>{news.title}</h3>
                 <div className='controllers' />
@@ -122,7 +120,11 @@ const MyCarousel = () => {
                 <Image
                   width={445}
                   height={270}
-                  src={news.cover ? news.cover.replace('back:8000', '127.0.0.1') : 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg'}
+                  src={
+                    news.cover
+                      ? news.cover.replace('back:8000', '127.0.0.1')
+                      : 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg'
+                  }
                   //src={'https://farm2.staticflickr.com/1949/45717354341_a8dc471d63_b.jpg'}
                   alt={'image'}
                 />
