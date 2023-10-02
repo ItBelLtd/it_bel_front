@@ -158,14 +158,15 @@ export const useNews = createWithEqualityFn<NewsStore>()(
       commentId: number,
       comment: object,
     ) => {
-      const { changeNewsOrComment } = ItBelServices();
+      const { changeNewsOrComment, getNewsComments } = ItBelServices();
 
       try {
-        const res = await changeNewsOrComment(
+        await changeNewsOrComment(
           `news/${newsId}/comments/${commentId}/`,
           comment,
         );
-        set({ newsComments: res });
+        const res = await getNewsComments(`news/${newsId}/comments/`);
+        set({ newsComments: res.results });
       } catch (e) {
         /*какие-то действия */
       }

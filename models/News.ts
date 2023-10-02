@@ -7,7 +7,7 @@ export interface Author {
 }
 
 export interface AuthorComment {
-  asAuthor: Author;
+  as_author: Author;
   user_id: number;
   username: string;
   date_joined: string;

@@ -14,6 +14,7 @@ p {
 
 .commentContent {
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   gap: 5px;
 }
@@ -39,7 +40,8 @@ p {
   font-size: 16px;
 }
 
-.likeButton {
+.likeButton,
+.editButton {
   padding: 0;
   color: inherit;
   font: inherit;
@@ -48,10 +50,27 @@ p {
   cursor: pointer;
 }
 
-.likeButton:hover svg g path {
+.likeButton:hover svg g path,
+.editButton:hover svg path {
   stroke: #3f92d2;
 }
 
 .authorComment {
   display: contents;
+}
+
+.editInputWrapper {
+  display: flex;
+}
+
+.editInput {
+  flex: 1 1 auto;
+  margin-right: -25px;
+  padding-right: 35px;
+  color: #fff;
+  font-size: inherit;
+  background-color: inherit;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
 }

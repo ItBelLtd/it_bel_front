@@ -31,12 +31,23 @@ const ItBelServices = () => {
     });
   };
   const getUserInfo = async (url: string) => {
+    return await request({
+      url: `${_apiBase}${url}`,
+      data: {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    });
+  };
+  const getUserProfile = async (url: string) => {
     const token = getCookie('userToken');
     return await request({
       url: `${_apiBase}${url}`,
       data: {
         headers: {
           'Content-Type': 'application/json',
+          authorization: `Token ${token}`,
         },
       },
     });
@@ -233,6 +244,7 @@ const ItBelServices = () => {
     auth,
     logout,
     getUserInfo,
+    getUserProfile,
     changeUserInfo,
     deleteUser,
     getAuthors,

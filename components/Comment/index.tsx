@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { useNews } from '@/app/stores/newsStore';
+import { useUser } from '@/app/stores/userStore';
 import { getCookie } from '@/services/cookie';
 
 import LikeIcon from '@/components/LikeIcon/LikeIcon';
+import EditIcon from '@/components/EditIcon/EditIcon';
 import Image from 'next/image';
 
 import { Comment } from '@/models/News';
 
 import styles from './comment.module.css';
 import Link from 'next/link';
+import AddingArrowIcon from '@/components/AddingArrowIcon/AddingArrowIcon';
 
 const Comment = ({
   comment_id,
@@ -20,12 +23,20 @@ const Comment = ({
   vote,
 }: Comment) => {
   const [like, setLike] = useState(false);
+  const [edit, setEdit] = useState(false);
+  const [commentText, setCommentText] = useState(text);
   const { id }: { id?: number } = useParams();
   const token = getCookie('userToken');
-  const { likeNewsComment } = useNews((state) => ({
+  const { likeNewsComment, changeNewsComment } = useNews((state) => ({
     likeNewsComment: state.likeNewsComment,
+    changeNewsComment: state.changeNewsComment,
   }));
-  console.log(author.user_id);
+  const { info } = useUser((state) => ({
+    info: state.info,
+  }));
+
+  console.log(text);
+
   useEffect(() => {
     updateLike(vote);
   }, [vote]);
@@ -37,17 +48,35 @@ const Comment = ({
     }
   };
 
+  const onEdit = () => {
+    if (edit) {
+      setCommentText(text);
+      setEdit(false);
+    } else {
+      setEdit(true);
+    }
+  };
+
   const updateLike = (vote: number) => {
     switch (vote) {
-      case 0:
-        setLike(false);
-        break;
-      case 1:
-        setLike(true);
-        break;
-      default:
-        break;
+    case 0:
+      setLike(false);
+      break;
+    case 1:
+      setLike(true);
+      break;
+    default:
+      break;
     }
+  };
+
+  const changeComment = () => {
+    const changes = {
+      text: commentText,
+    };
+
+    id && changeNewsComment(id, comment_id, changes);
+    setEdit(false);
   };
 
   return (
@@ -73,8 +102,26 @@ const Comment = ({
               <LikeIcon color={like ? '#3f92d2' : '#ffffff'} />
             </button>
           )}
+          {token && info.as_author.author_id === author.as_author.author_id && (
+            <button className={styles.editButton} onClick={onEdit}>
+              <EditIcon />
+            </button>
+          )}
         </div>
-        <p className={styles.commentText}>{text}</p>
+        {edit ? (
+          <div className={styles.editInputWrapper}>
+            <input
+              className={styles.editInput}
+              type='text'
+              value={commentText}
+              autoFocus={true}
+              onInput={(e) => setCommentText(e.currentTarget.value)}
+            />
+            <AddingArrowIcon addComment={changeComment} />
+          </div>
+        ) : (
+          <p className={styles.commentText}>{commentText}</p>
+        )}
       </div>
     </div>
   );
