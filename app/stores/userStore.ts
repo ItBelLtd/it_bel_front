@@ -32,10 +32,10 @@ export const useUser = create<UserInfo>()(
       },
     },
     getUserProfile: async () => {
-      const { getUserInfo } = ItBelServices();
+      const { getUserProfile } = ItBelServices();
       const url = 'users/profile/';
       try {
-        const res = getUserInfo(url);
+        const res = getUserProfile(url);
         res.then((data) => {
           set({ info: data });
         });
