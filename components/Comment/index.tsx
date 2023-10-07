@@ -35,7 +35,6 @@ const Comment = ({
     info: state.info,
   }));
 
-  console.log(text);
 
   useEffect(() => {
     updateLike(vote);
@@ -102,7 +101,7 @@ const Comment = ({
               <LikeIcon color={like ? '#3f92d2' : '#ffffff'} />
             </button>
           )}
-          {token && info.as_author.author_id === author.as_author.author_id && (
+          {token && info.as_author.author_id === author.author_id && (
             <button className={styles.editButton} onClick={onEdit}>
               <EditIcon />
             </button>

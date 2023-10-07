@@ -6,7 +6,7 @@ import { roboto_mono } from '@/app/fonts';
 
 const Profile = () => {
   const { info } = useUser((state) => ({
-    info: state.info,
+    info: state.aboutSomeone,
   }));
   return (
     <div className={styles.container}>

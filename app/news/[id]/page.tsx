@@ -111,7 +111,7 @@ const Page = () => {
     const url = news.cover
       ? news.cover.replace('back:8000', '127.0.0.1')
       : 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg';
-
+    
     return (
       <div className='news'>
         <div
@@ -125,7 +125,11 @@ const Page = () => {
               {news.title}
             </h1>
             <Link
-              href={`/profile/${news.author.name}/${news.author.author_id}`}
+            // onClick={(e) => {
+            //   e.preventDefault()
+            //   console.log(`/profile/${info.username}/${news.author.user_id}`)
+            // }}
+              href={`/profile/${news.author.username}/${news.author.user_id}`}
             >
               <div className={styles.author}>
                 <Image

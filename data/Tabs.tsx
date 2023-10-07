@@ -11,10 +11,18 @@ export const authorTabs = [
     href: 'contacts',
     title: 'Контакты',
   },
+  {
+    href: 'editProfile',
+    title: 'Редактировать профиль',
+  },
 ];
 export const userTabs = [
   {
     href: '',
     title: 'Об пользователе',
+  },
+  {
+    href: 'editProfile',
+    title: 'Редактировать профиль',
   },
 ];

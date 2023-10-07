@@ -62,13 +62,17 @@ const ItBelServices = () => {
       },
     });
   };
-  const deleteUser = async (url: string, id: number) => {
+  const deleteUser = async () => {
+    const token = getCookie('userToken');
+    const url = 'users/profile';
     return await request({
       url: `${_apiBase}${url}`,
       data: {
         method: 'DELETE',
-        body: JSON.stringify(id),
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Token ${token}`,
+        },
       },
     });
   };

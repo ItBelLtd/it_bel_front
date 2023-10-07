@@ -20,11 +20,10 @@ const RootLayout = ({ params: { userId }, children }: Props) => {
     getUser: state.getUserInfo,
     info: state.aboutSomeone,
   }));
-
+  
   useEffect(() => {
     getUser(userId);
   }, []);
-
   const [active, setActive] = useState<number>(0);
   const renderTabs = (data: Tabs[]) => {
     const tabs = data.map((link, id) => {

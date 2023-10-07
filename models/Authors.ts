@@ -23,7 +23,7 @@ export interface Authors {
 
   fetchAllAuthors: (page: number, search?: string) => void;
   fetchAuthor: (authorId: number) => void;
-  fetchAuthorNews: (authorId: number) => void;
+  fetchAuthorNews: (authorId: number) => Promise<void>;
   fetchAuthorsFollowers: (authorId: number) => void;
   changeAuthor: (authorId: number, author: Object) => void;
   deleteAuthor: (authorId: number) => void;

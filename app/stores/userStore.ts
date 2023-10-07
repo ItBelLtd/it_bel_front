@@ -45,7 +45,7 @@ export const useUser = create<UserInfo>()(
     },
     getUserInfo: async (id) => {
       const { getUserInfo } = ItBelServices();
-      const url = `users/${id}`;
+      const url = `users/${id}/`;
       try {
         const res = getUserInfo(url);
         res.then((data) => {
@@ -75,11 +75,11 @@ export const useUser = create<UserInfo>()(
         throw new Error('Что-то пошло не так');
       }
     },
-    deleteUser: async (url, id) => {
+    deleteUser: async () => {
       const { deleteUser } = ItBelServices();
       try {
-        const res = deleteUser(url, id);
-        res.then((data) => {});
+        const res = deleteUser();
+        // res.then((data) => {});
       } catch {
         throw new Error('Что-то пошло не так');
       }
