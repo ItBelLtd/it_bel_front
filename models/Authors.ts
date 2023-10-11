@@ -11,6 +11,7 @@ export interface Author {
   email: string;
   date_joined: string;
   link?: string;
+  bio: string;
 }
 
 // Для стора

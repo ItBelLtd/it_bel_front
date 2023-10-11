@@ -8,29 +8,35 @@ import { Tabs } from '@/models/Tabs';
 import styles from './layout.module.css';
 import AuthorCard from '@/components/AuthorCard';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-export default function RootLayout({
-  children,
-}: {
+interface Props {
+  params: {
+    page: string;
+  };
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout({ params: { page }, children }: Props) {
   const { getUserProfile, info } = useUser((state) => ({
     getUserProfile: state.getUserProfile,
     info: state.info,
   }));
-
+  const pathname = usePathname();
+  console.log(1);
   useEffect(() => {
     getUserProfile();
   }, []);
-
   const [active, setActive] = useState<number>(0);
   const renderTabs = (data: Tabs[]) => {
     const tabs = data.map((link, id) => {
+      const isActive = pathname === link.href;
+
       return (
         <Link
           key={id}
-          href={`/profile/myProfile/${link.href}`}
-          className={`${styles.tab} ${active == id ? styles.active : ''}`}
+          href={`${link.href}/`}
+          className={`${styles.tab} ${isActive ? styles.active : ''}`}
           onClick={() => setActive(id)}
         >
           {link.title}

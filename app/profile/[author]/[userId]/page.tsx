@@ -1,5 +1,5 @@
 'use client';
-import styles from '../../myProfile/profile.module.css';
+import styles from '../../myProfile/[page]/about/profile.module.css';
 import React from 'react';
 import { useUser } from '@/app/stores/userStore';
 import { roboto_mono } from '@/app/fonts';

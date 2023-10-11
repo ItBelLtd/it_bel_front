@@ -1,13 +1,17 @@
 'use client';
 import styles from './profile.module.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useUser } from '@/app/stores/userStore';
 import { roboto_mono } from '@/app/fonts';
 
 const Profile = () => {
-  const { info } = useUser((state) => ({
+  const { info, getInfo } = useUser((state) => ({
     info: state.info,
+    getInfo: state.getUserProfile,
   }));
+  useEffect(() => {
+    getInfo();
+  }, []);
   return (
     <div className={styles.container}>
       <span className={`${styles.name} ${roboto_mono.className}`}>
@@ -20,9 +24,10 @@ const Profile = () => {
         </span>
       </p>
       <div className={styles.bio}>
-        <span className={`${styles.header} ${roboto_mono.className}`}>
-          About me
-        </span>
+        <h4 className={`${styles.header} ${roboto_mono.className}`}>
+          About Me:
+        </h4>
+        {info.as_author.bio}
       </div>
     </div>
   );

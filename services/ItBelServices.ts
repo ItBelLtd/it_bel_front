@@ -53,12 +53,16 @@ const ItBelServices = () => {
     });
   };
   const changeUserInfo = async (url: string, value: object) => {
+    const token = getCookie('userToken');
     return await request({
       url: `${_apiBase}${url}`,
       data: {
         method: 'PATCH',
         body: JSON.stringify(value),
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Token ${token}`,
+        },
       },
     });
   };

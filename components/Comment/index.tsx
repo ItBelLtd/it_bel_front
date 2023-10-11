@@ -35,7 +35,6 @@ const Comment = ({
     info: state.info,
   }));
 
-
   useEffect(() => {
     updateLike(vote);
   }, [vote]);
@@ -58,14 +57,14 @@ const Comment = ({
 
   const updateLike = (vote: number) => {
     switch (vote) {
-    case 0:
-      setLike(false);
-      break;
-    case 1:
-      setLike(true);
-      break;
-    default:
-      break;
+      case 0:
+        setLike(false);
+        break;
+      case 1:
+        setLike(true);
+        break;
+      default:
+        break;
     }
   };
 

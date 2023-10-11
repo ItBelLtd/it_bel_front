@@ -25,21 +25,14 @@ const Works = ({ params: { userId } }: Props) => {
     getUser(userId);
     getAuthorNews(info.as_author.author_id);
   }, [info.as_author.author_id]);
-  console.log(info.as_author.author_id)
   const renderNewsTitles = () => {
-    const newsList = authorNews.map(news => {
-      return (
-        <Link  href={`/news/${news.news_id}`}>{news.title}</Link>
-      )
-    })
-    return newsList
-  }
-  const newsList = renderNewsTitles()
-  return (
-    <div className={styles.container}>
-      {newsList}
-    </div>
-  );
+    const newsList = authorNews.map((news) => {
+      return <Link href={`/news/${news.news_id}`}>{news.title}</Link>;
+    });
+    return newsList;
+  };
+  const newsList = renderNewsTitles();
+  return <div className={styles.container}>{newsList}</div>;
 };
 
 export default Works;

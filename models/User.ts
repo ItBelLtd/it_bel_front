@@ -9,13 +9,13 @@
 export interface Info {
   user_id: number;
   username: string;
-  email: string;
   as_author: {
     author_id: number;
     name: string;
     surname: string;
     age: number;
     date_joined: string;
+    bio: string;
   };
   news?: [];
 }
