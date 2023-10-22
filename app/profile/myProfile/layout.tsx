@@ -23,11 +23,9 @@ export default function RootLayout({ params: { page }, children }: Props) {
     info: state.info,
   }));
   const pathname = usePathname();
-  console.log(1);
   useEffect(() => {
     getUserProfile();
   }, []);
-  const [active, setActive] = useState<number>(0);
   const renderTabs = (data: Tabs[]) => {
     const tabs = data.map((link, id) => {
       const isActive = pathname === link.href;
@@ -37,7 +35,6 @@ export default function RootLayout({ params: { page }, children }: Props) {
           key={id}
           href={`${link.href}/`}
           className={`${styles.tab} ${isActive ? styles.active : ''}`}
-          onClick={() => setActive(id)}
         >
           {link.title}
         </Link>

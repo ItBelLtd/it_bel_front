@@ -1,13 +1,21 @@
 'use client';
-import styles from '../../myProfile/[page]/about/profile.module.css';
-import React from 'react';
+import styles from '../../../myProfile/about/profile.module.css';
+import React, { useEffect } from 'react';
 import { useUser } from '@/app/stores/userStore';
 import { roboto_mono } from '@/app/fonts';
-
-const Profile = () => {
-  const { info } = useUser((state) => ({
+interface Props {
+  params: {
+    userId: number;
+  };
+}
+const Profile = ({ params: { userId } }: Props) => {
+  const { info, getUser } = useUser((state) => ({
     info: state.aboutSomeone,
+    getUser: state.getUserInfo,
   }));
+  useEffect(() => {
+    getUser(userId);
+  }, []);
   return (
     <div className={styles.container}>
       <span className={`${styles.name} ${roboto_mono.className}`}>
@@ -15,13 +23,12 @@ const Profile = () => {
       </span>
       <p className={styles.timeIntervals}>
         <span className={styles.registrationInterval}>
-          Регистрация: {/*calculateTimePeriod(info.as_author.date_joined)*/}{' '}
-          назад
+          Зарегистрирован: {info.date_joined}
         </span>
       </p>
       <div className={styles.bio}>
         <span className={`${styles.header} ${roboto_mono.className}`}>
-          About me
+          About me:
         </span>
       </div>
     </div>

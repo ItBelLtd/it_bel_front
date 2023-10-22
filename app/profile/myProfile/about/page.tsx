@@ -19,16 +19,16 @@ const Profile = () => {
       </span>
       <p className={styles.timeIntervals}>
         <span className={styles.registrationInterval}>
-          Регистрация:1 {/*calculateTimePeriod(info.as_author.date_joined)*/}{' '}
-          назад
+          Зарегистрирован: {info.date_joined}
         </span>
       </p>
-      <div className={styles.bio}>
-        <h4 className={`${styles.header} ${roboto_mono.className}`}>
-          About Me:
-        </h4>
-        {info.as_author.bio}
-      </div>
+      {info.as_author ? (
+        <div className={styles.bio}>
+          <h4 className={`${styles.header} ${roboto_mono.className}`}>
+            About Me:
+          </h4>
+        </div>
+      ) : null}
     </div>
   );
 };

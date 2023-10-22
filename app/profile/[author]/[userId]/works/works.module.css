@@ -1,34 +1,14 @@
-.name {
+.newsTitle {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 24px;
+  padding: 10px 10px 0 0;
 }
 
-.timeIntervals {
-  margin-bottom: 40px;
-  color: #878787;
-  font-size: 16px;
-}
-
-.visitInterval {
-  margin-left: 20px;
-}
-
-.header {
-  display: block;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.paragraph {
-  font-size: 16px;
-}
-/* a{
-  cursor: pointer;
-}
-a:hover {
-  transition: all 1.3 ease-in-out;
+.newsTitle:hover {
   color: #3f92d2;
-} */
+  transition: all 0.7s ease-in-out;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}

@@ -2,11 +2,13 @@
   display: flex;
   flex-direction: column;
 }
+
 .button {
+  padding: 5px 10px;
   background-color: #690000;
-  padding: 5px 10px;
 }
+
 .editButton {
-  background-color: #00508c;
   padding: 5px 10px;
+  background-color: #00508c;
 }

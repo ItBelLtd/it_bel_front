@@ -3,35 +3,45 @@ import React, { useEffect } from 'react';
 import { useUser } from '@/app/stores/userStore';
 import { roboto_mono } from '@/app/fonts';
 
-import styles from './works.module.css';
+import styles from '../../../myProfile/works/works.module.css';
 import { useAuthors } from '@/app/stores/authorsStore';
 import Link from 'next/link';
-
+import { useState } from 'react';
+import { News } from '@/models/News';
 interface Props {
   params: {
     userId: number;
   };
 }
 const Works = ({ params: { userId } }: Props) => {
-  const { authorNews, getAuthorNews } = useAuthors((state) => ({
+  const { getAuthorNews } = useAuthors((state) => ({
     getAuthorNews: state.fetchAuthorNews,
-    authorNews: state.authorNews,
   }));
-  const { getUser, info } = useUser((state) => ({
+  const { getUser } = useUser((state) => ({
     getUser: state.getUserInfo,
-    info: state.aboutSomeone,
+    // info: state.aboutSomeone,
   }));
+  const [arr, setArr] = useState<News[]>();
   useEffect(() => {
-    getUser(userId);
-    getAuthorNews(info.as_author.author_id);
-  }, [info.as_author.author_id]);
-  const renderNewsTitles = () => {
-    const newsList = authorNews.map((news) => {
-      return <Link href={`/news/${news.news_id}`}>{news.title}</Link>;
+    getUser(userId).then((info) =>
+      getAuthorNews(info.as_author.author_id).then((res) => setArr(res)),
+    );
+  }, []);
+  const renderNewsTitles = (data: News[]) => {
+    const newsList = data.map((news) => {
+      return (
+        <Link
+          key={news.news_id}
+          className={styles.newsTitle}
+          href={`/news/${news.news_id}`}
+        >
+          {news.title}
+        </Link>
+      );
     });
     return newsList;
   };
-  const newsList = renderNewsTitles();
+  const newsList = arr ? renderNewsTitles(arr) : null;
   return <div className={styles.container}>{newsList}</div>;
 };
 

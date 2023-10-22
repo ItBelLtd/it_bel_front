@@ -9,6 +9,7 @@
 export interface Info {
   user_id: number;
   username: string;
+  date_joined: string;
   as_author: {
     author_id: number;
     name: string;
@@ -23,8 +24,8 @@ export interface Info {
 export interface UserInfo {
   info: Info;
   aboutSomeone: Info;
-  getUserProfile: () => void;
-  getUserInfo: (id: number) => void;
+  getUserProfile: () => Promise<Info>;
+  getUserInfo: (id: number) => Promise<Info>;
   getUserFollowing: (id: number) => void;
   changeUserInfo: (id: number, value: object) => void;
   deleteUser: () => void;

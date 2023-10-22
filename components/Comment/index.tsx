@@ -80,7 +80,7 @@ const Comment = ({
   return (
     <div className={styles.comment}>
       <Link
-        href={`/profile/${author.username}/${author.user_id}`}
+        href={`/profile/${author.username}/${author.user_id}/about`}
         className={styles.authorComment}
       >
         <Image

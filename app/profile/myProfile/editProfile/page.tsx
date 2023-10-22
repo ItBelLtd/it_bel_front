@@ -10,11 +10,12 @@ const EditPage = () => {
     info: state.info,
     changeInfo: state.changeUserInfo,
   }));
-  const [value, setValue] = useState(info.as_author.bio);
-  useEffect(() => {
-    getInfo();
-  }, []);
+  const [value, setValue] = useState('');
   const [disabled, setDisabled] = useState(true);
+  useEffect(() => {
+    getInfo().then((res) => setValue(res.as_author.bio));
+  }, []);
+
   const myRef = useRef(null);
   const router = useRouter();
   return (
@@ -34,7 +35,6 @@ const EditPage = () => {
         disabled={disabled}
         onClick={() => {
           setDisabled(true);
-
           const change = {
             bio: value,
           };

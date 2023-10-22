@@ -10,6 +10,7 @@ export const useUser = create<UserInfo>()(
     info: {
       user_id: 0,
       username: '',
+      date_joined: '',
       as_author: {
         author_id: 0,
         name: '',
@@ -22,6 +23,7 @@ export const useUser = create<UserInfo>()(
     aboutSomeone: {
       user_id: 0,
       username: '',
+      date_joined: '',
       as_author: {
         author_id: 0,
         name: '',
@@ -39,6 +41,7 @@ export const useUser = create<UserInfo>()(
         res.then((data) => {
           set({ info: data });
         });
+        return res;
       } catch {
         throw new Error('Что-то пошло не так');
       }
@@ -51,6 +54,7 @@ export const useUser = create<UserInfo>()(
         res.then((data) => {
           set({ aboutSomeone: data });
         });
+        return res;
       } catch {
         throw new Error('Что-то пошло не так');
       }

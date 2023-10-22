@@ -32,10 +32,6 @@ const AuthorCard = ({ info }: { info: Info }) => {
         });
   }, [info]);
 
-  const handleUnfollowEvent = () => {
-    // здесь будет запрос для отписки от автора по его ID
-    // console.log(authorID);
-  };
   return (
     <div className={styles.card}>
       <div className={styles.cover}>
@@ -47,19 +43,10 @@ const AuthorCard = ({ info }: { info: Info }) => {
           height='160'
         />
       </div>
-
       <div className={styles.meta}>
         <span className={styles.name}>{fields.firstField}</span>
         <span className={styles.contact}>{fields.secondField}</span>
       </div>
-      {info.as_author === null ? null : (
-        <Button
-          className={styles.button}
-          type='button'
-          text='Unfollow'
-          clickHandler={handleUnfollowEvent}
-        />
-      )}
     </div>
   );
 };

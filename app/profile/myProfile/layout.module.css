@@ -41,3 +41,8 @@
   font-size: 16px;
   border: 1px solid #878787;
 }
+
+.button {
+  width: 100%;
+  background-color: #00508c;
+}

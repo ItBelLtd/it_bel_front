@@ -38,6 +38,7 @@ export const useAuthors = createWithEqualityFn<Authors>()(
       try {
         const res = await getAuthors(`authors/${authorId}/news/`);
         set({ authorNews: res });
+        return res;
       } catch (e) {
         throw new Error('Что-то пошло не так');
       }

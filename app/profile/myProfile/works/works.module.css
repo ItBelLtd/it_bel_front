@@ -1,27 +1,14 @@
-.name {
+.newsTitle {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 24px;
+  padding: 10px 10px 0 0;
 }
 
-.timeIntervals {
-  margin-bottom: 40px;
-  color: #878787;
-  font-size: 16px;
+.newsTitle:hover {
+  color: #3f92d2;
+  transition: all 0.7s ease-in-out;
 }
 
-.visitInterval {
-  margin-left: 20px;
-}
-
-.header {
-  display: block;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.paragraph {
-  font-size: 16px;
+.container {
+  display: flex;
+  flex-direction: column;
 }
