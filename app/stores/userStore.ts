@@ -3,32 +3,34 @@ import { devtools } from 'zustand/middleware';
 import { UserInfo } from '@/models/User';
 
 import ItBelServices from '@/services/ItBelServices';
+import { deleteCookie } from '@/services/cookie';
 
 export const useUser = create<UserInfo>()(
   devtools((set) => ({
     info: {
       user_id: 0,
       username: '',
-      email: '',
+      date_joined: '',
       as_author: {
         author_id: 0,
         name: '',
         surname: '',
         age: 0,
         date_joined: '',
+        bio: '',
       },
-      news: [],
     },
     aboutSomeone: {
       user_id: 0,
       username: '',
-      email: '',
+      date_joined: '',
       as_author: {
         author_id: 0,
         name: '',
         surname: '',
         age: 0,
         date_joined: '',
+        bio: '',
       },
     },
     getUserProfile: async () => {
@@ -39,18 +41,20 @@ export const useUser = create<UserInfo>()(
         res.then((data) => {
           set({ info: data });
         });
+        return res;
       } catch {
         throw new Error('Что-то пошло не так');
       }
     },
     getUserInfo: async (id) => {
       const { getUserInfo } = ItBelServices();
-      const url = `users/${id}`;
+      const url = `users/${id}/`;
       try {
         const res = getUserInfo(url);
         res.then((data) => {
           set({ aboutSomeone: data });
         });
+        return res;
       } catch {
         throw new Error('Что-то пошло не так');
       }
@@ -67,7 +71,7 @@ export const useUser = create<UserInfo>()(
     },
     changeUserInfo: async (id, value) => {
       const { changeUserInfo } = ItBelServices();
-      const url = `users/${id}`;
+      const url = `authors/${id}/`;
       try {
         const res = changeUserInfo(url, value);
         res.then((data) => {});
@@ -75,11 +79,10 @@ export const useUser = create<UserInfo>()(
         throw new Error('Что-то пошло не так');
       }
     },
-    deleteUser: async (url, id) => {
+    deleteUser: async () => {
       const { deleteUser } = ItBelServices();
       try {
-        const res = deleteUser(url, id);
-        res.then((data) => {});
+        const res = deleteUser().then(() => deleteCookie('userToken'));
       } catch {
         throw new Error('Что-то пошло не так');
       }

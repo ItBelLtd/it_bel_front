@@ -35,8 +35,6 @@ const Comment = ({
     info: state.info,
   }));
 
-  console.log(text);
-
   useEffect(() => {
     updateLike(vote);
   }, [vote]);
@@ -59,14 +57,14 @@ const Comment = ({
 
   const updateLike = (vote: number) => {
     switch (vote) {
-    case 0:
-      setLike(false);
-      break;
-    case 1:
-      setLike(true);
-      break;
-    default:
-      break;
+      case 0:
+        setLike(false);
+        break;
+      case 1:
+        setLike(true);
+        break;
+      default:
+        break;
     }
   };
 
@@ -82,7 +80,7 @@ const Comment = ({
   return (
     <div className={styles.comment}>
       <Link
-        href={`/profile/${author.username}/${author.user_id}`}
+        href={`/profile/${author.username}/${author.user_id}/about`}
         className={styles.authorComment}
       >
         <Image
@@ -102,7 +100,7 @@ const Comment = ({
               <LikeIcon color={like ? '#3f92d2' : '#ffffff'} />
             </button>
           )}
-          {token && info.as_author.author_id === author.as_author.author_id && (
+          {token && info.as_author.author_id === author.author_id && (
             <button className={styles.editButton} onClick={onEdit}>
               <EditIcon />
             </button>

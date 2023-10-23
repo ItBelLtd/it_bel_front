@@ -1,17 +1,32 @@
+// export interface Author {
+//   user_id: number;
+//   username: string;
+//   date_joined: string;
+//   as_author: {
+//     author_id: number;
+//     name: string;
+//     surname: string;
+//     age: number;
+//     date_joined: string;
+//     bio: string;
+//   };
+// }
 export interface Author {
+  user_id: number;
+  username: string;
   author_id: number;
   name: string;
   surname: string;
   age: number;
   date_joined: string;
+  bio: string;
 }
-
-export interface AuthorComment {
-  as_author: Author;
-  user_id: number;
-  username: string;
-  date_joined: string;
-}
+// export interface AuthorComment {
+//   as_author: Author;
+//   user_id: number;
+//   username: string;
+//   date_joined: string;
+// }
 
 export interface Tags {
   id: number;
@@ -36,7 +51,7 @@ export interface News {
 export interface Comment {
   comment_id: number;
   text: string;
-  author: AuthorComment;
+  author: Author;
   total_likes: number;
   added: string;
   vote: number;

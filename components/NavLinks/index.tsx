@@ -24,7 +24,6 @@ const NavLinks = () => {
   useEffect(() => {
     getUserProfile();
   }, [token]);
-
   function LinksRender(data: Links[]) {
     const listLinks = data.map((link: Links) => {
       const isActive = pathname === link.href;
@@ -55,7 +54,7 @@ const NavLinks = () => {
       ) : (
         <>
           {links}
-          <Link href={'/profile/myProfile/'}>
+          <Link href={'/profile/myProfile/about'}>
             <Image
               src='/userAvatar.jpg'
               width={40}

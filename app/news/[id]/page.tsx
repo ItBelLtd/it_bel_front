@@ -125,7 +125,11 @@ const Page = () => {
               {news.title}
             </h1>
             <Link
-              href={`/profile/${news.author.name}/${news.author.author_id}`}
+              // onClick={(e) => {
+              //   e.preventDefault()
+              //   console.log(`/profile/${info.username}/${news.author.user_id}`)
+              // }}
+              href={`/profile/${news.author.username}/${news.author.user_id}/about`}
             >
               <div className={styles.author}>
                 <Image

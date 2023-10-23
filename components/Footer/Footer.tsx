@@ -23,20 +23,21 @@ const Footer: FC = () => {
         </div>
 
         <nav className={styles.links}>
-          <div className={styles.usLink}>
-            <Link href='/about' className={styles.link}>
-              About Us
-            </Link>
+          {/* <div className={styles.usLink}>
+            
             <Link href='/contact' className={styles.link}>
-              Contact Us
+              Контакты
             </Link>
-          </div>
+          </div> */}
           <div className={styles.serviceLink}>
-            <Link href='/service' className={styles.link}>
-              Terms of Service
+            <Link href='/aboutUs' className={styles.link}>
+              О нас
             </Link>
-            <Link href='/policy' className={styles.link}>
-              Privacy Policy
+            <Link href='/conditionsOfUse' className={styles.link}>
+              Условия использования
+            </Link>
+            <Link href='/privacyPolicy' className={styles.link}>
+              Политика конфиденциальности
             </Link>
           </div>
         </nav>

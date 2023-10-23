@@ -28,7 +28,7 @@ const Signup = () => {
         signup('users/', values).then((data) => {
           if (!data.errors) {
             signin('auth/token/login/', values);
-            router.push('/');
+            router.push('/', { shallow: true });
           }
         });
       }}

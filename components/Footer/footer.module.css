@@ -42,12 +42,13 @@
 
 .serviceLink > a:hover {
   color: #3f92d2;
+  transition: all 0.7s ease-in-out;
 }
 
 .serviceLink > a:focus {
   color: #3f92d2;
 }
 
-.serviceLink > a:last-child {
-  margin-top: 10px;
+.link {
+  margin-bottom: 3px;
 }

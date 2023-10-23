@@ -11,6 +11,7 @@ export interface Author {
   email: string;
   date_joined: string;
   link?: string;
+  bio: string;
 }
 
 // Для стора
@@ -23,7 +24,7 @@ export interface Authors {
 
   fetchAllAuthors: (page: number, search?: string) => void;
   fetchAuthor: (authorId: number) => void;
-  fetchAuthorNews: (authorId: number) => void;
+  fetchAuthorNews: (authorId: number) => Promise<Array<News>>;
   fetchAuthorsFollowers: (authorId: number) => void;
   changeAuthor: (authorId: number, author: Object) => void;
   deleteAuthor: (authorId: number) => void;

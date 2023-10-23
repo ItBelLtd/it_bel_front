@@ -1,20 +1,28 @@
 export const authorTabs = [
   {
-    href: '',
+    href: '/profile/myProfile/about',
     title: 'Об авторе',
   },
   {
-    href: 'works',
+    href: '/profile/myProfile/works',
     title: 'Работы',
   },
+  // {
+  //   href: '/profile/myProfile/contacts',
+  //   title: 'Контакты',
+  // },
   {
-    href: 'contacts',
-    title: 'Контакты',
+    href: '/profile/myProfile/editProfile',
+    title: 'Редактировать профиль',
   },
 ];
 export const userTabs = [
   {
-    href: '',
+    href: '/profile/myProfile/about',
     title: 'Об пользователе',
   },
+  // {
+  //   href: '/profile/myProfile/editProfile',
+  //   title: 'Редактировать профиль',
+  // },
 ];
