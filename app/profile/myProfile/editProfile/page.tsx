@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from './editProfile.module.css';
 import { useUser } from '@/app/stores/userStore';
 import { useRouter } from 'next/navigation';
+
 const EditPage = () => {
   const { deleteProfile, getInfo, info, changeInfo } = useUser((state) => ({
     deleteProfile: state.deleteUser,
@@ -10,24 +11,26 @@ const EditPage = () => {
     info: state.info,
     changeInfo: state.changeUserInfo,
   }));
-  const [value, setValue] = useState('');
-  const [disabled, setDisabled] = useState(true);
   useEffect(() => {
     getInfo().then((res) => setValue(res.as_author.bio));
   }, []);
-
+  const [value, setValue] = useState('');
+  const [disabled, setDisabled] = useState(true);
+  const maxLineLength = 90;
+  const regex = new RegExp('(.{' + maxLineLength + '})', 'g');
   const myRef = useRef(null);
   const router = useRouter();
   return (
     <div className={styles.container}>
       <label htmlFor='about'>О себе</label>
-      <input
+      <textarea
         id='about'
         disabled={disabled}
         ref={myRef}
         onChange={(e) => setValue(e.target.value)}
         value={value}
         placeholder='Расскажите о себе'
+        className={styles.aboutText}
       />
       <button
         className={styles.editButton}
@@ -36,7 +39,7 @@ const EditPage = () => {
         onClick={() => {
           setDisabled(true);
           const change = {
-            bio: value,
+            bio: value.replace(regex, '$1\n').replace(/\n\n+/g, '\n'),
           };
           changeInfo(info.as_author.author_id, change);
           setTimeout(() => {
@@ -48,6 +51,7 @@ const EditPage = () => {
       >
         Сохранить
       </button>
+      
       <button
         className={styles.editButton}
         type='button'

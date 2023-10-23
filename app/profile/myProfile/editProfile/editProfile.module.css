@@ -1,14 +1,43 @@
 .container {
   display: flex;
-  flex-direction: column;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 15px;
 }
 
 .button {
   padding: 5px 10px;
   background-color: #690000;
+  cursor: pointer;
 }
 
 .editButton {
   padding: 5px 10px;
   background-color: #00508c;
+  cursor: pointer;
+}
+.aboutText{
+  width: 670px;
+  height: 250px;
+  cursor: pointer;
+  color: black;
+  resize: none;
+  border-radius:5px;
+  resize: vertical;
+  max-height: 500px;
+  outline: none;
+}
+.button,
+.editButton {
+  width: 200px;
+  border-radius: 5px;
+  outline: none;
+}
+.editButton:hover {
+  transition: all 0.7s ease-in-out;
+  background-color:#3f92d2;
+}
+.button:hover {
+  transition: all 0.7s ease-in-out;
+  background-color:red;
 }

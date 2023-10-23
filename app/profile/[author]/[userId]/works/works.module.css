@@ -1,6 +1,8 @@
 .newsTitle {
   display: block;
-  padding: 10px 10px 0 0;
+  width: 550px;
+  font-size: 18px;
+  padding: 10px 20px 10px 0px;
 }
 
 .newsTitle:hover {
@@ -11,4 +13,20 @@
 .container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
+/* .linkWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 20px 10px 0px;
+  align-items: center;
+}
+
+.linkWrap svg {
+  visibility: hidden;
+  
+}
+.linkWrap:hover svg {
+  visibility: visible;
+} */

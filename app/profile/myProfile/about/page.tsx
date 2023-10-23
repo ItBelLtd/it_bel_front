@@ -27,6 +27,7 @@ const Profile = () => {
           <h4 className={`${styles.header} ${roboto_mono.className}`}>
             About Me:
           </h4>
+          <p>{info.as_author.bio}</p>
         </div>
       ) : null}
     </div>
